@@ -1,0 +1,16 @@
+void binaryconvert32bit(int input)
+{
+	int j = 0; //counter
+	int bit = 0;
+	int number[32] = { 0 };//store bit number here
+	for (j = 0; j < 32; j++)
+	{
+		bit = input & 1;//mask all but least sig.bit
+		number[32 - j - 1] = bit;
+		input = input >> 1;//right shift
+	}
+	for (j = 0; j < 32; j++)
+	{
+		printf("%d", number[j]);
+	}
+}
