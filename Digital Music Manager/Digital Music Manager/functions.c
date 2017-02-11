@@ -170,7 +170,7 @@ void InsertInFront(ListNode * PMem, ListNode ** headnode)//FIX
 
 	if (pCur == NULL)
 	{
-		*headnode = PMem; //connect pointers somehow.
+		*headnode = PMem; 
 						  //pCur->pNext->pPrev = pCur;
 	}
 	else if (pCur != NULL)
@@ -284,7 +284,7 @@ void sortFunction(ListNode * headnode, int loadCheck)
 	}
 }
 
-void shuffleFunction(ListNode * headnode, int loadCheck)//NO LONGER BROKE AS FUCK
+void shuffleFunction(ListNode * headnode, int loadCheck)//STILL BROKE AS FUCK
 {
 	int i = 0;
 	srand(time(NULL));
