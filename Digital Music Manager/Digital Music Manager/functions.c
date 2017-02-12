@@ -31,7 +31,7 @@ void menu(void)
 		puts("7. Sort(BROKEN)");
 		puts("8. Rate(UNECESSARY)");
 		puts("9. Play");
-		puts("10. Shuffle(BROKEN)");
+		puts("10. Shuffle");
 		puts("11. Exit");
 		if ((switch1 == 1) && (headnode != NULL) && (loadcheck == 1))
 		{
@@ -170,8 +170,8 @@ void InsertInFront(ListNode * PMem, ListNode ** headnode)//FIX
 
 	if (pCur == NULL)
 	{
-		*headnode = PMem; 
-						  //pCur->pNext->pPrev = pCur;
+		*headnode = PMem;
+		//pCur->pNext->pPrev = pCur;
 	}
 	else if (pCur != NULL)
 	{
@@ -287,6 +287,7 @@ void sortFunction(ListNode * headnode, int loadCheck)
 void shuffleFunction(ListNode * headnode, int loadCheck)//STILL BROKE AS FUCK
 {
 	int i = 0;
+	int looptimes = 0;
 	srand(time(NULL));
 	int listlength = 0;
 	printList(headnode, loadCheck);
@@ -300,23 +301,30 @@ void shuffleFunction(ListNode * headnode, int loadCheck)//STILL BROKE AS FUCK
 			pCur = pCur->pNext;
 		}
 		pCur = headnode;
-		int * listarray = malloc(listlength);
+		int * listarray = malloc(listlength * sizeof(int));
 		for (i = 0; i < listlength; i++)
 		{
 			listarray[i] = rand() % listlength;
 		}
-		for (i = 0; i < listlength; i++)
+		puts("Enter number of times to shuffle");
+		scanf("%d", &looptimes);
+		for (int f = 0; f < looptimes; f++)
 		{
-			pCur = headnode;
-			for (int j = 0; j < listarray[i]; j++)
+			for (i = 0; i < listlength; i++)
 			{
+				pCur = headnode;
+				for (int j = 0; j < listarray[i]; j++)
+				{
 
-				pCur = pCur->pNext;
+					pCur = pCur->pNext;
+				}
+				if (pCur != NULL)
+					printf("----->%s\n", pCur->data.songTitle);
+				Sleep(2000);
 			}
-			if (pCur != NULL)
-				printf("----->%s\n", pCur->data.songTitle);
-			//Sleep(2000);
 		}
+		puts("ALL SONGS PLAYED! RETURNING TO MAIN MENU.");
+		system("pause");
 	}
 }
 void sortfunctionAZ(ListNode ** headnode)
