@@ -2,36 +2,36 @@
   functions.c
 c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(191): warning C4474: 'scanf' : too many arguments passed for format string
   c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(191): note: placeholders and their parameters expect 0 variadic arguments, but 1 were provided
-c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(299): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(419): warning C4018: '<': signed/unsigned mismatch
-c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(518): warning C4020: 'puts': too many actual parameters
-c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(543): warning C4133: '=': incompatible types - from 'ListNode *' to 'char *'
-c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(551): warning C4133: '=': incompatible types - from 'char *' to 'ListNode *'
-c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(561): warning C4133: '=': incompatible types - from 'ListNode *' to 'char *'
-c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(415): warning C4474: 'scanf' : too many arguments passed for format string
-  c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(415): note: placeholders and their parameters expect 0 variadic arguments, but 1 were provided
-c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(426): warning C4474: 'scanf' : too many arguments passed for format string
-  c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(426): note: placeholders and their parameters expect 0 variadic arguments, but 1 were provided
-c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(474): warning C4474: 'scanf' : too many arguments passed for format string
-  c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(474): note: placeholders and their parameters expect 0 variadic arguments, but 1 were provided
-c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(483): warning C4474: 'scanf' : too many arguments passed for format string
-  c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(483): note: placeholders and their parameters expect 0 variadic arguments, but 1 were provided
-c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(492): warning C4474: 'scanf' : too many arguments passed for format string
-  c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(492): note: placeholders and their parameters expect 0 variadic arguments, but 1 were provided
-c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(501): warning C4474: 'scanf' : too many arguments passed for format string
-  c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(501): note: placeholders and their parameters expect 0 variadic arguments, but 1 were provided
-c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(410): warning C4101: 'namecheck': unreferenced local variable
-c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(411): warning C4101: 'songlist': unreferenced local variable
-c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(599): warning C4018: '<': signed/unsigned mismatch
-c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(682): warning C4133: '=': incompatible types - from 'ListNode *' to 'char *'
-c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(690): warning C4133: '=': incompatible types - from 'char *' to 'ListNode *'
-c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(700): warning C4133: '=': incompatible types - from 'ListNode *' to 'char *'
-c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(606): warning C4474: 'scanf' : too many arguments passed for format string
-  c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(606): note: placeholders and their parameters expect 0 variadic arguments, but 1 were provided
-c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(589): warning C4101: 'namecheck': unreferenced local variable
-c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(590): warning C4101: 'songlist': unreferenced local variable
-c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(776): warning C4474: 'scanf' : too many arguments passed for format string
-  c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(776): note: placeholders and their parameters expect 0 variadic arguments, but 1 were provided
+c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(360): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(480): warning C4018: '<': signed/unsigned mismatch
+c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(579): warning C4020: 'puts': too many actual parameters
+c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(604): warning C4133: '=': incompatible types - from 'ListNode *' to 'char *'
+c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(612): warning C4133: '=': incompatible types - from 'char *' to 'ListNode *'
+c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(622): warning C4133: '=': incompatible types - from 'ListNode *' to 'char *'
+c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(476): warning C4474: 'scanf' : too many arguments passed for format string
+  c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(476): note: placeholders and their parameters expect 0 variadic arguments, but 1 were provided
+c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(487): warning C4474: 'scanf' : too many arguments passed for format string
+  c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(487): note: placeholders and their parameters expect 0 variadic arguments, but 1 were provided
+c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(535): warning C4474: 'scanf' : too many arguments passed for format string
+  c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(535): note: placeholders and their parameters expect 0 variadic arguments, but 1 were provided
+c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(544): warning C4474: 'scanf' : too many arguments passed for format string
+  c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(544): note: placeholders and their parameters expect 0 variadic arguments, but 1 were provided
+c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(553): warning C4474: 'scanf' : too many arguments passed for format string
+  c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(553): note: placeholders and their parameters expect 0 variadic arguments, but 1 were provided
+c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(562): warning C4474: 'scanf' : too many arguments passed for format string
+  c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(562): note: placeholders and their parameters expect 0 variadic arguments, but 1 were provided
+c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(471): warning C4101: 'namecheck': unreferenced local variable
+c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(472): warning C4101: 'songlist': unreferenced local variable
+c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(660): warning C4018: '<': signed/unsigned mismatch
+c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(743): warning C4133: '=': incompatible types - from 'ListNode *' to 'char *'
+c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(751): warning C4133: '=': incompatible types - from 'char *' to 'ListNode *'
+c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(761): warning C4133: '=': incompatible types - from 'ListNode *' to 'char *'
+c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(667): warning C4474: 'scanf' : too many arguments passed for format string
+  c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(667): note: placeholders and their parameters expect 0 variadic arguments, but 1 were provided
+c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(650): warning C4101: 'namecheck': unreferenced local variable
+c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(651): warning C4101: 'songlist': unreferenced local variable
+c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(837): warning C4474: 'scanf' : too many arguments passed for format string
+  c:\users\necryotiks\documents\github\wsu-cpts\digital music manager\digital music manager\functions.c(837): note: placeholders and their parameters expect 0 variadic arguments, but 1 were provided
   Generating Code...
   Digital Music Manager.vcxproj -> C:\Users\Necryotiks\Documents\GitHub\WSU-CPTS\Digital Music Manager\Debug\Digital Music Manager.exe
   Digital Music Manager.vcxproj -> C:\Users\Necryotiks\Documents\GitHub\WSU-CPTS\Digital Music Manager\Debug\Digital Music Manager.pdb (Full PDB)

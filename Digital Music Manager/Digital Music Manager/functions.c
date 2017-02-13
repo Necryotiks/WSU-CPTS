@@ -28,7 +28,7 @@ void menu(void)
 		puts("4. Insert");
 		puts("5. Delete");
 		puts("6. Edit");
-		puts("7. Sort(BROKEN)");
+		puts("7. Sort");
 		puts("8. Rate(UNECESSARY)");
 		puts("9. Play");
 		puts("10. Shuffle");
@@ -274,7 +274,7 @@ void sortFunction(ListNode ** headnode, int loadCheck)
 					{
 						if (strcmp(pCur->data.artist, pNEXT->data.artist) > 0)
 						{
-							sortfunctionAZ(pCur, pNEXT);
+							sortDataSwap(pCur, pNEXT);
 
 						}
 
@@ -282,17 +282,78 @@ void sortFunction(ListNode ** headnode, int loadCheck)
 					}
 					pCur = pCur->pNext;
 				}
-				puts("SORT COMPLETE!");
+				puts("SORT COMPLETE! RETURNING TO MAIN MENU.");
 				system("pause");
+				option = 5;
 				break;
-			case 8: break;
+			case 2:
+				while (pCur != NULL)
+				{
+					pNEXT = pCur->pNext;
+					while (pNEXT != NULL)
+					{
+						if (strcmp(pCur->data.albumTitle, pNEXT->data.albumTitle) > 0)
+						{
+							sortDataSwap(pCur, pNEXT);
+
+						}
+
+						pNEXT = pNEXT->pNext;
+					}
+					pCur = pCur->pNext;
+				}
+				puts("SORT COMPLETE! RETURNING TO MAIN MENU.");
+				system("pause");
+				option = 5;
+				break;
+			case 3:
+				while (pCur != NULL)
+				{
+					pNEXT = pCur->pNext;
+					while (pNEXT != NULL)
+					{
+						if (pCur->data.songRating > pNEXT->data.songRating)
+						{
+							sortDataSwap(pCur, pNEXT);
+
+						}
+
+						pNEXT = pNEXT->pNext;
+					}
+					pCur = pCur->pNext;
+				}
+				puts("SORT COMPLETE! RETURNING TO MAIN MENU.");
+				system("pause");
+				option = 5;
+				break;
+			case 4:
+				while (pCur != NULL)
+				{
+					pNEXT = pCur->pNext;
+					while (pNEXT != NULL)
+					{
+						if (pCur->data.numberOfPlays < pNEXT->data.numberOfPlays)
+						{
+							sortDataSwap(pCur, pNEXT);
+
+						}
+
+						pNEXT = pNEXT->pNext;
+					}
+					pCur = pCur->pNext;
+				}
+				puts("SORT COMPLETE! RETURNING TO MAIN MENU.");
+				system("pause");
+				option = 5;
+				break;
+			case 5: break;
 			}
 		}
 
 	}
 }
 
-void shuffleFunction(ListNode * headnode, int loadCheck)//STILL BROKE AS FUCK
+void shuffleFunction(ListNode * headnode, int loadCheck)
 {
 	int i = 0;
 	int looptimes = 0;
@@ -335,7 +396,7 @@ void shuffleFunction(ListNode * headnode, int loadCheck)//STILL BROKE AS FUCK
 		system("pause");
 	}
 }
-void sortfunctionAZ(ListNode * headnode, ListNode * pNEXT)
+void sortDataSwap(ListNode * headnode, ListNode * pNEXT)
 {
 	Records temp = headnode->data;
 	headnode->data = pNEXT->data;
