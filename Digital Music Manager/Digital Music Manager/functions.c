@@ -66,7 +66,7 @@ void menu(void)
 		case 6:editFunction(headnode, loadcheck);
 			option = 0;
 			break;
-		case 7:sortFunction(headnode, loadcheck);
+		case 7:sortFunction(&headnode, loadcheck);
 			option = 0;
 			break;
 		case 8:rateFunction(headnode, loadcheck);
@@ -246,18 +246,19 @@ void deleteFunction(ListNode ** headnode, int loadCheck)//UNFINISHED
 
 }
 
-void sortFunction(ListNode * headnode, int loadCheck)
+void sortFunction(ListNode ** headnode, int loadCheck)
 {
 	if (loadCheck >= 1)
 	{
 
 		int option = 0;
-		ListNode * pCur = headnode;
+		ListNode * pCur = *headnode;
+		ListNode * pNEXT = NULL;
 		while (option != 5)
 		{
 			system("cls");
 			puts("Select sort option: ");
-			puts("1. Artist");
+			puts("1. Artist(WILL BE SORTED IN TWO GROUPS: QUOTED AND NON QUOTED)");
 			puts("2. Album");
 			puts("3. Rating");
 			puts("4. Times played");
@@ -268,14 +269,21 @@ void sortFunction(ListNode * headnode, int loadCheck)
 			case 1:
 				while (pCur != NULL)
 				{
-					while (strcmp(pCur->data.artist, pCur->pNext->data.artist) < 0)
+					pNEXT = pCur->pNext;
+					while (pNEXT != NULL)
 					{
-						sortfunctionAZ(&headnode);
+						if (strcmp(pCur->data.artist, pNEXT->data.artist) > 0)
+						{
+							sortfunctionAZ(pCur, pNEXT);
 
+						}
+
+						pNEXT = pNEXT->pNext;
 					}
 					pCur = pCur->pNext;
 				}
 				puts("SORT COMPLETE!");
+				system("pause");
 				break;
 			case 8: break;
 			}
@@ -327,42 +335,19 @@ void shuffleFunction(ListNode * headnode, int loadCheck)//STILL BROKE AS FUCK
 		system("pause");
 	}
 }
-void sortfunctionAZ(ListNode ** headnode)
+void sortfunctionAZ(ListNode * headnode, ListNode * pNEXT)
 {
-	ListNode * pCur = *headnode;
-	if ((pCur->pPrev != NULL) && (pCur->pNext != NULL))
-	{
+	Records temp = headnode->data;
+	headnode->data = pNEXT->data;
+	pNEXT->data = temp;
 
-
-		pCur->pPrev->pNext = pCur->pNext;
-		pCur->pNext->pPrev = pCur->pPrev;
-		pCur->pPrev = pCur->pNext;
-		pCur->pNext = pCur->pPrev->pNext;
-		pCur->pPrev->pNext = pCur;
-		pCur->pNext->pPrev = pCur;
-	}
-	else if (pCur->pPrev == NULL)
-	{
-		pCur->pNext->pPrev = NULL;
-		pCur->pNext = pCur->pNext->pNext;
-		pCur->pPrev = pCur->pNext->pPrev;
-		pCur->pNext->pPrev = pCur;
-		pCur->pPrev->pNext = pCur;
-	}
-	else
-	{
-		pCur->pPrev->pNext = pCur->pNext;
-		pCur->pNext->pPrev = pCur->pPrev;
-		pCur->pNext->pNext = pCur;
-		pCur->pPrev = pCur->pNext;
-		pCur->pNext = NULL;
-	}
 }
 
 void printList(ListNode * headnode, int loadCheck)//prints all loaded nodes
 {
 	if (loadCheck >= 1)
 	{
+
 		ListNode * pCur = headnode;
 		while (pCur->data.artist != NULL)
 		{

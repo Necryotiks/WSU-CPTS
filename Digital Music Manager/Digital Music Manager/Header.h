@@ -56,9 +56,9 @@ void rateFunction(ListNode *headnode, int loadCheck); //deprecated done with edi
 void playFunction(ListNode *headnode, int loadCheck);
 void insertFunction(ListNode ** headnode);
 void deleteFunction(ListNode ** headnode, int loadCheck);//BROKEN
-void sortFunction(ListNode * headnode, int loadCheck);//ALSO BROKEN
+void sortFunction(ListNode ** headnode, int loadCheck);//ALSO BROKEN
 void shuffleFunction(ListNode * headnode, int loadCheck);//SEE ABOVE
-void sortfunctionAZ(ListNode ** headnode);
+void sortfunctionAZ(ListNode * headnode,ListNode * pNEXT);
 
 														 //need debug
 
