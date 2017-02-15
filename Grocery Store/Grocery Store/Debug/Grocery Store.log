@@ -1,0 +1,19 @@
+﻿  main.c
+c:\users\necryotiks\documents\visual studio 2015\projects\grocery store\grocery store\header.h(34): error C2365: 'THREE': redefinition; previous definition was 'enumerator'
+  c:\users\necryotiks\documents\visual studio 2015\projects\grocery store\grocery store\header.h(28): note: see declaration of 'THREE'
+c:\users\necryotiks\documents\visual studio 2015\projects\grocery store\grocery store\header.h(34): error C2086: 'normallanestime THREE': redefinition
+  c:\users\necryotiks\documents\visual studio 2015\projects\grocery store\grocery store\header.h(34): note: see declaration of 'THREE'
+c:\users\necryotiks\documents\visual studio 2015\projects\grocery store\grocery store\header.h(35): error C2365: 'FOUR': redefinition; previous definition was 'enumerator'
+  c:\users\necryotiks\documents\visual studio 2015\projects\grocery store\grocery store\header.h(29): note: see declaration of 'FOUR'
+c:\users\necryotiks\documents\visual studio 2015\projects\grocery store\grocery store\header.h(35): error C2086: 'normallanestime FOUR': redefinition
+  c:\users\necryotiks\documents\visual studio 2015\projects\grocery store\grocery store\header.h(35): note: see declaration of 'FOUR'
+  functions.c
+c:\users\necryotiks\documents\visual studio 2015\projects\grocery store\grocery store\header.h(34): error C2365: 'THREE': redefinition; previous definition was 'enumerator'
+  c:\users\necryotiks\documents\visual studio 2015\projects\grocery store\grocery store\header.h(28): note: see declaration of 'THREE'
+c:\users\necryotiks\documents\visual studio 2015\projects\grocery store\grocery store\header.h(34): error C2086: 'normallanestime THREE': redefinition
+  c:\users\necryotiks\documents\visual studio 2015\projects\grocery store\grocery store\header.h(34): note: see declaration of 'THREE'
+c:\users\necryotiks\documents\visual studio 2015\projects\grocery store\grocery store\header.h(35): error C2365: 'FOUR': redefinition; previous definition was 'enumerator'
+  c:\users\necryotiks\documents\visual studio 2015\projects\grocery store\grocery store\header.h(29): note: see declaration of 'FOUR'
+c:\users\necryotiks\documents\visual studio 2015\projects\grocery store\grocery store\header.h(35): error C2086: 'normallanestime FOUR': redefinition
+  c:\users\necryotiks\documents\visual studio 2015\projects\grocery store\grocery store\header.h(35): note: see declaration of 'FOUR'
+  Generating Code...
