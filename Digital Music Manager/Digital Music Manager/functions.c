@@ -170,7 +170,7 @@ void InsertInFront(ListNode * PMem, ListNode ** headnode)//FIX
 
 	if (pCur == NULL)
 	{
-		*headnode = PMem;
+		*headnode = PMem;//
 		//pCur->pNext->pPrev = pCur;
 	}
 	else if (pCur != NULL)
