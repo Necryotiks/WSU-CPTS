@@ -23,24 +23,25 @@ typedef struct queue
 } Queue;
 typedef enum expresslanestime
 {
-	ONE = 1,
-	TWO = 2,
-	THREE = 3,
-	FOUR = 4,
-	FiVE = 5
+	ELANEONE = 1,
+	ELANETWO = 2,
+	ELANETHREE = 3,
+	ELANEFOUR = 4,
+	ELANEFiVE = 5
 }ExpressTime;
 typedef enum normallanestime
 {
-	THREE = 3,
-	FOUR = 4,
-	FIVE = 5,
-	SIX = 6,
-	SEVEN = 7,
-	EIGHT = 8
+	NLANETHREE = 3,
+	NLANEFOUR = 4,
+	NLANEFIVE = 5,
+	NLANESIX = 6,
+	NLANESEVEN = 7,
+	NLANEEIGHT = 8
 }NormalTime;
 void menu(void);
 Queue * makeNode(void);
-void insertInQueue(Queue ** headnode);
+void insertInQueue(Queue ** headnode,Queue * PMem);
 void removeFromeQueue(Queue ** headnode);
+
 #endif // !GROCERY_STORE
 
