@@ -1,11 +1,20 @@
 git status: Finds status of local master branch in relation to the cloud as well as any changes to commit.
 
-git add * :adds files to be commited to local master branch.
+git add * :adds ALL files to be commited to local master branch.
 
 git commit: commits changes to local master branch.
 
+git commit --m "msg": commit with message
+
 git rm <filename>: removes file from master branch.
 
-git push: pushes loacl changes to the cloud.
+git push <origin> <branch>: pushes local changes to the cloud.
 
-git pull: updates local branch from cloud.
+git pull <origin> <branch>: updates local branch from cloud.
+
+git checkout <branch>: change branch
+
+git diff: check differences 
+
+git branch <name>: create branch
+
