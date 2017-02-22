@@ -25,8 +25,8 @@ typedef struct queue
 void run(void);
 Queue * makeNode(void);
 void timeNormalization(int *etime, int *ltime);
-void insertInQueue(Queue ** headnode,QueueNode * PMem);
-void removeFromQueue(Queue ** headnode);
+void insertInQueue(Queue * headnode,QueueNode * PMem);
+void removeFromQueue(Queue * headnode);
 int isEmpty(Queue * headnode);
 void printQueue(Queue * headnode);
 

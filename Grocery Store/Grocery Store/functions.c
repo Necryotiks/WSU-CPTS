@@ -7,8 +7,10 @@ void run(void)
 	int EtotalTime = 0;
 	int NtotalTime = 0;
 	unsigned int T_TIME = 0;
-	Queue * ExpressLane = NULL;
-	Queue * NormalLane = NULL;
+	Queue  ExpressLane ;
+	ExpressLane.pHead = ExpressLane.pTail = NULL;
+	Queue  NormalLane ;
+	NormalLane.pHead = NormalLane.pTail = NULL;
 	QueueNode * pMem_E = NULL;
 	QueueNode * pMem_N = NULL;
 	int ExpressArrivalTime = (rand() % 6);
@@ -22,7 +24,7 @@ void run(void)
 	insertInQueue(&ExpressLane, pMem_E);
 
 	pMem_N = makeNode();
-	pMem_N->customerNumber += cust2;
+	pMem_N->customerNumber = cust2;
 	pMem_N->serviceTime = NormalArrivalTime;
 	NtotalTime = 0;
 	pMem_N->totalTime = NtotalTime;
@@ -51,10 +53,14 @@ void run(void)
 
 		if (T_TIME == ExpressArrivalTime)
 		{
+			printf("Lane: Express\n");
+			printQueue(&ExpressLane);
 			removeFromQueue(&ExpressLane);
 		}
 		if (T_TIME == NormalArrivalTime)
 		{
+			printf("Lane: Normal\n");
+			printQueue(&NormalLane);
 			removeFromQueue(&NormalLane);
 		}
 
@@ -89,25 +95,28 @@ void timeNormalization(int *ExpressArrivalTime, int *NormalArrivalTime)
 	}
 }
 
-void removeFromQueue(Queue ** headnode)
+void removeFromQueue(Queue * headnode)
 {
-	Queue * pCur = *headnode;//confirm this
-	
-	if (pCur->pHead == pCur->pTail)
+	QueueNode * pCur = headnode->pHead;//confirm this
+
+	if(!isEmpty(headnode))
 	{
-		pCur->pHead = NULL;
-		pCur->pTail = NULL;
+		if (headnode->pHead == headnode->pTail)
+		{
+			headnode->pHead = NULL;
+			headnode->pTail = NULL;
+		}
+		else
+		{
+			headnode->pHead = pCur->pNext;
+		}
+		free(pCur);
 	}
-	else
-	{
-		pCur->pHead = pCur->pHead->pNext;
-	}
-	free(pCur);
 }
 int isEmpty(Queue * headnode)
 {
 	int empty = false;
-	if (headnode == NULL)
+	if (headnode->pHead== NULL)
 	{
 		empty = true;
 	}
@@ -117,24 +126,23 @@ void printQueue(Queue * headnode)
 {
 	Queue * pCur = headnode;
 	printf("customerNumber: %d\n", pCur->pTail->customerNumber);
-	printf("serviceTime: %d", pCur->pTail->serviceTime);
-	printf("totalTime: %d", pCur->pTail->totalTime);
+	printf("serviceTime: %d\n", pCur->pTail->serviceTime);
+	printf("totalTime: %d\n", pCur->pTail->totalTime);
 }
-void insertInQueue(Queue ** headnode,QueueNode * PMem)
+void insertInQueue(Queue * headnode,QueueNode * PMem)
 {//FIX THIS
-	Queue * pCur = NULL;
-	pCur = *headnode;// * headnode = pRoot
+	// * headnode = pRoot
 
-	if (pCur->pHead == NULL)
+	if (isEmpty((headnode)))
 	{
-		pCur->pHead = PMem;
-		pCur->pTail = PMem;
+		(headnode)->pHead = PMem;
+		(headnode)->pTail = PMem;
 		//pCur->pNext->pPrev = pCur;
 	}
 	else //CHECK THIS
 	{
-		pCur->pTail->pNext = PMem; 
-		pCur->pTail = PMem;
+		(headnode)->pTail->pNext = PMem;
+		(headnode)->pTail = PMem;
 		//check this
 	}
 }
