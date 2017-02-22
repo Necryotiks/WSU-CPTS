@@ -4,9 +4,10 @@
 #include <string.h>
 #include <time.h>
 #include <Windows.h>
+#include <stdbool.h>
 #ifndef GROCERY_STORE
 #define GROCERY_STORE
-
+#define _CRT_SECURE_NO_WARNINGS 1
 
 typedef struct queueNode
 {
@@ -21,27 +22,13 @@ typedef struct queue
 	QueueNode *pHead;
 	QueueNode *pTail;
 } Queue;
-typedef enum expresslanestime
-{
-	ELANEONE = 1,
-	ELANETWO = 2,
-	ELANETHREE = 3,
-	ELANEFOUR = 4,
-	ELANEFiVE = 5
-}ExpressTime;
-typedef enum normallanestime
-{
-	NLANETHREE = 3,
-	NLANEFOUR = 4,
-	NLANEFIVE = 5,
-	NLANESIX = 6,
-	NLANESEVEN = 7,
-	NLANEEIGHT = 8
-}NormalTime;
-void menu(void);
+void run(void);
 Queue * makeNode(void);
-void insertInQueue(Queue ** headnode,Queue * PMem);
-void removeFromeQueue(Queue ** headnode);
+void timeNormalization(int *etime, int *ltime);
+void insertInQueue(Queue ** headnode,QueueNode * PMem);
+void removeFromQueue(Queue ** headnode);
+int isEmpty(Queue * headnode);
+void printQueue(Queue * headnode);
 
 #endif // !GROCERY_STORE
 
