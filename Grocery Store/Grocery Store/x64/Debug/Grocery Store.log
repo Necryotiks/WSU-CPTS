@@ -1,2 +1,13 @@
+<<<<<<< HEAD
 ﻿  Grocery Store.vcxproj -> C:\Users\Necryotiks\Documents\GitHub\WSU-CPTS\WSU-CPTS\Grocery Store\x64\Debug\Grocery Store.exe
   Grocery Store.vcxproj -> C:\Users\Necryotiks\Documents\GitHub\WSU-CPTS\WSU-CPTS\Grocery Store\x64\Debug\Grocery Store.pdb (Full PDB)
+=======
+﻿  main.c
+c:\users\necryotiks\documents\github\wsu-cpts\grocery store\grocery store\main.c(4): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
+  functions.c
+c:\users\necryotiks\documents\github\wsu-cpts\grocery store\grocery store\functions.c(34): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1193): note: see declaration of 'fscanf'
+  Generating Code...
+  Grocery Store.vcxproj -> C:\Users\Necryotiks\Documents\GitHub\WSU-CPTS\Grocery Store\x64\Debug\Grocery Store.exe
+  Grocery Store.vcxproj -> C:\Users\Necryotiks\Documents\GitHub\WSU-CPTS\Grocery Store\x64\Debug\Grocery Store.pdb (Full PDB)
+>>>>>>> 153f756188e438f899ac703dec98f21681152fda

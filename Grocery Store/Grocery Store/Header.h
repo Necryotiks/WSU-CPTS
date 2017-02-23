@@ -23,7 +23,7 @@ typedef struct queue
 	QueueNode *pTail;
 } Queue;
 void run(void);
-Queue * makeNode(void);
+QueueNode * makeNode();
 void timeNormalization(int *etime, int *ltime);
 void insertInQueue(Queue * headnode,QueueNode * PMem);
 void removeFromQueue(Queue * headnode);
