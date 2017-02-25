@@ -36,9 +36,9 @@ void run(void)
 	{
 		T_TIME++;
 		pMem_E = makeNode();
-		ExpressArrivalTime = (rand() % 6);
+		ExpressArrivalTime = (rand() % 5)+1;
 		pMem_E->customerNumber = cust1++;
-		pMem_E->serviceTime = ExpressArrivalTime;
+		pMem_E->serviceTime = ExpressArrivalTime;// Node Initialization
 		EtotalTime += ExpressArrivalTime;
 		pMem_E->totalTime = EtotalTime;
 		insertInQueue(&ExpressLane, pMem_E);
@@ -52,12 +52,13 @@ void run(void)
 		insertInQueue(&NormalLane, pMem_N);
 		printf("RUNTIME: %d\n", T_TIME);
 
+		Sleep(1000 * ExpressArrivalTime);
 		printf("Lane: Express\n");
 		printQueue(&ExpressLane);
 		removeFromQueue(&ExpressLane);
 		printf("\n");
 
-
+		Sleep(1000 * NormalArrivalTime);
 		printf("Lane: Normal\n");
 		printQueue(&NormalLane);
 		removeFromQueue(&NormalLane);
@@ -86,7 +87,7 @@ void timeNormalization(int *ExpressArrivalTime, int *NormalArrivalTime)
 	}
 	if (*ExpressArrivalTime < 1)
 	{
-		*ExpressArrivalTime++;
+		*ExpressArrivalTime++; //deprecated
 	}
 	if (*NormalArrivalTime > 8)
 	{
@@ -100,7 +101,7 @@ void timeNormalization(int *ExpressArrivalTime, int *NormalArrivalTime)
 
 void removeFromQueue(Queue * headnode)
 {
-	QueueNode * pCur = headnode->pHead;//confirm this
+	QueueNode * pCur = headnode->pHead;//delete function
 
 	if (!isEmpty(headnode))
 	{
@@ -119,7 +120,7 @@ void removeFromQueue(Queue * headnode)
 int isEmpty(Queue * headnode)
 {
 	int empty = false;
-	if (headnode->pHead == NULL)
+	if (headnode->pHead == NULL) //checks if queue was empty
 	{
 		empty = true;
 	}

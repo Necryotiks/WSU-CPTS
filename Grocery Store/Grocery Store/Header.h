@@ -9,11 +9,16 @@
 #define GROCERY_STORE
 #define _CRT_SECURE_NO_WARNINGS 1
 
+/*NAME: ELLIOTT VILLARS
+SID: 11463956
+ASSSIGNMENT: PA 4
+HELP: JOSH CROSS and ANDY O'FALLON CODE
+DATE: 2/22/17*/
 typedef struct queueNode
 {
-	int customerNumber; // Unique identifier; starts at 1; after 24 hours should be reset to 1
-	int serviceTime;   // Random time; varies between express and normal lanes; units in minutes
-	int totalTime;     // totalTime = serviceTime + sum of serviceTimes of customers in line before this customer; units in minutes
+	int customerNumber; 
+	int serviceTime;   
+	int totalTime;     
 
 	struct queueNode *pNext;
 } QueueNode;
