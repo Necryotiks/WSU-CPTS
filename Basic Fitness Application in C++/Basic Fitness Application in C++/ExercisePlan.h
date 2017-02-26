@@ -21,5 +21,5 @@ private:
 	int mGoal;
 	string mName = '\0';
 	string mDate = '\0';
-
+	//maybe fstream
 };

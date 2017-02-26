@@ -144,12 +144,14 @@
   <ItemGroup>
     <ClCompile Include="DietPlan.cpp" />
     <ClCompile Include="ExercisePlan.cpp" />
+    <ClCompile Include="FitnessAppWrapper.cpp" />
     <ClCompile Include="functions.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DietPlan.h" />
     <ClInclude Include="ExercisePlan.h" />
+    <ClInclude Include="FitnessAppWrapper.h" />
     <ClInclude Include="Header.h" />
   </ItemGroup>
   <ItemGroup>
