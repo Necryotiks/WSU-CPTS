@@ -1,13 +1,9 @@
 #include "FitnessAppWrapper.h"
+#include "Header.h"
 
 FitnessAppWrapper::FitnessAppWrapper()
 {
-	cout << "Object Constructed" << endl;
-	std::fstream Dietfile;
-	std::fstream Exercisefile;
-	Dietfile.open("Diet_File.txt", std::ios::in | std::ios::out);
-	Exercisefile.open("Exercise_File.txt", std::ios::in | std::ios::out);
-	cout << "Files opened" << endl;
+	;//intialize linked list
 }
 
 FitnessAppWrapper::~FitnessAppWrapper()

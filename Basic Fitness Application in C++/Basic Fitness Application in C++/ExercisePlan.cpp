@@ -1,15 +1,19 @@
 #include "ExercisePlan.h"
+#include "Header.h"
 
-ExercisePlan::ExercisePlan(int goal, string name, string date)
+ExercisePlan::ExercisePlan()
 {
-	mGoal = goal;
-	mName = name;
-	mDate = date;
+	mGoal = 0;
+	mName = '\0';
+	mDate = '\0';
+	
 }
 
-ExercisePlan::ExercisePlan(ExercisePlan & copy)
+ExercisePlan::ExercisePlan(ExercisePlan & newPlan)
 {
-	//fix copy
+	mGoal = newPlan.getGoal();
+	mName = newPlan.getName();
+	mDate = newPlan.getDate();
 }
 
 ExercisePlan::~ExercisePlan()
@@ -32,26 +36,67 @@ string ExercisePlan::getDate()
 	return mDate;
 }
 
-void ExercisePlan::setGoal()
+void ExercisePlan::setGoal(int goal)
+{
+	mGoal = std::abs(goal);
+}
+
+
+void ExercisePlan::setName(string name)
+{
+	mName = name;
+}
+
+void ExercisePlan::setDate(string date)
+{
+	
+	mDate = date;
+}
+
+bool ExercisePlan::editGoal()
 {
 	int newGoal;
 	cout << "Set calorie goal: " << endl;
 	cin >> newGoal;
-	mGoal = newGoal;;
+	mGoal = std::abs(newGoal);
+	if((mGoal = newGoal)==newGoal)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
-void ExercisePlan::setName()
+bool ExercisePlan::editName()
 {
 	string newName;
-	cout << "Enter an exercise plan name: " << endl;
+	cout << "Enter an exercise plan name: " << endl;// need editBullshit();
 	std::getline(cin, newName);
 	mName = newName;
+	if ((mDate = newName) == newName)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
-void ExercisePlan::setDate()
+bool ExercisePlan::editDate()//maybe remove bool?
 {
 	string newDate;
 	cout << "Enter a date for plan completion" << endl;
 	std::getline(cin, newDate);
 	mDate = newDate;
+	if ((mDate = newDate) == newDate)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }

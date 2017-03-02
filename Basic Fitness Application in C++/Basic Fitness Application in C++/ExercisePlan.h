@@ -4,22 +4,26 @@
 class ExercisePlan
 {
 public:
-	ExercisePlan(int goal = 1, string name = '\0', string date = '\0');
-	ExercisePlan(ExercisePlan &copy);
+	ExercisePlan();
+	ExercisePlan(ExercisePlan& newPlan);
 	~ExercisePlan();
+	
 	//getters
 	int getGoal();
 	string getName();
 	string getDate();
 	//mutators
-	void setGoal();
-	void setName();
-	void setDate();
+	void setGoal(int goal);
+	void setName(string name);
+	void setDate(string date);
 
+	//edits
+	bool editGoal();
+	bool editName();//pending deletion
+	bool editDate();//pending deletion
 
 private:
 	int mGoal;
 	string mName = '\0';
 	string mDate = '\0';
-	//maybe fstream
 };

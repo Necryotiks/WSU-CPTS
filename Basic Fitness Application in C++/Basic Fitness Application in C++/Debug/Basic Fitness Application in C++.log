@@ -1,3 +1,9 @@
-﻿  main.cpp
-  Basic Fitness Application in C++.vcxproj -> C:\Users\Necryotiks\Documents\GitHub\WSU-CPTS\WSU-CPTS\Basic Fitness Application in C++\Debug\Basic Fitness Application in C++.exe
-  Basic Fitness Application in C++.vcxproj -> C:\Users\Necryotiks\Documents\GitHub\WSU-CPTS\WSU-CPTS\Basic Fitness Application in C++\Debug\Basic Fitness Application in C++.pdb (Full PDB)
+﻿  functions.cpp
+  Generating Code...
+  Compiling...
+  main.cpp
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\main.cpp : fatal error C1041: cannot open program database 'C:\Users\Necryotiks\Documents\GitHub\WSU-CPTS\Basic Fitness Application in C++\Basic Fitness Application in C++\Debug\vc140.idb'; if multiple CL.EXE write to the same .PDB file, please use /FS
+  FitnessAppWrapper.cpp
+  ExercisePlan.cpp
+  DietPlan.cpp
+  Generating Code...

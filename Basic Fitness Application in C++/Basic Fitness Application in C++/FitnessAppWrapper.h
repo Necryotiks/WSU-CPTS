@@ -7,8 +7,9 @@ class FitnessAppWrapper
 public:
 	FitnessAppWrapper();//maybe add more like file initalization
 	~FitnessAppWrapper();//see above
-
-	void runapp();
+	
+	DietPlan DietOBJ;
+	ExercisePlan ExerciseOBJ;//WHAT THE FUCK, SAM PLS HELP.
 	void loadDailyDietPlan(std::fstream &fileStream, DietPlan &Plan);
 	void loadDailyExercisePlan(std::fstream &fileStream, ExercisePlan &Plan);
 	void loadWeeklyDietPlan(std::fstream &fileStream, DietPlan weeklyplan[]);
@@ -22,7 +23,4 @@ public:
 	void storeWeeklyDietPlan();//needs parameters
 	void storeWeeklyExercisePlan();//needs parameters
 	void displayMenu(); //does this even need parameters
-private:
-	std::fstream Dietfile;
-	std::fstream Exercisefile;//would this go in a subclass?
 };

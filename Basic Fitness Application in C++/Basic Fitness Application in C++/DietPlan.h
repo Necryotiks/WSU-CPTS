@@ -3,18 +3,23 @@
 class DietPlan
 {
 public:
-	DietPlan(int goal=1,string name='\0', string date='\0');
-	DietPlan(DietPlan &copy);
+	DietPlan();
+	DietPlan(DietPlan &newPlan);
 	~DietPlan(); 
+	
 	//getters
 	int getGoal();
 	string getName();
 	string getDate();
 	//mutators
-	void setGoal();
-	void setName();
-	void setDate();
+	void setGoal(int goal);
+	void setName(string name);
+	void setDate(string date);
 	
+	//edits
+	bool editGoal();
+	bool editName();//pending deletion/remove bool
+	bool editDate();//pending deletion
 
 private:
 	int mGoal;
