@@ -1,9 +1,183 @@
-﻿  functions.cpp
-  Generating Code...
-  Compiling...
-  main.cpp
-c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\main.cpp : fatal error C1041: cannot open program database 'C:\Users\Necryotiks\Documents\GitHub\WSU-CPTS\Basic Fitness Application in C++\Basic Fitness Application in C++\Debug\vc140.idb'; if multiple CL.EXE write to the same .PDB file, please use /FS
+﻿  main.cpp
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(12): error C2143: syntax error: missing ';' before '*'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(12): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(12): error C2238: unexpected token(s) preceding ';'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(13): error C2061: syntax error: identifier 'Node'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(16): error C3646: 'getNode': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(16): error C2059: syntax error: '('
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(16): error C2238: unexpected token(s) preceding ';'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(20): error C3646: 'headnode': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(20): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\header.h(21): error C3646: 'FObj': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\header.h(21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(13): error C3646: 'DietOBJ': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(13): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(14): error C3646: 'ExerciseOBJ': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(15): error C2061: syntax error: identifier 'DietPlan'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(16): error C2061: syntax error: identifier 'ExercisePlan'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(17): error C2061: syntax error: identifier 'DietPlan'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(18): error C2061: syntax error: identifier 'ExercisePlan'
+  List.cpp
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(12): error C2143: syntax error: missing ';' before '*'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(12): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(12): error C2238: unexpected token(s) preceding ';'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(13): error C2061: syntax error: identifier 'Node'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(16): error C3646: 'getNode': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(16): error C2059: syntax error: '('
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(16): error C2238: unexpected token(s) preceding ';'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(20): error C3646: 'headnode': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(20): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\header.h(21): error C3646: 'FObj': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\header.h(21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(13): error C3646: 'DietOBJ': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(13): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(14): error C3646: 'ExerciseOBJ': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(15): error C2061: syntax error: identifier 'DietPlan'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(16): error C2061: syntax error: identifier 'ExercisePlan'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(17): error C2061: syntax error: identifier 'DietPlan'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(18): error C2061: syntax error: identifier 'ExercisePlan'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.cpp(17): error C2039: 'makeNode': is not a member of 'List'
+  c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(7): note: see declaration of 'List'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.cpp(23): error C2511: 'void List::insertInFront(Node *)': overloaded member function not found in 'List'
+  c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(7): note: see declaration of 'List'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.cpp(24): error C2065: 'headnode': undeclared identifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.cpp(24): error C3535: cannot deduce type for 'auto *' from 'unknown-type'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.cpp(27): error C2227: left of '->pNext' must point to class/struct/union/generic type
+  c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.cpp(27): note: type is 'int *'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.cpp(29): error C2440: '=': cannot convert from 'Node *' to 'int *'
+  c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.cpp(29): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.cpp(32): error C2039: 'getNode': is not a member of 'List'
+  c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(7): note: see declaration of 'List'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.cpp(34): error C2065: 'headnode': undeclared identifier
+  functions.cpp
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(12): error C2143: syntax error: missing ';' before '*'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(12): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(12): error C2238: unexpected token(s) preceding ';'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(13): error C2061: syntax error: identifier 'Node'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(16): error C3646: 'getNode': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(16): error C2059: syntax error: '('
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(16): error C2238: unexpected token(s) preceding ';'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(20): error C3646: 'headnode': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(20): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(13): error C3646: 'DietOBJ': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(13): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(14): error C3646: 'ExerciseOBJ': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(15): error C2061: syntax error: identifier 'DietPlan'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(16): error C2061: syntax error: identifier 'ExercisePlan'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(17): error C2061: syntax error: identifier 'DietPlan'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(18): error C2061: syntax error: identifier 'ExercisePlan'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\exerciseplan.h(17): error C3646: 'getName': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\exerciseplan.h(17): error C2059: syntax error: '('
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\exerciseplan.h(17): error C2238: unexpected token(s) preceding ';'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\exerciseplan.h(18): error C3646: 'getDate': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\exerciseplan.h(18): error C2059: syntax error: '('
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\exerciseplan.h(18): error C2238: unexpected token(s) preceding ';'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\exerciseplan.h(21): error C2061: syntax error: identifier 'string'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\exerciseplan.h(22): error C2061: syntax error: identifier 'string'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\exerciseplan.h(31): error C3646: 'mName': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\exerciseplan.h(31): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\exerciseplan.h(32): error C3646: 'mDate': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\exerciseplan.h(32): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\dietplan.h(16): error C3646: 'getName': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\dietplan.h(16): error C2059: syntax error: '('
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\dietplan.h(16): error C2238: unexpected token(s) preceding ';'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\dietplan.h(17): error C3646: 'getDate': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\dietplan.h(17): error C2059: syntax error: '('
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\dietplan.h(17): error C2238: unexpected token(s) preceding ';'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\dietplan.h(20): error C2061: syntax error: identifier 'string'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\dietplan.h(21): error C2061: syntax error: identifier 'string'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\dietplan.h(31): error C3646: 'mName': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\dietplan.h(31): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\dietplan.h(32): error C3646: 'mDate': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\dietplan.h(32): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\functions.cpp(18): error C2039: 'makeNode': is not a member of 'List'
+  c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(7): note: see declaration of 'List'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\functions.cpp(34): error C2039: 'DietOBJ': is not a member of 'FitnessAppWrapper'
+  c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(8): note: see declaration of 'FitnessAppWrapper'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\functions.cpp(34): error C2228: left of '.setName' must have class/struct/union
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\functions.cpp(35): error C2039: 'DietOBJ': is not a member of 'FitnessAppWrapper'
+  c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(8): note: see declaration of 'FitnessAppWrapper'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\functions.cpp(35): error C2228: left of '.setGoal' must have class/struct/union
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\functions.cpp(36): error C2039: 'DietOBJ': is not a member of 'FitnessAppWrapper'
+  c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(8): note: see declaration of 'FitnessAppWrapper'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\functions.cpp(36): error C2228: left of '.setDate' must have class/struct/union
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\functions.cpp(37): error C2039: 'ExerciseOBJ': is not a member of 'FitnessAppWrapper'
+  c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(8): note: see declaration of 'FitnessAppWrapper'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\functions.cpp(37): error C2228: left of '.setName' must have class/struct/union
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\functions.cpp(38): error C2039: 'ExerciseOBJ': is not a member of 'FitnessAppWrapper'
+  c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(8): note: see declaration of 'FitnessAppWrapper'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\functions.cpp(38): error C2228: left of '.setGoal' must have class/struct/union
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\functions.cpp(39): error C2039: 'ExerciseOBJ': is not a member of 'FitnessAppWrapper'
+  c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(8): note: see declaration of 'FitnessAppWrapper'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\functions.cpp(39): error C2228: left of '.setDate' must have class/struct/union
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\functions.cpp(40): error C2660: 'List::insertInFront': function does not take 1 arguments
   FitnessAppWrapper.cpp
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(12): error C2143: syntax error: missing ';' before '*'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(12): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(12): error C2238: unexpected token(s) preceding ';'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(13): error C2061: syntax error: identifier 'Node'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(16): error C3646: 'getNode': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(16): error C2059: syntax error: '('
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(16): error C2238: unexpected token(s) preceding ';'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(20): error C3646: 'headnode': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(20): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\header.h(21): error C3646: 'FObj': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\header.h(21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(13): error C3646: 'DietOBJ': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(13): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(14): error C3646: 'ExerciseOBJ': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(15): error C2061: syntax error: identifier 'DietPlan'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(16): error C2061: syntax error: identifier 'ExercisePlan'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(17): error C2061: syntax error: identifier 'DietPlan'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(18): error C2061: syntax error: identifier 'ExercisePlan'
   ExercisePlan.cpp
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(12): error C2143: syntax error: missing ';' before '*'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(12): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(12): error C2238: unexpected token(s) preceding ';'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(13): error C2061: syntax error: identifier 'Node'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(16): error C3646: 'getNode': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(16): error C2059: syntax error: '('
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(16): error C2238: unexpected token(s) preceding ';'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(20): error C3646: 'headnode': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(20): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\header.h(21): error C3646: 'FObj': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\header.h(21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(13): error C3646: 'DietOBJ': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(13): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(14): error C3646: 'ExerciseOBJ': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(15): error C2061: syntax error: identifier 'DietPlan'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(16): error C2061: syntax error: identifier 'ExercisePlan'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(17): error C2061: syntax error: identifier 'DietPlan'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(18): error C2061: syntax error: identifier 'ExercisePlan'
   DietPlan.cpp
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(12): error C2143: syntax error: missing ';' before '*'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(12): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(12): error C2238: unexpected token(s) preceding ';'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(13): error C2061: syntax error: identifier 'Node'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(16): error C3646: 'getNode': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(16): error C2059: syntax error: '('
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(16): error C2238: unexpected token(s) preceding ';'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(20): error C3646: 'headnode': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.h(20): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\header.h(21): error C3646: 'FObj': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\header.h(21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(13): error C3646: 'DietOBJ': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(13): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(14): error C3646: 'ExerciseOBJ': unknown override specifier
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(15): error C2061: syntax error: identifier 'DietPlan'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(16): error C2061: syntax error: identifier 'ExercisePlan'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(17): error C2061: syntax error: identifier 'DietPlan'
+c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\fitnessappwrapper.h(18): error C2061: syntax error: identifier 'ExercisePlan'
   Generating Code...

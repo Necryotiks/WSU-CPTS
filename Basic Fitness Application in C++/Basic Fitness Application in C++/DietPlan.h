@@ -1,5 +1,9 @@
 #pragma once
+#include "DietPlan.h"
+#include "ExercisePlan.h"
+#include "FitnessAppWrapper.h"
 #include "Header.h"
+#include "List.h"
 class DietPlan
 {
 public:
@@ -17,13 +21,14 @@ public:
 	void setDate(string date);
 	
 	//edits
-	bool editGoal();
-	bool editName();//pending deletion/remove bool
-	bool editDate();//pending deletion
+	void editGoal();
+	void editName();//pending deletion/remove void
+	void editDate();//pending deletion
+
 
 private:
 	int mGoal;
-	string mName = '\0';
-	string mDate = '\0';
+	string mName;
+	string mDate;
 	//maybe fstream
 };

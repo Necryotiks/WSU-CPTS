@@ -1,5 +1,8 @@
+#include "DietPlan.h"
 #include "ExercisePlan.h"
+#include "FitnessAppWrapper.h"
 #include "Header.h"
+#include "List.h"
 
 ExercisePlan::ExercisePlan()
 {
@@ -53,50 +56,27 @@ void ExercisePlan::setDate(string date)
 	mDate = date;
 }
 
-bool ExercisePlan::editGoal()
+void ExercisePlan::editGoal()
 {
 	int newGoal;
 	cout << "Set calorie goal: " << endl;
 	cin >> newGoal;
 	mGoal = std::abs(newGoal);
-	if((mGoal = newGoal)==newGoal)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
 }
 
-bool ExercisePlan::editName()
+void ExercisePlan::editName()
 {
 	string newName;
 	cout << "Enter an exercise plan name: " << endl;// need editBullshit();
 	std::getline(cin, newName);
 	mName = newName;
-	if ((mDate = newName) == newName)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
 }
 
-bool ExercisePlan::editDate()//maybe remove bool?
+void ExercisePlan::editDate()//maybe remove void?
 {
 	string newDate;
 	cout << "Enter a date for plan completion" << endl;
 	std::getline(cin, newDate);
 	mDate = newDate;
-	if ((mDate = newDate) == newDate)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
+	
 }
