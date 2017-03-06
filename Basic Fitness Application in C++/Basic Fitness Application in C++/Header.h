@@ -1,15 +1,9 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include <fstream>
 #include <ios>
-#include <cstdlib>
-#include <cmath>
-#include "DietPlan.h"
-#include "ExercisePlan.h"
+#include <fstream>
 #include "FitnessAppWrapper.h"
-#include "Header.h"
-#include "List.h"
 
 using std::cout;
 using std::cin;
