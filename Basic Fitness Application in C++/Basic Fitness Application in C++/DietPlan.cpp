@@ -6,7 +6,7 @@ DietPlan::DietPlan()
 	mGoal = 0;
 	mName = '\0';
 	mDate = '\0';
-	
+
 }
 
 DietPlan::DietPlan(DietPlan &newPlan)
@@ -40,7 +40,7 @@ string DietPlan::getDate()
 
 void DietPlan::setGoal(int goal)
 {
-	mGoal = std::abs(goal);
+	mGoal = abs(goal);
 }
 
 void DietPlan::setName(string name)
@@ -58,14 +58,14 @@ void DietPlan::editGoal()
 	int newGoal;
 	cout << "Set calorie goal: " << endl;
 	cin >> newGoal;
-	mGoal = std::abs(newGoal);//keep idiots from entering negative value.
+	mGoal = abs(newGoal);//keep idiots from entering negative value.
 }
 
 void DietPlan::editName()
 {
 	string newName;
 	cout << "Enter an exercise plan name: " << endl;
-	std::getline(cin, newName);
+	getline(cin, newName);
 	mName = newName;
 }
 
@@ -73,6 +73,15 @@ void DietPlan::editDate()
 {
 	string newDate;
 	cout << "Enter a date for plan completion" << endl;
-	std::getline(cin, newDate);
+	getline(cin, newDate);
 	mDate = newDate;
+}
+
+std::ostream & operator<<(std::ostream &lhs, DietPlan &rhs)
+{
+	lhs << "Name: " << rhs.getName() << endl;
+	lhs << "Goal: " << rhs.getGoal() << endl;
+	lhs << "Date" << rhs.getDate() << endl;
+	lhs << '\n' << endl;
+	return lhs;
 }
