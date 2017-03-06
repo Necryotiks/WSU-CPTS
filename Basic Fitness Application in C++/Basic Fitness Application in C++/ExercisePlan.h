@@ -1,9 +1,6 @@
 #pragma once
-#include "DietPlan.h"
-#include "ExercisePlan.h"
-#include "FitnessAppWrapper.h"
 #include "Header.h"
-#include "List.h"
+
 
 class ExercisePlan
 {
@@ -26,6 +23,7 @@ public:
 	void editName();//pending deletion
 	void editDate();//pending deletion
 
+	friend std::ostream & operator<<(std::ostream &lhs, ExercisePlan &rhs);//place file object on the right
 private:
 	int mGoal;
 	string mName;

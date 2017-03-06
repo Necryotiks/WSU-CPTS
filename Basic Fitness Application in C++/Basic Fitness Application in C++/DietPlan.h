@@ -1,16 +1,13 @@
 #pragma once
-#include "DietPlan.h"
-#include "ExercisePlan.h"
-#include "FitnessAppWrapper.h"
 #include "Header.h"
-#include "List.h"
+
 class DietPlan
 {
 public:
 	DietPlan();
 	DietPlan(DietPlan &newPlan);
-	~DietPlan(); 
-	
+	~DietPlan();
+
 	//getters
 	int getGoal();
 	string getName();
@@ -19,13 +16,13 @@ public:
 	void setGoal(int goal);
 	void setName(string name);
 	void setDate(string date);
-	
+
 	//edits
 	void editGoal();
 	void editName();//pending deletion/remove void
 	void editDate();//pending deletion
 
-
+	friend std::ostream & operator<<(std::ostream &lhs, DietPlan &rhs);//place file object on the right
 private:
 	int mGoal;
 	string mName;

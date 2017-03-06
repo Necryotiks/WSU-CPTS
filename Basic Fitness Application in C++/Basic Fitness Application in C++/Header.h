@@ -5,22 +5,19 @@
 #include <ios>
 #include <cstdlib>
 #include <cmath>
-#include "DietPlan.h"
-#include "ExercisePlan.h"
-#include "FitnessAppWrapper.h"
-#include "Header.h"
-#include "List.h"
 
+//maybe causing circular dependence?
+
+//BEWARE CIRCULAR DEPENDENCE
 using std::cout;
 using std::cin;
 using std::endl;
 using std::string;
+using std::getline;
+using std::abs;
+using std::fstream;
 
-typedef struct node
-{
-	FitnessAppWrapper FObj;//QUERY SAM/EDGAR ON HOW TO MAKE THIS PRIVATE
-	struct node * pNext = nullptr;
-}Node;
 
 void runapp();
 
+//improve general functionlity
