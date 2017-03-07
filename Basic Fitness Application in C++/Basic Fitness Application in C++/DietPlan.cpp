@@ -23,17 +23,17 @@ DietPlan::~DietPlan()
 
 
 
-int DietPlan::getGoal()
+int DietPlan::getGoal() const
 {
 	return mGoal;
 }
 
-string DietPlan::getName()
+string DietPlan::getName() const
 {
 	return mName;
 }
 
-string DietPlan::getDate()
+string DietPlan::getDate() const
 {
 	return mDate;
 }

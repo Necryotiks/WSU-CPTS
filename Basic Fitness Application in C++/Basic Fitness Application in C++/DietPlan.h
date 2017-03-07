@@ -9,9 +9,9 @@ public:
 	~DietPlan();
 
 	//getters
-	int getGoal();
-	string getName();
-	string getDate();
+	int getGoal() const;
+	string getName() const;
+	string getDate() const;
 	//mutators
 	void setGoal(int goal);
 	void setName(string name);

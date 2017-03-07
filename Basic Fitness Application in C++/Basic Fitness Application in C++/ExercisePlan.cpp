@@ -21,17 +21,17 @@ ExercisePlan::~ExercisePlan()
 	cout << "ExercisePlan Object deconstructed...or something." << std::endl;
 }
 
-int ExercisePlan::getGoal()
+int ExercisePlan::getGoal()const
 {
 	return mGoal;
 }
 
-string ExercisePlan::getName()
+string ExercisePlan::getName()const
 {
 	return mName;
 }
 
-string ExercisePlan::getDate()
+string ExercisePlan::getDate() const
 {
 	return mDate;
 }

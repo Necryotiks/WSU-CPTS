@@ -10,3 +10,4 @@ FitnessAppWrapper::~FitnessAppWrapper()
 {
 	cout << "Object Deconstructed" << endl;
 }
+

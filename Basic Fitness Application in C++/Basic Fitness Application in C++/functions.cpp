@@ -40,9 +40,7 @@ void runapp()
 		pMem->FObj.ExerciseOBJ.setDate(Edate);
 		obj.insertInFront(pMem);
 	}
-	
-
-	
+	obj.displayMenu(Dietfile, Exercisefile);
 }
 
 

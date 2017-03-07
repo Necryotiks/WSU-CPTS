@@ -2,13 +2,10 @@
 #include <iostream>
 #include <string>
 #include <ios>
-<<<<<<< HEAD
 #include <fstream>
-#include "FitnessAppWrapper.h"
-=======
 #include <cstdlib>
 #include <cmath>
->>>>>>> 7c0c1a78917cb87994111e6f727516900940ecc5
+
 
 //maybe causing circular dependence?
 
