@@ -24,6 +24,7 @@ public:
 	void editDate();//pending deletion
 
 	friend std::ostream & operator<<(std::ostream &lhs, ExercisePlan &rhs);//place file object on the right
+	friend std::istream & operator>> (std::istream &lhs, ExercisePlan &rhs);
 private:
 	int mGoal;
 	string mName;

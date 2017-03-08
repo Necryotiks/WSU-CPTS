@@ -13,9 +13,9 @@ public:
 	~List();// fix this
 	//i think we need a node obj
 	static Node * makeNode();
-	void insertInEnd(Node * pMem, Node ** headnode);//FIX THIS
+	static void insertInEnd(Node * pMem, Node ** headnode);//FIX THIS
 	
-	friend std::ostream& operator<<(std::ostream lhs, FitnessAppWrapper&rhs);
+	friend std::ostream& operator<<(std::ostream& lhs, FitnessAppWrapper&rhs);
 
 	void displayDailyDietPlan() const;
 	void displayDailyExercisePlan() const;
