@@ -13,7 +13,7 @@ public:
 	~List();// fix this
 	//i think we need a node obj
 	Node * makeNode();
-	void insertInFront(Node * pMem);
+	void insertInFront(Node * pMem);//FIX THIS
 	
 	friend std::ostream& operator<<(std::ostream lhs, FitnessAppWrapper&rhs);
 
@@ -31,6 +31,6 @@ public:
 
 
 private:
-	Node headnode;
+	Node *headnode;
 
 };

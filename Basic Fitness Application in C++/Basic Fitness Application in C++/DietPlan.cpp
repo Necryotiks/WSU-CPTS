@@ -18,7 +18,6 @@ DietPlan::DietPlan(DietPlan &newPlan)
 
 DietPlan::~DietPlan()
 {
-	cout << "DietPlan Object deconstructed...or something." << endl;
 }
 
 
@@ -81,7 +80,7 @@ std::ostream & operator<<(std::ostream &lhs, DietPlan &rhs)
 {
 	lhs << "Name: " << rhs.getName() << endl;
 	lhs << "Goal: " << rhs.getGoal() << endl;
-	lhs << "Date" << rhs.getDate() << endl;
+	lhs << "Date: " << rhs.getDate() << endl;
 	lhs << '\n' << endl;
 	return lhs;
 }

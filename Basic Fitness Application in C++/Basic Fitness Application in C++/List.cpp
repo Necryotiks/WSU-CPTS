@@ -5,11 +5,11 @@
 
 List::List()
 {
-	Node headnode;
+	headnode = nullptr;
 }
 List::~List()
 {
-	// I WILL FUCK WITH THIS LATER;
+	//need to delete
 }
 
 Node * List::makeNode()
@@ -19,17 +19,23 @@ Node * List::makeNode()
 
 void List::insertInFront(Node * pMem)
 {
-	auto * pCur = &headnode;
-	while (pCur != nullptr)
+	auto * pCur = headnode;
+	if(headnode == nullptr)
 	{
-		pCur = pCur->pNext;
+		headnode = pMem;
 	}
-	pCur = pMem;
-
+	else
+	{
+		while (pCur != nullptr)
+		{
+			pCur = pCur->pNext;//FIX THIS
+		}
+		pCur = pMem;
+	}
 }
 void List::displayDailyDietPlan()
 {
-	auto * pCur = &headnode;
+	auto * pCur = headnode;
 	int input;//maybe do-while
 	do
 	{
@@ -103,7 +109,7 @@ void List::displayDailyDietPlan()
 
 void List::displayDailyExercisePlan()
 {
-	auto * pCur = &headnode;
+	auto *pCur = headnode;
 	int input;
 	do
 	{
@@ -175,9 +181,9 @@ void List::displayDailyExercisePlan()
 	}
 }
 
-void List::displayWeeklyDietPlan()
+void List::displayWeeklyDietPlan()// FIx THIS
 {
-	auto * pCur = &headnode;
+	auto * pCur = headnode;
 	while (pCur != nullptr)
 	{
 		cout << pCur->FObj.DietOBJ;
@@ -187,7 +193,7 @@ void List::displayWeeklyDietPlan()
 
 void List::displayWeeklyExercisePlan()
 {
-	auto * pCur = &headnode;
+	auto *pCur = headnode;
 	while (pCur != nullptr)
 	{
 		cout << pCur->FObj.ExerciseOBJ;
@@ -197,7 +203,7 @@ void List::displayWeeklyExercisePlan()
 
 void List::storeDailyDietPlan(fstream& Dietfile)//needs more
 {
-	auto * pCur = &headnode;
+	auto * pCur = headnode;
 	int input;//maybe do-while
 	do
 	{
@@ -271,7 +277,7 @@ void List::storeDailyDietPlan(fstream& Dietfile)//needs more
 
 void List::storeDailyExercisePlan(fstream& Exercisefile)//needs more 
 {
-	auto * pCur = &headnode;
+	auto * pCur = headnode;
 	int input;//maybe do-while
 	do
 	{
@@ -345,7 +351,7 @@ void List::storeDailyExercisePlan(fstream& Exercisefile)//needs more
 
 void List::storeWeeklyDietPlan(fstream& Dietfile)
 {
-	auto * pCur = &headnode;
+	auto  * pCur = headnode;
 	while (pCur != nullptr)
 	{
 		Dietfile << pCur->FObj.DietOBJ;
@@ -356,7 +362,7 @@ void List::storeWeeklyDietPlan(fstream& Dietfile)
 
 void List::storeWeeklyExercisePlan(fstream& Exercisefile)
 {
-	auto * pCur = &headnode;
+	auto  *pCur = headnode;
 	while (pCur != nullptr)
 	{
 		Exercisefile << pCur->FObj.ExerciseOBJ;
@@ -416,7 +422,7 @@ void List::displayMenu(fstream& Dietfile, fstream& Exercisefile)
 
 void List::editNode(fstream& Dietfile, fstream& Exercisefile)
 {
-	auto * pCur = &headnode;
+	auto * pCur = headnode;
 	auto option = 0;
 	int input;//maybe do-while
 	do
@@ -435,7 +441,7 @@ void List::editNode(fstream& Dietfile, fstream& Exercisefile)
 	switch (input)
 	{
 	case 1:
-		
+
 		for (auto i = 1; i < input; i++)
 		{
 			pCur = pCur->pNext;
@@ -446,7 +452,7 @@ void List::editNode(fstream& Dietfile, fstream& Exercisefile)
 		cout << "2. Edit Exercise Plan." << endl;
 		cin >> option;
 		option = abs(option);
-		switch(option)
+		switch (option)
 		{
 		case 1:
 			pCur->FObj.DietOBJ.editName();
@@ -466,7 +472,7 @@ void List::editNode(fstream& Dietfile, fstream& Exercisefile)
 				cin >> option;
 				system("cls");
 			} while (option < 1 || option > 2);
-			if(option == 1)
+			if (option == 1)
 			{
 				pCur->FObj.DietOBJ.editName();
 				pCur->FObj.DietOBJ.editGoal();

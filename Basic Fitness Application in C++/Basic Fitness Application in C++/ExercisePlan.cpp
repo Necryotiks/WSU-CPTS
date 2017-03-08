@@ -18,9 +18,7 @@ ExercisePlan::ExercisePlan(ExercisePlan & newPlan)
 
 ExercisePlan::~ExercisePlan()
 {
-	cout << "ExercisePlan Object deconstructed...or something." << std::endl;
 }
-
 int ExercisePlan::getGoal()const
 {
 	return mGoal;
@@ -82,7 +80,7 @@ std::ostream & operator<<(std::ostream &lhs, ExercisePlan &rhs)
 {
 	lhs << "Name: " << rhs.getName() << endl;
 	lhs << "Goal: " << rhs.getGoal() << endl;
-	lhs << "Date" << rhs.getDate() << endl;
+	lhs << "Date: " << rhs.getDate() << endl;
 	lhs << '\n' << endl;
 	return lhs;
 }
