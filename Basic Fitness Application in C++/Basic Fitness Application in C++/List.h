@@ -12,21 +12,24 @@ public:
 	List();
 	~List();// fix this
 	//i think we need a node obj
-	Node * makeNode();
-	void insertInFront(Node * pMem);//FIX THIS
+	static Node * makeNode();
+	void insertInEnd(Node * pMem, Node ** headnode);//FIX THIS
 	
 	friend std::ostream& operator<<(std::ostream lhs, FitnessAppWrapper&rhs);
 
-	void displayDailyDietPlan();
-	void displayDailyExercisePlan();
-	void displayWeeklyDietPlan();
-	void displayWeeklyExercisePlan();
-	void storeDailyDietPlan(fstream& Dietfile);//needs parameters
-	void storeDailyExercisePlan(fstream& Exercisefile);//needs parameters
-	void storeWeeklyDietPlan(fstream& Dietfile);//needs parameters
-	void storeWeeklyExercisePlan(fstream& Exercisefile);
-	void displayMenu(fstream& Dietfile,fstream& Exercisefile); //does this even need parameters
-	void editNode(fstream& Dietfile, fstream& Exercisefile);
+	void displayDailyDietPlan() const;
+	void displayDailyExercisePlan() const;
+	void displayWeeklyDietPlan()  const;
+	void displayWeeklyExercisePlan() const;
+	void storeDailyDietPlan(fstream& Dietfile) const;//needs parameters
+	void storeDailyExercisePlan(fstream& Exercisefile) const;//needs parameters
+	void storeWeeklyDietPlan(fstream& Dietfile) const ;//needs parameters
+	void storeWeeklyExercisePlan(fstream& Exercisefile) const;
+	void displayMenu(fstream& Dietfile,fstream& Exercisefile) const; //does this even need parameters
+	void editNode(fstream& Dietfile, fstream& Exercisefile) const;
+
+	void AssembleList(fstream& Dietfile, fstream& Exercisefile, List &obj);
+	Node * getHead() const;
 
 
 
