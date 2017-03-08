@@ -42,13 +42,13 @@ void List::displayDailyDietPlan() const
 	{
 		system("cls");
 		cout << "Select a day: " << endl;
-		cout << "1. Sunday" << endl;
-		cout << "2. Monday" << endl;
-		cout << "3. Tuesday" << endl;
-		cout << "4. Wednesday" << endl;
-		cout << "5. Thursday" << endl;
-		cout << "6. Friday" << endl;
-		cout << "7. Saturday" << endl;
+		cout << "1. Monday" << endl;
+		cout << "2. Tuesday" << endl;
+		cout << "3. Wednesday" << endl;
+		cout << "4. Thursday" << endl;
+		cout << "5. Friday" << endl;
+		cout << "6. Saturday" << endl;
+		cout << "7. Sunday" << endl;
 		cout << "8. Exit" << endl;
 		cin >> input;
 		cin.clear();
@@ -122,13 +122,13 @@ void List::displayDailyExercisePlan() const
 	{
 		system("cls");
 		cout << "Select a day: " << endl;
-		cout << "1. Sunday" << endl;
-		cout << "2. Monday" << endl;
-		cout << "3. Tuesday" << endl;
-		cout << "4. Wednesday" << endl;
-		cout << "5. Thursday" << endl;
-		cout << "6. Friday" << endl;
-		cout << "7. Saturday" << endl;
+		cout << "1. Monday" << endl;
+		cout << "2. Tuesday" << endl;
+		cout << "3. Wednesday" << endl;
+		cout << "4. Thursday" << endl;
+		cout << "5. Friday" << endl;
+		cout << "6. Saturday" << endl;
+		cout << "7. Sunday" << endl;
 		cout << "8. Exit" << endl;
 		cin >> input;
 		cin.clear();
@@ -222,13 +222,13 @@ void List::storeDailyDietPlan(fstream& Dietfile) const//needs more
 	{
 		system("cls");
 		cout << "Select a day: " << endl;
-		cout << "1. Sunday" << endl;
-		cout << "2. Monday" << endl;
-		cout << "3. Tuesday" << endl;
-		cout << "4. Wednesday" << endl;
-		cout << "5. Thursday" << endl;
-		cout << "6. Friday" << endl;
-		cout << "7. Saturday" << endl;
+		cout << "1. Monday" << endl;
+		cout << "2. Tuesday" << endl;
+		cout << "3. Wednesday" << endl;
+		cout << "4. Thursday" << endl;
+		cout << "5. Friday" << endl;
+		cout << "6. Saturday" << endl;
+		cout << "7. Sunday" << endl;
 		cout << "8. Exit" << endl;
 		cin >> input;
 		cin.clear();
@@ -303,13 +303,13 @@ void List::storeDailyExercisePlan(fstream& Exercisefile) const//needs more
 	{
 		system("cls");
 		cout << "Select a day: " << endl;
-		cout << "1. Sunday" << endl;
-		cout << "2. Monday" << endl;
-		cout << "3. Tuesday" << endl;
-		cout << "4. Wednesday" << endl;
-		cout << "5. Thursday" << endl;
-		cout << "6. Friday" << endl;
-		cout << "7. Saturday" << endl;
+		cout << "1. Monday" << endl;
+		cout << "2. Tuesday" << endl;
+		cout << "3. Wednesday" << endl;
+		cout << "4. Thursday" << endl;
+		cout << "5. Friday" << endl;
+		cout << "6. Saturday" << endl;
+		cout << "7. Sunday" << endl;
 		cout << "8. Exit" << endl;
 		cin >> input;
 		cin.clear();
@@ -402,13 +402,13 @@ void List::displayMenu(fstream& Dietfile, fstream& Exercisefile) const
 	do
 	{
 		cout << "Select an option: " << endl;
-		cout << "1. NULL" << endl;
-		cout << "2. NULL" << endl;
+		cout << "1. Load weekly diet plan from file" << endl;
+		cout << "2. Load weekly exercise plan from file." << endl;
 		cout << "3. Store weekly diet plan to file." << endl;
 		cout << "4. Store weekly exercise plan to file." << endl;
 		cout << "5. Display weekly diet plan to screen." << endl;
 		cout << "6. Display weekly exercise plan to screen." << endl;
-		cout << "7. Edit daily plans." << endl;
+		cout << "7. NULL" << endl;
 		cout << "8. NULL" << endl;
 		cout << "9. Edit Node." << endl;
 		cout << "10. Exit" << endl;
@@ -418,11 +418,11 @@ void List::displayMenu(fstream& Dietfile, fstream& Exercisefile) const
 		switch (userErrorCorrection(inval))
 		{
 		case 1:
-			cout << "NO" << endl;
+			cout << "File preloaded for your convenience." << endl;
 			inval = 0;
 			break;
 		case 2:
-			cout << "NO" << endl;
+			cout << "File preloaded for your convenience." << endl;
 			inval = 0;
 			break;
 		case 3: storeWeeklyDietPlan(Dietfile);
@@ -433,7 +433,9 @@ void List::displayMenu(fstream& Dietfile, fstream& Exercisefile) const
 			break;
 		case 6: displayWeeklyExercisePlan();
 			break;
-		case 7:editNode(Dietfile, Exercisefile);//UNFINSIHED
+		case 7:
+			cout << "NO" << endl;
+			inval = 0;
 			break;
 		case 8:
 			cout << "NO" << endl;
@@ -462,13 +464,13 @@ void List::editNode(fstream& Dietfile, fstream& Exercisefile) const
 	{
 		system("cls");
 		cout << "Select a day: " << endl;
-		cout << "1. Sunday" << endl;
-		cout << "2. Monday" << endl;
-		cout << "3. Tuesday" << endl;
-		cout << "4. Wednesday" << endl;
-		cout << "5. Thursday" << endl;
-		cout << "6. Friday" << endl;
-		cout << "7. Saturday" << endl;
+		cout << "1. Monday" << endl;
+		cout << "2. Tuesday" << endl;
+		cout << "3. Wednesday" << endl;
+		cout << "4. Thursday" << endl;
+		cout << "5. Friday" << endl;
+		cout << "6. Saturday" << endl;
+		cout << "7. Sunday" << endl;
 		cout << "8. Exit" << endl;
 		cin >> input;
 		cin.clear();

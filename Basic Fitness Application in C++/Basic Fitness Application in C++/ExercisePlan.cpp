@@ -65,7 +65,6 @@ void ExercisePlan::editName()
 {
 	string newName;
 	cout << "Enter an exercise plan name: " << endl;// need editBullshit();
-	cin.ignore();
 	getline(cin, newName);
 	mName = newName;
 	system("pause");

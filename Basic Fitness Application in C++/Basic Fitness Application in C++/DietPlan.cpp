@@ -66,7 +66,6 @@ void DietPlan::editName()
 {
 	string newName;
 	cout << "Enter an diet plan name: " << endl;
-	cin.ignore();
 	getline(cin, newName);
 	mName = newName;
 	system("pause");

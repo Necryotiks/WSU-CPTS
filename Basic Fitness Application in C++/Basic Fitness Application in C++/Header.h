@@ -26,4 +26,4 @@ int userErrorCorrection(double target);
 
 
 
-//TODO:expand and improve menu. overload file reading.Explicit Node Deconstructor
+//TODO:overload file reading.Explicit Node Deconstructor,Color terminal text.
