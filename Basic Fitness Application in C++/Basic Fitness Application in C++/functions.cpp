@@ -1,8 +1,5 @@
 #include "Header.h"
 #include "List.h"
-#include "FitnessAppWrapper.h"
-#include "DietPlan.h"
-#include "ExercisePlan.h"
 
 void runapp()
 {

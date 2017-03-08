@@ -21,4 +21,4 @@ using std::fstream;
 
 void runapp();
 
-//improve general functionlity
+//TODO: idiot proof user input with funct overloads,expand menu.overload file reading.

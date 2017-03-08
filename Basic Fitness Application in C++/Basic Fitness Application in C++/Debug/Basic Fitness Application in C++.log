@@ -1,6 +1,3 @@
-﻿  functions.cpp
-  List.cpp
-  Generating Code...
-c:\users\necryotiks\documents\github\wsu-cpts\basic fitness application in c++\basic fitness application in c++\list.cpp(844): warning C4172: returning address of local variable or temporary: lhs
-  Basic Fitness Application in C++.vcxproj -> C:\Users\Necryotiks\Documents\GitHub\WSU-CPTS\Basic Fitness Application in C++\Debug\Basic Fitness Application in C++.exe
-  Basic Fitness Application in C++.vcxproj -> C:\Users\Necryotiks\Documents\GitHub\WSU-CPTS\Basic Fitness Application in C++\Debug\Basic Fitness Application in C++.pdb (Full PDB)
+﻿  DietPlan.cpp
+  Basic Fitness Application in C++.vcxproj -> C:\Users\Necryotiks\Documents\GitHub\WSU-CPTS\WSU-CPTS\Basic Fitness Application in C++\Debug\Basic Fitness Application in C++.exe
+  Basic Fitness Application in C++.vcxproj -> C:\Users\Necryotiks\Documents\GitHub\WSU-CPTS\WSU-CPTS\Basic Fitness Application in C++\Debug\Basic Fitness Application in C++.pdb (Full PDB)

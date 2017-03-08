@@ -446,8 +446,8 @@ void List::displayMenu(fstream& Dietfile, fstream& Exercisefile) const
 void List::editNode(fstream& Dietfile, fstream& Exercisefile) const
 {
 	auto * pCur = headnode;
-	auto option = 0;
-	int input;//maybe do-while
+	auto option = 0;//fix data entry
+	int input;
 	do
 	{
 		system("cls");
@@ -486,6 +486,7 @@ void List::editNode(fstream& Dietfile, fstream& Exercisefile) const
 				pCur->FObj.ExerciseOBJ.editName();
 				pCur->FObj.ExerciseOBJ.editGoal();
 				pCur->FObj.ExerciseOBJ.editDate();
+				break;
 			default:
 				do
 				{
@@ -532,6 +533,7 @@ void List::editNode(fstream& Dietfile, fstream& Exercisefile) const
 				pCur->FObj.ExerciseOBJ.editName();
 				pCur->FObj.ExerciseOBJ.editGoal();
 				pCur->FObj.ExerciseOBJ.editDate();
+				break;
 			default:
 				do
 				{
@@ -578,6 +580,7 @@ void List::editNode(fstream& Dietfile, fstream& Exercisefile) const
 				pCur->FObj.ExerciseOBJ.editName();
 				pCur->FObj.ExerciseOBJ.editGoal();
 				pCur->FObj.ExerciseOBJ.editDate();
+				break;
 			default:
 				do
 				{
@@ -624,6 +627,7 @@ void List::editNode(fstream& Dietfile, fstream& Exercisefile) const
 				pCur->FObj.ExerciseOBJ.editName();
 				pCur->FObj.ExerciseOBJ.editGoal();
 				pCur->FObj.ExerciseOBJ.editDate();
+				break;
 			default:
 				do
 				{
@@ -670,6 +674,7 @@ void List::editNode(fstream& Dietfile, fstream& Exercisefile) const
 				pCur->FObj.ExerciseOBJ.editName();
 				pCur->FObj.ExerciseOBJ.editGoal();
 				pCur->FObj.ExerciseOBJ.editDate();
+				break;
 			default:
 				do
 				{
@@ -716,6 +721,7 @@ void List::editNode(fstream& Dietfile, fstream& Exercisefile) const
 				pCur->FObj.ExerciseOBJ.editName();
 				pCur->FObj.ExerciseOBJ.editGoal();
 				pCur->FObj.ExerciseOBJ.editDate();
+				break;
 			default:
 				do
 				{
@@ -809,14 +815,12 @@ void List::AssembleList(fstream & Dietfile, fstream & Exercisefile, List & obj)
 	while (!(Dietfile.eof() && Exercisefile.eof()))
 	{
 		pMem = obj.makeNode();
-		Dietfile >> Dname;
+		Dietfile >> Dname;//over load
 		Dietfile >> Dgoal;
 		Dietfile >> Ddate;
-		Dietfile >> voidspace;
 		Exercisefile >> Ename;
 		Exercisefile >> Egoal;
 		Exercisefile >> Edate;
-		Exercisefile >> voidspace;
 		pMem->FObj.DietOBJ.setName(Dname);
 		pMem->FObj.DietOBJ.setGoal(Dgoal);
 		pMem->FObj.DietOBJ.setDate(Ddate);

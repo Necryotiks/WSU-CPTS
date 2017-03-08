@@ -57,30 +57,35 @@ void ExercisePlan::editGoal()
 	cout << "Set calorie goal: " << endl;
 	cin >> newGoal;
 	mGoal = abs(newGoal);
+	system("pause");
 }
 
 void ExercisePlan::editName()
 {
 	string newName;
 	cout << "Enter an exercise plan name: " << endl;// need editBullshit();
+	cin.ignore();
 	getline(cin, newName);
 	mName = newName;
+	system("pause");
 }
 
 void ExercisePlan::editDate()//maybe remove void?
 {
 	string newDate;
-	cout << "Enter a date for plan completion" << endl;
+	cout << "Enter a date for plan completion(mm/dd/yyyy)" << endl;
+	cin.ignore();
 	getline(cin, newDate);
 	mDate = newDate;
+	system("pause");
 
 }
 
 std::ostream & operator<<(std::ostream &lhs, ExercisePlan &rhs)
 {
-	lhs << "Name: " << rhs.getName() << endl;
-	lhs << "Goal: " << rhs.getGoal() << endl;
-	lhs << "Date: " << rhs.getDate() << endl;
+	lhs << rhs.getName() << endl;
+	lhs << rhs.getGoal() << endl;
+	lhs << rhs.getDate() << endl;
 	lhs << '\n' << endl;
 	return lhs;
 }
