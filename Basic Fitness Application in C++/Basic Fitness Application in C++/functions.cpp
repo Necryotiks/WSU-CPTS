@@ -16,4 +16,20 @@ void runapp()
 	Exercisefile.close();
 }
 
+int userErrorCorrection(int target)
+{
+	return target;
+}
+
+int userErrorCorrection(char target)
+{
+
+	return static_cast<int> (target);
+}
+
+int userErrorCorrection(double target)
+{
+	return static_cast<int> (target);//casts as int
+}
+
 

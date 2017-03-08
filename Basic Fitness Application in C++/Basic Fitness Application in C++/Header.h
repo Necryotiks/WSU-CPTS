@@ -20,5 +20,10 @@ using std::fstream;
 
 
 void runapp();
+int userErrorCorrection(int target);
+int userErrorCorrection(char target);
+int userErrorCorrection(double target);
 
-//TODO: idiot proof user input with funct overloads,expand menu.overload file reading.
+
+
+//TODO:expand and improve menu. overload file reading.Explicit Node Deconstructor

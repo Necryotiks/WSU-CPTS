@@ -14,7 +14,7 @@ List::~List()
 
 Node * List::makeNode()
 {
-	return new Node;//IS THIS A THING
+	return new Node;
 }
 
 void List::insertInEnd(Node * pMem, Node ** headnode)
@@ -51,7 +51,9 @@ void List::displayDailyDietPlan() const
 		cout << "7. Saturday" << endl;
 		cout << "8. Exit" << endl;
 		cin >> input;
-		switch (input)
+		cin.clear();
+		cin.ignore();
+		switch (userErrorCorrection(input))
 		{
 		case 1:
 			for (auto i = 1; i < input; i++)
@@ -129,7 +131,9 @@ void List::displayDailyExercisePlan() const
 		cout << "7. Saturday" << endl;
 		cout << "8. Exit" << endl;
 		cin >> input;
-		switch (input)
+		cin.clear();
+		cin.ignore();
+		switch (userErrorCorrection(input))
 		{
 		case 1:
 			for (auto i = 1; i < input; i++)
@@ -227,7 +231,9 @@ void List::storeDailyDietPlan(fstream& Dietfile) const//needs more
 		cout << "7. Saturday" << endl;
 		cout << "8. Exit" << endl;
 		cin >> input;
-		switch (input)
+		cin.clear();
+		cin.ignore();
+		switch (userErrorCorrection(input))
 		{
 		case 1:
 			for (auto i = 1; i < input; i++)
@@ -306,7 +312,9 @@ void List::storeDailyExercisePlan(fstream& Exercisefile) const//needs more
 		cout << "7. Saturday" << endl;
 		cout << "8. Exit" << endl;
 		cin >> input;
-		switch (input)
+		cin.clear();
+		cin.ignore();
+		switch (userErrorCorrection(input))
 		{
 		case 1:
 			for (auto i = 1; i < input; i++)
@@ -405,7 +413,9 @@ void List::displayMenu(fstream& Dietfile, fstream& Exercisefile) const
 		cout << "9. Edit Node." << endl;
 		cout << "10. Exit" << endl;
 		cin >> inval;
-		switch (inval)
+		cin.clear();
+		cin.ignore();
+		switch (userErrorCorrection(inval))
 		{
 		case 1:
 			cout << "NO" << endl;
@@ -461,7 +471,9 @@ void List::editNode(fstream& Dietfile, fstream& Exercisefile) const
 		cout << "7. Saturday" << endl;
 		cout << "8. Exit" << endl;
 		cin >> input;
-		switch (input)
+		cin.clear();
+		cin.ignore();
+		switch (userErrorCorrection(input))
 		{
 		case 1:
 
@@ -474,6 +486,9 @@ void List::editNode(fstream& Dietfile, fstream& Exercisefile) const
 			cout << "1. Edit Diet Plan." << endl;
 			cout << "2. Edit Exercise Plan." << endl;
 			cin >> option;
+			cin.clear();
+			cin.ignore();
+			option = userErrorCorrection(option);
 			option = abs(option);
 			switch (option)
 			{
@@ -494,6 +509,9 @@ void List::editNode(fstream& Dietfile, fstream& Exercisefile) const
 					cout << "1. Edit Diet Plan." << endl;
 					cout << "2. Edit Exercise Plan." << endl;
 					cin >> option;
+					cin.clear();
+					cin.ignore();
+					option = userErrorCorrection(option);
 					system("cls");
 				} while (option < 1 || option > 2);
 				if (option == 1)
@@ -521,6 +539,9 @@ void List::editNode(fstream& Dietfile, fstream& Exercisefile) const
 			cout << "1. Edit Diet Plan." << endl;
 			cout << "2. Edit Exercise Plan." << endl;
 			cin >> option;
+			cin.clear();
+			cin.ignore();
+			option = userErrorCorrection(option);
 			option = abs(option);
 			switch (option)
 			{
@@ -541,6 +562,9 @@ void List::editNode(fstream& Dietfile, fstream& Exercisefile) const
 					cout << "1. Edit Diet Plan." << endl;
 					cout << "2. Edit Exercise Plan." << endl;
 					cin >> option;
+					cin.clear();
+					cin.ignore();
+					option = userErrorCorrection(option);
 					system("cls");
 				} while (option < 1 || option > 2);
 				if (option == 1)
@@ -568,6 +592,9 @@ void List::editNode(fstream& Dietfile, fstream& Exercisefile) const
 			cout << "1. Edit Diet Plan." << endl;
 			cout << "2. Edit Exercise Plan." << endl;
 			cin >> option;
+			cin.clear();
+			cin.ignore();
+			option = userErrorCorrection(option);
 			option = abs(option);
 			switch (option)
 			{
@@ -588,6 +615,9 @@ void List::editNode(fstream& Dietfile, fstream& Exercisefile) const
 					cout << "1. Edit Diet Plan." << endl;
 					cout << "2. Edit Exercise Plan." << endl;
 					cin >> option;
+					cin.clear();
+					cin.ignore();
+					option = userErrorCorrection(option);
 					system("cls");
 				} while (option < 1 || option > 2);
 				if (option == 1)
@@ -615,6 +645,9 @@ void List::editNode(fstream& Dietfile, fstream& Exercisefile) const
 			cout << "1. Edit Diet Plan." << endl;
 			cout << "2. Edit Exercise Plan." << endl;
 			cin >> option;
+			cin.clear();
+			cin.ignore();
+			option = userErrorCorrection(option);
 			option = abs(option);
 			switch (option)
 			{
@@ -635,6 +668,9 @@ void List::editNode(fstream& Dietfile, fstream& Exercisefile) const
 					cout << "1. Edit Diet Plan." << endl;
 					cout << "2. Edit Exercise Plan." << endl;
 					cin >> option;
+					cin.clear();
+					cin.ignore();
+					option = userErrorCorrection(option);
 					system("cls");
 				} while (option < 1 || option > 2);
 				if (option == 1)
@@ -662,6 +698,9 @@ void List::editNode(fstream& Dietfile, fstream& Exercisefile) const
 			cout << "1. Edit Diet Plan." << endl;
 			cout << "2. Edit Exercise Plan." << endl;
 			cin >> option;
+			cin.clear();
+			cin.ignore();
+			option = userErrorCorrection(option);
 			option = abs(option);
 			switch (option)
 			{
@@ -682,6 +721,9 @@ void List::editNode(fstream& Dietfile, fstream& Exercisefile) const
 					cout << "1. Edit Diet Plan." << endl;
 					cout << "2. Edit Exercise Plan." << endl;
 					cin >> option;
+					cin.clear();
+					cin.ignore();
+					option = userErrorCorrection(option);
 					system("cls");
 				} while (option < 1 || option > 2);
 				if (option == 1)
@@ -709,6 +751,9 @@ void List::editNode(fstream& Dietfile, fstream& Exercisefile) const
 			cout << "1. Edit Diet Plan." << endl;
 			cout << "2. Edit Exercise Plan." << endl;
 			cin >> option;
+			cin.clear();
+			cin.ignore();
+			option = userErrorCorrection(option);
 			option = abs(option);
 			switch (option)
 			{
@@ -729,6 +774,9 @@ void List::editNode(fstream& Dietfile, fstream& Exercisefile) const
 					cout << "1. Edit Diet Plan." << endl;
 					cout << "2. Edit Exercise Plan." << endl;
 					cin >> option;
+					cin.clear();
+					cin.ignore();
+					option = userErrorCorrection(option);
 					system("cls");
 				} while (option < 1 || option > 2);
 				if (option == 1)
@@ -756,6 +804,9 @@ void List::editNode(fstream& Dietfile, fstream& Exercisefile) const
 			cout << "1. Edit Diet Plan." << endl;
 			cout << "2. Edit Exercise Plan." << endl;
 			cin >> option;
+			cin.clear();
+			cin.ignore();
+			option = userErrorCorrection(option);
 			option = abs(option);
 			switch (option)
 			{
@@ -775,6 +826,9 @@ void List::editNode(fstream& Dietfile, fstream& Exercisefile) const
 					cout << "1. Edit Diet Plan." << endl;
 					cout << "2. Edit Exercise Plan." << endl;
 					cin >> option;
+					cin.clear();
+					cin.ignore();
+					option = userErrorCorrection(option);
 					system("cls");
 				} while (option < 1 || option > 2);
 				if (option == 1)
@@ -836,7 +890,7 @@ Node * List::getHead() const
 	return headnode;
 }
 
-std::ostream & operator<<(std::ostream lhs, FitnessAppWrapper & rhs)
+std::ostream & operator<<(std::ostream& lhs, FitnessAppWrapper & rhs)
 {
 	lhs << "Diet Plan Name: " << rhs.DietOBJ.getName() << endl;
 	lhs << "Diet Plan Goal: " << rhs.DietOBJ.getGoal() << endl;

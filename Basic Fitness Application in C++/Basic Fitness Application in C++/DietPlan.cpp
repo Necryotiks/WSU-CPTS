@@ -54,9 +54,10 @@ void DietPlan::setDate(string date)
 
 void DietPlan::editGoal()
 {
-	int newGoal;
+	auto newGoal=0;
 	cout << "Set calorie goal: " << endl;
 	cin >> newGoal;
+	newGoal = userErrorCorrection(newGoal);
 	mGoal = abs(newGoal);
 	system("pause");
 }
