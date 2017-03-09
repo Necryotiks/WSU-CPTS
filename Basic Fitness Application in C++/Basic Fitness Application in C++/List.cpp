@@ -9,12 +9,11 @@ List::List()
 }
 List::~List()
 {
-	//needs deconstructors 
 }
 
 Node * List::makeNode()
 {
-	return new Node;
+	return new Node; //makes new node
 }
 
 void List::insertInEnd(Node * pMem, Node ** headnode)
@@ -37,7 +36,7 @@ void List::insertInEnd(Node * pMem, Node ** headnode)
 void List::displayDailyDietPlan() const
 {
 	auto pCur = headnode;
-	int input;//maybe do-while
+	int input;
 	do
 	{
 		system("cls");
@@ -215,9 +214,10 @@ void List::displayWeeklyExercisePlan() const
 	}
 }
 
-void List::storeDailyDietPlan(fstream& Dietfile) const//needs more
+void List::storeDailyDietPlan(fstream& Dietfile) const//store 
 {
 	auto * pCur = headnode;
+	Dietfile.seekg(std::ios::beg);
 	int input;//maybe do-while
 	do
 	{
@@ -301,6 +301,7 @@ void List::storeDailyDietPlan(fstream& Dietfile) const//needs more
 void List::storeDailyExercisePlan(fstream& Exercisefile) const//needs more 
 {
 	auto pCur = headnode;
+	Exercisefile.seekg(std::ios::beg);
 	int input;//maybe do-while
 	do
 	{
@@ -382,7 +383,7 @@ void List::storeDailyExercisePlan(fstream& Exercisefile) const//needs more
 void List::storeWeeklyDietPlan(fstream& Dietfile) const
 {
 	auto pCur = headnode;
-	Dietfile.is_open();
+	Dietfile.seekg(std::ios::beg);
 	while (pCur != nullptr)
 	{
 		Dietfile << pCur->FObj.DietOBJ;
@@ -395,9 +396,10 @@ void List::storeWeeklyDietPlan(fstream& Dietfile) const
 void List::storeWeeklyExercisePlan(fstream& Exercisefile) const
 {
 	auto pCur = headnode;
+	Exercisefile.seekg(std::ios::beg);
 	while (pCur->pNext != nullptr)
 	{
-		Exercisefile << pCur->FObj.ExerciseOBJ;
+		Exercisefile << pCur->FObj.ExerciseOBJ << endl;
 		pCur = pCur->pNext;
 	}
 }
@@ -407,6 +409,7 @@ void List::displayMenu(fstream& Dietfile, fstream& Exercisefile) const
 	auto inval = 0;
 	do
 	{
+		system("cls");
 		cout << "Select an option: " << endl;
 		cout << "1. Load weekly diet plan from file" << endl;
 		cout << "2. Load weekly exercise plan from file." << endl;
@@ -881,7 +884,7 @@ void List::AssembleList(fstream & Dietfile, fstream & Exercisefile, List & obj)
 	{
 		pMem = obj.makeNode();
 		Dietfile >> pMem->FObj.DietOBJ;
-		Exercisefile >> pMem->FObj.ExerciseOBJ;
+		Exercisefile >> pMem->FObj.ExerciseOBJ;//builds list
 		obj.insertInEnd(pMem, &headnode);
 	}
 }

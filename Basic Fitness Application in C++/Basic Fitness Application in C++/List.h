@@ -21,11 +21,11 @@ public:
 	void displayDailyExercisePlan() const;
 	void displayWeeklyDietPlan()  const;
 	void displayWeeklyExercisePlan() const;
-	void storeDailyDietPlan(fstream& Dietfile) const;//needs parameters
-	void storeDailyExercisePlan(fstream& Exercisefile) const;//needs parameters
-	void storeWeeklyDietPlan(fstream& Dietfile) const ;//needs parameters
+	void storeDailyDietPlan(fstream& Dietfile) const;// list functions
+	void storeDailyExercisePlan(fstream& Exercisefile) const;
+	void storeWeeklyDietPlan(fstream& Dietfile) const ;
 	void storeWeeklyExercisePlan(fstream& Exercisefile) const;
-	void displayMenu(fstream& Dietfile,fstream& Exercisefile) const; //does this even need parameters
+	void displayMenu(fstream& Dietfile,fstream& Exercisefile) const; 
 	void editNode(fstream& Dietfile, fstream& Exercisefile) const;
 
 	void AssembleList(fstream& Dietfile, fstream& Exercisefile, List &obj);

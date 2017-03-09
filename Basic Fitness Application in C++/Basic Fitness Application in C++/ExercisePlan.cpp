@@ -64,13 +64,13 @@ void ExercisePlan::editGoal()
 void ExercisePlan::editName()
 {
 	string newName;
-	cout << "Enter an exercise plan name: " << endl;// need editBullshit();
+	cout << "Enter an exercise plan name: " << endl;// edits
 	getline(cin, newName);
 	mName = newName;
 	system("pause");
 }
 
-void ExercisePlan::editDate()//maybe remove void?
+void ExercisePlan::editDate()
 {
 	string newDate;
 	cout << "Enter a date for plan completion(mm/dd/yyyy)" << endl;
@@ -85,7 +85,7 @@ std::ostream & operator << (std::ostream &lhs, ExercisePlan &rhs)
 {
 	lhs << rhs.getName() << endl;
 	lhs << rhs.getGoal() << endl;
-	lhs << rhs.getDate() << endl;
+	lhs << rhs.getDate() << endl; //overload
 	lhs << '\n' << endl;
 	return lhs;
 }

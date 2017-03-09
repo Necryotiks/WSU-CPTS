@@ -16,7 +16,7 @@ void runapp()
 	Exercisefile.close();
 }
 
-int userErrorCorrection(int target)
+int userErrorCorrection(int target)//casts as int to protect from erroneous data.
 {
 	return target;
 }
@@ -34,7 +34,7 @@ int userErrorCorrection(double target)
 
 char * Color(int color, char * Message)
 {
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);//text color
 	return Message;
 }
 

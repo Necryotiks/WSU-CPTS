@@ -5,9 +5,9 @@
 #include <fstream>
 #include <cmath>
 #include <Windows.h>
-#define TEXT_RED 4
+#define TEXT_RED 12
 #define TEXT_BLUE 1
-#define TEXT_GREEN 2
+#define TEXT_GREEN 10
 
 
 //Name:Elliott Villars
