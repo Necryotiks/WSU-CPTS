@@ -6,11 +6,11 @@
 class FitnessAppWrapper
 {
 public:
-	FitnessAppWrapper();//maybe add more like file initalization
-	~FitnessAppWrapper();//see above
+	FitnessAppWrapper();
+	~FitnessAppWrapper();
 
 	DietPlan DietOBJ;
-	ExercisePlan ExerciseOBJ;//WHAT THE FUCK, SAM PLS HELP.
+	ExercisePlan ExerciseOBJ;
 	
 };
 

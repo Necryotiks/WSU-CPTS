@@ -3,9 +3,17 @@
 #include <string>
 #include <ios>
 #include <fstream>
-#include <cstdlib>
 #include <cmath>
+#include <Windows.h>
+#define TEXT_RED 4
+#define TEXT_BLUE 1
+#define TEXT_GREEN 2
 
+
+//Name:Elliott Villars
+//SID:11463956
+//Date: 3/8/2017
+//Worked With: Edgar Perez,Josh Cross
 
 //maybe causing circular dependence?
 
@@ -24,10 +32,9 @@ int userErrorCorrection(int target);
 int userErrorCorrection(char target);
 int userErrorCorrection(double target);
 
+char* Color(int color = 7, char* Message = "");
 
 
-<<<<<<< HEAD
-//TODO:expand and improve menu. overload file reading.Explicit Node Deconstructor and add color to terminal
-=======
-//TODO:overload file reading.Explicit Node Deconstructor,Color terminal text.
->>>>>>> b11358fb136f53a84b70670083b9d429801aad70
+
+//TODO:Explicit Node Deconstructor, Fix writing to file. improve file storage UX
+

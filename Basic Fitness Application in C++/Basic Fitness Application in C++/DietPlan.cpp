@@ -54,7 +54,7 @@ void DietPlan::setDate(string date)
 
 void DietPlan::editGoal()
 {
-	auto newGoal=0;
+	auto newGoal = 0;
 	cout << "Set calorie goal: " << endl;
 	cin >> newGoal;
 	newGoal = userErrorCorrection(newGoal);
@@ -81,11 +81,25 @@ void DietPlan::editDate()
 	system("pause");
 }
 
-std::ostream & operator<<(std::ostream &lhs, DietPlan &rhs)
+std::ostream & operator << (std::ostream &lhs, DietPlan &rhs)
 {
 	lhs << rhs.getName() << endl;
 	lhs << rhs.getGoal() << endl;
 	lhs << rhs.getDate() << endl;
 	lhs << '\n' << endl;
+	return lhs;
+}
+
+std::istream & operator >> (std::istream & lhs, DietPlan & rhs)
+{
+	string Dname;
+	int Dgoal;
+	string Ddate;
+	lhs >> Dname;
+	lhs >> Dgoal;
+	lhs >> Ddate;
+	rhs.setName(Dname);
+	rhs.setGoal(Dgoal);
+	rhs.setDate(Ddate);
 	return lhs;
 }

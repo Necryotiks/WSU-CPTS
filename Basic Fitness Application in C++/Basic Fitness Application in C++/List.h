@@ -11,9 +11,9 @@ class List
 public:
 	List();
 	~List();// fix this
-	//i think we need a node obj
+
 	static Node * makeNode();
-	static void insertInEnd(Node * pMem, Node ** headnode);//FIX THIS
+	static void insertInEnd(Node * pMem, Node ** headnode);
 	
 	friend std::ostream& operator<<(std::ostream& lhs, FitnessAppWrapper&rhs);
 

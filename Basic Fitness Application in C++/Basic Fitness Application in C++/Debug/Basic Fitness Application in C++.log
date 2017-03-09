@@ -1,12 +1,4 @@
-﻿  DietPlan.cpp
-  Generating Code...
-  Compiling...
-  functions.cpp
-  List.cpp
-  FitnessAppWrapper.cpp
-  Generating Code...
-  Compiling...
-  ExercisePlan.cpp
-  Generating Code...
-  Basic Fitness Application in C++.vcxproj -> C:\Users\Necryotiks\Documents\GitHub\WSU-CPTS\Basic Fitness Application in C++\Debug\Basic Fitness Application in C++.exe
-  Basic Fitness Application in C++.vcxproj -> C:\Users\Necryotiks\Documents\GitHub\WSU-CPTS\Basic Fitness Application in C++\Debug\Basic Fitness Application in C++.pdb (Full PDB)
+﻿  List.cpp
+cl : Command line warning D9028: minimal rebuild failure, reverting to normal build
+  Basic Fitness Application in C++.vcxproj -> C:\Users\Necryotiks\Documents\GitHub\WSU-CPTS\WSU-CPTS\Basic Fitness Application in C++\Debug\Basic Fitness Application in C++.exe
+  Basic Fitness Application in C++.vcxproj -> C:\Users\Necryotiks\Documents\GitHub\WSU-CPTS\WSU-CPTS\Basic Fitness Application in C++\Debug\Basic Fitness Application in C++.pdb (Full PDB)

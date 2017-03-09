@@ -32,4 +32,10 @@ int userErrorCorrection(double target)
 	return static_cast<int> (target);//casts as int
 }
 
+char * Color(int color, char * Message)
+{
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
+	return Message;
+}
+
 

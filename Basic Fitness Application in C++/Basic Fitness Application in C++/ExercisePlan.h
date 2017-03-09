@@ -20,10 +20,10 @@ public:
 
 	//edits
 	void editGoal();
-	void editName();//pending deletion
-	void editDate();//pending deletion
+	void editName();
+	void editDate();
 
-	friend std::ostream & operator<<(std::ostream &lhs, ExercisePlan &rhs);//place file object on the right
+	friend std::ostream & operator<<(std::ostream &lhs, ExercisePlan &rhs);//place file object on the left
 	friend std::istream & operator>> (std::istream &lhs, ExercisePlan &rhs);
 private:
 	int mGoal;

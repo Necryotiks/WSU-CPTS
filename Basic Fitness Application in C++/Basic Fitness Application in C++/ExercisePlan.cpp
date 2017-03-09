@@ -53,7 +53,7 @@ void ExercisePlan::setDate(string date)
 
 void ExercisePlan::editGoal()
 {
-	auto newGoal=0;
+	auto newGoal = 0;
 	cout << "Set calorie goal: " << endl;
 	cin >> newGoal;
 	newGoal = userErrorCorrection(newGoal);
@@ -81,11 +81,25 @@ void ExercisePlan::editDate()//maybe remove void?
 
 }
 
-std::ostream & operator<<(std::ostream &lhs, ExercisePlan &rhs)
+std::ostream & operator << (std::ostream &lhs, ExercisePlan &rhs)
 {
 	lhs << rhs.getName() << endl;
 	lhs << rhs.getGoal() << endl;
 	lhs << rhs.getDate() << endl;
 	lhs << '\n' << endl;
+	return lhs;
+}
+
+std::istream & operator >> (std::istream & lhs, ExercisePlan & rhs)
+{
+	string Ename;
+	int Egoal;
+	string Edate;
+	lhs >> Ename;
+	lhs >> Egoal;
+	lhs >> Edate;
+	rhs.setName(Ename);
+	rhs.setGoal(Egoal);
+	rhs.setDate(Edate);
 	return lhs;
 }

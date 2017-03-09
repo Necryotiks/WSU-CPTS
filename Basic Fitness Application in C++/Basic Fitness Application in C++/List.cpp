@@ -186,7 +186,8 @@ void List::displayDailyExercisePlan() const
 			break;
 		case 8:break;
 		default:
-			cout << "Improper value entered!" << endl;
+			cout << Color(TEXT_RED, "Improper value entered!") << endl;
+			Color();
 			input = 0;
 			break;
 		}
@@ -287,7 +288,9 @@ void List::storeDailyDietPlan(fstream& Dietfile) const//needs more
 		case 8:
 			break;
 		default:
-			cout << "Improper value entered!" << endl;
+			system("cls");
+			cout << Color(TEXT_RED, "Improper value entered!") << endl;
+			Color();
 			input = 0;
 			break;
 		}
@@ -297,7 +300,7 @@ void List::storeDailyDietPlan(fstream& Dietfile) const//needs more
 
 void List::storeDailyExercisePlan(fstream& Exercisefile) const//needs more 
 {
-	auto * pCur = headnode;
+	auto pCur = headnode;
 	int input;//maybe do-while
 	do
 	{
@@ -367,7 +370,8 @@ void List::storeDailyExercisePlan(fstream& Exercisefile) const//needs more
 			break;
 		case 8:break;
 		default:
-			cout << "Improper value entered!" << endl;
+			cout << Color(TEXT_RED,"Improper value entered!") << endl;
+			Color();
 			input = 0;
 			break;
 		}
@@ -377,10 +381,12 @@ void List::storeDailyExercisePlan(fstream& Exercisefile) const//needs more
 
 void List::storeWeeklyDietPlan(fstream& Dietfile) const
 {
-	auto  * pCur = headnode;
+	auto pCur = headnode;
+	Dietfile.is_open();
 	while (pCur != nullptr)
 	{
 		Dietfile << pCur->FObj.DietOBJ;
+		cout << pCur->FObj.DietOBJ;
 		pCur = pCur->pNext;
 	}
 
@@ -388,8 +394,8 @@ void List::storeWeeklyDietPlan(fstream& Dietfile) const
 
 void List::storeWeeklyExercisePlan(fstream& Exercisefile) const
 {
-	auto  *pCur = headnode;
-	while (pCur != nullptr)
+	auto pCur = headnode;
+	while (pCur->pNext != nullptr)
 	{
 		Exercisefile << pCur->FObj.ExerciseOBJ;
 		pCur = pCur->pNext;
@@ -418,11 +424,15 @@ void List::displayMenu(fstream& Dietfile, fstream& Exercisefile) const
 		switch (userErrorCorrection(inval))
 		{
 		case 1:
-			cout << "File preloaded for your convenience." << endl;
+			system("cls");
+			cout << Color(TEXT_GREEN,"File preloaded for your convenience.") << endl;
+			Color();
 			inval = 0;
 			break;
 		case 2:
-			cout << "File preloaded for your convenience." << endl;
+			system("cls");
+			cout << Color(TEXT_GREEN, "File preloaded for your convenience.") << endl;
+			Color();
 			inval = 0;
 			break;
 		case 3: storeWeeklyDietPlan(Dietfile);
@@ -434,11 +444,15 @@ void List::displayMenu(fstream& Dietfile, fstream& Exercisefile) const
 		case 6: displayWeeklyExercisePlan();
 			break;
 		case 7:
-			cout << "NO" << endl;
+			system("cls");
+			cout << Color(TEXT_RED, "NULL") << endl;
+			Color();
 			inval = 0;
 			break;
 		case 8:
-			cout << "NO" << endl;
+			system("cls");
+			cout << Color(TEXT_RED, "NULL") << endl;
+			Color();
 			inval = 0;
 			break;
 		case 9:editNode(Dietfile, Exercisefile);
@@ -446,7 +460,9 @@ void List::displayMenu(fstream& Dietfile, fstream& Exercisefile) const
 		case 10: 
 			break;
 		default:
-			cout << "Improper value entered!" << endl;
+			system("cls");
+			cout << Color(TEXT_RED, "Improper value entered!") << endl;
+			Color();
 			inval = 0;
 			break;
 		}
@@ -861,28 +877,11 @@ void List::editNode(fstream& Dietfile, fstream& Exercisefile) const
 void List::AssembleList(fstream & Dietfile, fstream & Exercisefile, List & obj)
 {
 	Node * pMem = nullptr;
-	string Dname;
-	string Ename;
-	int Dgoal;
-	int Egoal;
-	string Ddate;
-	string Edate;
-	string voidspace;
 	while (!(Dietfile.eof() && Exercisefile.eof()))
 	{
 		pMem = obj.makeNode();
-		Dietfile >> Dname;//over load
-		Dietfile >> Dgoal;
-		Dietfile >> Ddate;
-		Exercisefile >> Ename;
-		Exercisefile >> Egoal;
-		Exercisefile >> Edate;
-		pMem->FObj.DietOBJ.setName(Dname);
-		pMem->FObj.DietOBJ.setGoal(Dgoal);
-		pMem->FObj.DietOBJ.setDate(Ddate);
-		pMem->FObj.ExerciseOBJ.setName(Ename);
-		pMem->FObj.ExerciseOBJ.setGoal(Egoal);
-		pMem->FObj.ExerciseOBJ.setDate(Edate);
+		Dietfile >> pMem->FObj.DietOBJ;
+		Exercisefile >> pMem->FObj.ExerciseOBJ;
 		obj.insertInEnd(pMem, &headnode);
 	}
 }
