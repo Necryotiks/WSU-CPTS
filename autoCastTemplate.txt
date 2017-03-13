@@ -6,5 +6,6 @@ T autoCast(U castTarget)
 
 //Elliott Villars-2017
 //Casts user input.
-//useful for preventing users from breaking your defined program type inputs(i.e do while menu,switch);
-//will return default value on data input mismatch.
+//Useful for preventing users from breaking your defined program type inputs(i.e do while menu,switch);
+//Will return default value on data input mismatch.
+//<int> is default seeting for use with numbered menus.
