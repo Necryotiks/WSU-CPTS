@@ -1,0 +1,20 @@
+﻿  Header.cpp
+c:\users\necryotiks\documents\github\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(45): error C2512: 'BSTNode<T>': no appropriate default constructor available
+          with
+          [
+              T=char
+          ]
+  c:\users\necryotiks\documents\github\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(45): note: No constructor could take the source type, or constructor overload resolution was ambiguous
+  c:\users\necryotiks\documents\github\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(34): note: while compiling class template member function 'BSTList<char>::BSTList(void)'
+  c:\users\necryotiks\documents\github\wsu-cpts\morse code lookup bst\morse code lookup bst\header.cpp(7): note: see reference to function template instantiation 'BSTList<char>::BSTList(void)' being compiled
+  c:\users\necryotiks\documents\github\wsu-cpts\morse code lookup bst\morse code lookup bst\header.cpp(7): note: see reference to class template instantiation 'BSTList<char>' being compiled
+c:\users\necryotiks\documents\github\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(45): error C2065: 'Node': undeclared identifier
+c:\users\necryotiks\documents\github\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(48): error C2065: 'Node': undeclared identifier
+c:\users\necryotiks\documents\github\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(48): error C2227: left of '->setData' must point to class/struct/union/generic type
+  c:\users\necryotiks\documents\github\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(48): note: type is 'unknown-type'
+c:\users\necryotiks\documents\github\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(49): error C2065: 'Node': undeclared identifier
+c:\users\necryotiks\documents\github\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(49): error C2227: left of '->setString' must point to class/struct/union/generic type
+  c:\users\necryotiks\documents\github\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(49): note: type is 'unknown-type'
+c:\users\necryotiks\documents\github\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(50): error C2065: 'Node': undeclared identifier
+c:\users\necryotiks\documents\github\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(52): error C2276: '!': illegal operation on bound member function expression
+c:\users\necryotiks\documents\github\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(56): warning C4018: '<': signed/unsigned mismatch
