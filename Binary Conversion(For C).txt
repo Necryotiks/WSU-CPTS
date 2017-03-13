@@ -14,4 +14,5 @@ void binaryconvertnbits(int input,int n)
 		printf("%d", number[j]);
 	}
 }
-//updated to be more generic.
+//Updated to be more generic.
+//Elliott Villars-2017
