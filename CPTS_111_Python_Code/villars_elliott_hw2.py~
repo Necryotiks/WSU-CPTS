@@ -1,0 +1,33 @@
+Brandon Menge
+
+from turtle import*
+input_file = open('movements.txt','r')
+lines = input_file.readlines()
+#dist = 0
+#dir_line = ""
+print(lines)
+for line in lines:
+	lines = line.strip()
+	if lines == 'F':
+		dir_line = lines
+	elif lines == 'B':
+		dir_line = lines
+	elif lines == 'L':
+		dir_line = lines
+	elif lines == 'R':
+		dir_line = lines
+	else:
+		if lines == '100':
+			dist = lines	
+			if dir_line == 'F':
+				forward(100)
+			elif dir_line == 'B':
+				backward(100)
+		elif lines == '90':
+			dist = lines
+			if dir_line == 'L':
+				left(90)
+			elif dir_line == 'R':
+				right(90)
+	
+input_file.close()

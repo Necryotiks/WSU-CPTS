@@ -1,0 +1,12 @@
+x = input('Enter left value: ')
+y = input('Enter operand: ')  
+z = input('Enter right value: ')
+if y == '+':
+	print(x+z)
+elif y == '-':
+	print(x-z)
+elif y == '*':
+	print(x*z)
+elif y == '/':
+	print(x/z)
+

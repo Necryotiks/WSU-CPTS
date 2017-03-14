@@ -1,0 +1,34 @@
+#Assignment: (Guess 1)
+#
+#Description: (Computer guess)
+#
+#Author: (Elliott Villars)
+#WSU ID: (11463956)
+#Completion Time: (3)
+#
+#In completing this program, I obtained help or worked with the following:Casey HUnter, Google
+###Task1
+import random
+import time
+guess = random.randint(0,100)
+print('Let\'s play the guessing game!')
+time.sleep(3)
+print('Think of a number between 1 and 100.')
+time.sleep(5)
+
+while True:  
+	subguess = random.randint(1,10)             
+	if guess <=100 and guess >=1:
+		print('The computer guesses: ',guess)
+		print('Was guess too high(H),too low(L) or correct(C)?')
+		usr = input()
+		if usr == 'H':
+			guess = guess - subguess
+		if usr == 'L':
+			guess = guess + subguess
+		if usr == 'C':
+			print('I win yet again, showcasing the superiority of machines over man.')
+			break
+
+#Casey wuz heer, has advanced knowledge of time, hence why time commands were added.
+
