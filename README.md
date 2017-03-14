@@ -1,4 +1,3 @@
 # WSU-CPTS
-repository for C/C++ code
+A repository for C/C++ code among other things.
 
-THE MASTER BRANCH HOLDS CURRENT PROJECTS.
