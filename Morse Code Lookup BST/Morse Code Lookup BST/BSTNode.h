@@ -6,26 +6,26 @@ template <class T>//maybe make string generic vector?
 class BSTNode
 {
 public:
-	explicit BSTNode(T target, string targetStr="");
+	BSTNode();
 	~BSTNode();
-	static T getData();//maybe static
-	BSTNode *& getLeft();
-	BSTNode *& getRight();
-	static string getString();
-	static bool setData(T &newData);
-	static bool setString(string &newString);
+	T getData();//maybe static
+	BSTNode<T> *& getLeft();
+	BSTNode<T> *& getRight();
+	string getString() const;
+	bool setData(T &newData);
+	bool setString(string &newString);
 private:
 	T data;
 	string compareStr;
-	BSTNode * LPTR;
-	BSTNode * RPTR;
+	BSTNode<T> * LPTR;
+	BSTNode<T> * RPTR;
 };
 
 template<class T>
-BSTNode<T>::BSTNode(T target, string targetStr)
+BSTNode<T>::BSTNode()
 {
-	data = target;
-	compareStr = targetStr;
+	data = '\0';
+	compareStr = "";
 	LPTR = nullptr;
 	RPTR = nullptr;
 }
@@ -54,7 +54,7 @@ BSTNode<T> *& BSTNode<T>::getRight()
 }
 
 template<class T>
-string BSTNode<T>::getString()
+string BSTNode<T>::getString() const
 {
 	return string(compareStr);
 }
