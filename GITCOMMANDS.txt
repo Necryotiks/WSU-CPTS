@@ -6,7 +6,7 @@ git commit: commits changes to local master branch.
 
 git commit --m "msg": commit with message
 
-git rm <filename>: removes file from master branch.
+git rm <filename>: removes file from current branch.
 
 git push <origin> <branch>: pushes local changes to the cloud.
 
