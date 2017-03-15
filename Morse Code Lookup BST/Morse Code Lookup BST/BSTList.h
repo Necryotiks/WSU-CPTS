@@ -43,8 +43,8 @@ BSTList<T>::BSTList()
 	
 	threadedMorseLoop(morseArray, tableFile);
 	threadedInputLoop(convertVector, inputFile);
-	//std::thread mLoop(&BSTList::threadedMorseLoop, morseArray, tableFile);//needs a const reference?Needs &BSTList:: if done in constructor much like with structs
-	//std::thread iLoop(&BSTList::threadedInputLoop, convertVector, inputFile);//why do you NEED A POINTER DURING LIST DECLARATION(i.e BSTList<char> *OBJ;)
+	//std::thread mLoop(&BSTList::threadedMorseLoop, std::ref(morseArray), tableFile);//Needs &BSTList:: if done in constructor much like with structs
+	//std::thread iLoop(&BSTList::threadedInputLoop, std::ref(convertVector), inputFile);//why do you NEED A POINTER DURING LIST DECLARATION(i.e BSTList<char> *OBJ;)
 	//mLoop.join();
 	//iLoop.join();
 
