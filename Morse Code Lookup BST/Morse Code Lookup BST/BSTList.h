@@ -10,7 +10,7 @@
 //fix tempates
 //**rootNode vs *& rootNode?
 // * vs *&?
-//test
+//transform is a useful function
 template <class T>
 class BSTList
 {
@@ -19,7 +19,7 @@ public:
 	~BSTList();
 
 	void BSTPrint();
-	void BSTSearch(vector<char>&convertVector);
+	void BSTSearch(vector<char>&convertVector, int &i);
 
 	BSTNode<T> *& getRoot();
 
@@ -33,7 +33,7 @@ private:
 	BSTNode<T> * rootNode;
 	void insert(BSTNode<T> *&rootNode, BSTNode<T> * Node); //**rootNode vs *& rootNode? and make * into a *&?
 	void BSTPrint(BSTNode<T> *&rootNode);//ask about pass by reference rootnode.
-	void BSTSearch(BSTNode<T> *&rootNode, vector<char>&convertVector);
+	bool BSTSearch(BSTNode<T> *&rootNode, vector<char>&convertVector, int &i);
 };
 
 template<class T>
@@ -44,6 +44,7 @@ BSTList<T>::BSTList()
 	std::ifstream inputFile("Convert.txt", std::ios::in);
 	array<string, 40> morseArray;//
 	vector<char>convertVector;
+	static auto i = 0;
 	morseArray[0] = "This is a placeholder for my own sanity.";
 
 	threadedMorseLoop(morseArray, tableFile);
@@ -52,7 +53,10 @@ BSTList<T>::BSTList()
 	//std::thread iLoop(&BSTList::threadedInputLoop, std::ref(convertVector), inputFile);//why do you NEED A POINTER DURING LIST DECLARATION(i.e BSTList<char> *OBJ;)
 	//mLoop.join();
 	//iLoop.join();
-
+	while (i < convertVector.size())
+	{
+		BSTSearch(convertVector, i);
+	}
 
 }
 
@@ -70,9 +74,9 @@ void BSTList<T>::BSTPrint()
 
 
 template<class T>
-void BSTList<T>::BSTSearch(vector<char>& convertVector)
+void BSTList<T>::BSTSearch(vector<char>& convertVector, int &i)
 {
-	BSTSearch(this->rootNode, convertVector);
+	BSTSearch(this->rootNode, convertVector, i);
 }
 
 template<class T>
@@ -118,7 +122,7 @@ void BSTList<T>::threadedInputLoop(vector<char> &convertVector, std::ifstream &i
 		getline(inputFile, temp);
 		for (auto j = 0; j < temp.length(); j++)
 		{
-			convertVector.push_back(temp[j]);
+			convertVector.push_back(toupper(temp[j]));
 		}
 	}
 }
@@ -151,29 +155,40 @@ void BSTList<T>::insert(BSTNode<T>*& rootNode, BSTNode<T> * Node)//make this *&?
 }
 
 template<class T>
-void BSTList<T>::BSTPrint(BSTNode<T>* &rootNode)//we will need to fix this later
+void BSTList<T>::BSTPrint(BSTNode<T>* &rootNode)
 {
 	if (rootNode != nullptr)
 	{
 		BSTPrint(rootNode->getLeft());
-		cout << rootNode->getString() << endl; //only goes to X and only prints alphabet
+		cout << rootNode->getString() << endl;
 		BSTPrint(rootNode->getRight());
 
 	}
 }
 
 template<class T>
-void BSTList<T>::BSTSearch(BSTNode<T>*& rootNode, vector<char>& convertVector)
+bool BSTList<T>::BSTSearch(BSTNode<T>*& rootNode, vector<char>& convertVector, int &i)//this needs fixing
 {
-	static auto i = 0;
+
 	if (rootNode != nullptr)
 	{
-		BSTSearch(rootNode->getLeft(), convertVector);
+		BSTSearch(rootNode->getLeft(), convertVector, i);//only goes through tree once
 		if (rootNode->getData() == convertVector[i])
 		{
-			cout << rootNode->getString();
+			cout << rootNode->getString() << ' ';
+			i++;
+			if (i == convertVector.size())
+			{
+				cout << '\n';
+				for (auto j = 0; j < convertVector.size();j++)
+				{
+					cout << convertVector[j] << ' ';
+				}
+				cout << '\n';
+				return true;
+			}
 		}
-		BSTSearch(rootNode->getRight(), convertVector);
+		BSTSearch(rootNode->getRight(), convertVector, i);
 	}
 }
 

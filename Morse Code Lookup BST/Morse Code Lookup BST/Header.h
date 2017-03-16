@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <thread>
+#include <functional>
 
 using std::cout;
 using std::cin;
