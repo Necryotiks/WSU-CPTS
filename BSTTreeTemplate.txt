@@ -118,3 +118,5 @@ void BSTList<T>::BSTDeleteTree(BSTNode<T>*& rootNode)
 //BST tree template
 //Needs BST node template to function
 //All that is needed is data collection loop for node.
+//Code: Andy O'Fallon
+//Template w/ additions: Elliott Villars
