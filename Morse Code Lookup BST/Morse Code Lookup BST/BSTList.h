@@ -2,11 +2,15 @@
 
 #include "BSTNode.h"
 #include "Header.h"
-
+#include <fstream>
+#include <array>
+#include <algorithm>
+#include <cctype>
 
 //fix tempates
 //**rootNode vs *& rootNode?
 // * vs *&?
+//test
 template <class T>
 class BSTList
 {
@@ -22,7 +26,7 @@ public:
 	void setRoot(BSTNode<T>* const newRoot);
 	void insert(BSTNode<T> *Node);//make this *&?
 
-	void threadedMorseLoop( array<string, 40> &morseArray, std::ifstream &tableFile);
+	void threadedMorseLoop(array<string, 40> &morseArray, std::ifstream &tableFile);
 	void threadedInputLoop(vector<char> &convertVector, std::ifstream &inputFile) const;
 	static BSTNode<T> * makeNode();
 private:
@@ -35,12 +39,13 @@ private:
 template<class T>
 BSTList<T>::BSTList()
 {
+	rootNode = nullptr;
 	std::ifstream tableFile("MorseTable.txt", std::ios::in);
-	std::ifstream inputFile("Convert.txt",std::ios::in);
+	std::ifstream inputFile("Convert.txt", std::ios::in);
 	array<string, 40> morseArray;//
 	vector<char>convertVector;
 	morseArray[0] = "This is a placeholder for my own sanity.";
-	
+
 	threadedMorseLoop(morseArray, tableFile);
 	threadedInputLoop(convertVector, inputFile);
 	//std::thread mLoop(&BSTList::threadedMorseLoop, std::ref(morseArray), tableFile);//Needs &BSTList:: if done in constructor much like with structs
@@ -89,7 +94,7 @@ void BSTList<T>::insert(BSTNode<T> * Node)
 }
 
 template<class T>
-void BSTList<T>::threadedMorseLoop(array<string, 40> &morseArray, std::ifstream &tableFile) 
+void BSTList<T>::threadedMorseLoop(array<string, 40> &morseArray, std::ifstream &tableFile)
 {
 	auto i = 0;
 	while (!tableFile.eof())//maybe thread
@@ -151,7 +156,7 @@ void BSTList<T>::BSTPrint(BSTNode<T>* &rootNode)//we will need to fix this later
 	if (rootNode != nullptr)
 	{
 		BSTPrint(rootNode->getLeft());
-		cout << rootNode->getString();
+		cout << rootNode->getString() << endl; //only goes to X and only prints alphabet
 		BSTPrint(rootNode->getRight());
 
 	}
@@ -161,10 +166,10 @@ template<class T>
 void BSTList<T>::BSTSearch(BSTNode<T>*& rootNode, vector<char>& convertVector)
 {
 	static auto i = 0;
-	if(rootNode != nullptr)
+	if (rootNode != nullptr)
 	{
 		BSTSearch(rootNode->getLeft(), convertVector);
-		if(rootNode->getData()==convertVector[i])
+		if (rootNode->getData() == convertVector[i])
 		{
 			cout << rootNode->getString();
 		}

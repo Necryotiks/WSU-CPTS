@@ -1,9 +1,9 @@
 ﻿  Header.cpp
-c:\users\necryotiks\documents\github\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(114): warning C4018: '<': signed/unsigned mismatch
-  c:\users\necryotiks\documents\github\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(109): note: while compiling class template member function 'void BSTList<char>::threadedInputLoop(std::vector<char,std::allocator<char>> &,std::ifstream &) const'
-  c:\users\necryotiks\documents\github\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(45): note: see reference to function template instantiation 'void BSTList<char>::threadedInputLoop(std::vector<char,std::allocator<char>> &,std::ifstream &) const' being compiled
-  c:\users\necryotiks\documents\github\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(37): note: while compiling class template member function 'BSTList<char>::BSTList(void)'
-  c:\users\necryotiks\documents\github\wsu-cpts\morse code lookup bst\morse code lookup bst\header.cpp(7): note: see reference to function template instantiation 'BSTList<char>::BSTList(void)' being compiled
-  c:\users\necryotiks\documents\github\wsu-cpts\morse code lookup bst\morse code lookup bst\header.cpp(7): note: see reference to class template instantiation 'BSTList<char>' being compiled
-  Morse Code Lookup BST.vcxproj -> C:\Users\Necryotiks\Documents\GitHub\WSU-CPTS\Morse Code Lookup BST\Debug\Morse Code Lookup BST.exe
-  Morse Code Lookup BST.vcxproj -> C:\Users\Necryotiks\Documents\GitHub\WSU-CPTS\Morse Code Lookup BST\Debug\Morse Code Lookup BST.pdb (Full PDB)
+c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(119): warning C4018: '<': signed/unsigned mismatch
+  c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(114): note: while compiling class template member function 'void BSTList<char>::threadedInputLoop(std::vector<char,std::allocator<char>> &,std::ifstream &) const'
+  c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(50): note: see reference to function template instantiation 'void BSTList<char>::threadedInputLoop(std::vector<char,std::allocator<char>> &,std::ifstream &) const' being compiled
+  c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(41): note: while compiling class template member function 'BSTList<char>::BSTList(void)'
+  c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\header.cpp(7): note: see reference to function template instantiation 'BSTList<char>::BSTList(void)' being compiled
+  c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\header.cpp(7): note: see reference to class template instantiation 'BSTList<char>' being compiled
+  Morse Code Lookup BST.vcxproj -> C:\Users\Necryotiks\Documents\Git_Repos\WSU-CPTS\Morse Code Lookup BST\Debug\Morse Code Lookup BST.exe
+  Morse Code Lookup BST.vcxproj -> C:\Users\Necryotiks\Documents\Git_Repos\WSU-CPTS\Morse Code Lookup BST\Debug\Morse Code Lookup BST.pdb (Full PDB)

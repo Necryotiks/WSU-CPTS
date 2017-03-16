@@ -5,5 +5,5 @@
 void runapp()
 {
 	BSTList<char> OBJ; //why does this need to be a pointer???
-	OBJ.BSTPrint();
+	system("pause");
 }
