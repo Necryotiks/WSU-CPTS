@@ -22,8 +22,8 @@ public:
 
 	void BSTPrint();
 	void BSTSearch(vector<char>&convertVector, int &i);
-	void BSTKeycheck(array<string, 56> &morseArray, vector<char>&convertVector, int &i);//checks for characters not in morse table.
-
+	static void BSTKeycheck(array<string, 56> &morseArray, vector<char>&convertVector);//checks for characters not in morse table.
+	void BSTDeleteTree();
 
 	BSTNode<T> *& getRoot();
 
@@ -34,12 +34,14 @@ public:
 	void threadedInputLoop(vector<char> &convertVector, std::ifstream &inputFile) const;
 
 
+
 	static BSTNode<T> * makeNode();
 private:
 	BSTNode<T> * rootNode;
 	void insert(BSTNode<T> *&rootNode, BSTNode<T> *& Node); //**rootNode vs *& rootNode? and make * into a *&?
 	void BSTPrint(BSTNode<T> *&rootNode);//ask about pass by reference rootnode.
 	bool BSTSearch(BSTNode<T> *&rootNode, vector<char>&convertVector, int &i);
+	void BSTDeleteTree(BSTNode<T> *& rootNode);
 };
 
 template<class T>
@@ -48,7 +50,7 @@ BSTList<T>::BSTList()
 	rootNode = nullptr;
 	std::ifstream tableFile("MorseTable.txt", std::ios::in);
 	std::ifstream inputFile("Convert.txt", std::ios::in);
-	array<string, 56> morseArray;//
+	array<string, 56> morseArray;//replace with vector during optimization pass.
 	vector<char>convertVector;
 	auto i = 0;
 	morseArray[0] = "This is a placeholder for my own sanity.";
@@ -59,6 +61,7 @@ BSTList<T>::BSTList()
 	std::thread iLoop(&BSTList::threadedInputLoop, this, ref(convertVector), ref(inputFile));//std::ref needed if passing in references
 	mLoop.join();
 	iLoop.join();
+	BSTKeycheck(morseArray, convertVector);
 	while (i < convertVector.size())//stops prints on the 5th time through
 	{
 		BSTSearch(convertVector, i);
@@ -69,7 +72,8 @@ BSTList<T>::BSTList()
 template<class T>
 BSTList<T>::~BSTList()
 {
-	//need to deconstruct tree
+	BSTDeleteTree();
+	cout << "Tree deconstructed" << endl;
 }
 
 template<class T>
@@ -83,6 +87,36 @@ template<class T>
 void BSTList<T>::BSTSearch(vector<char>& convertVector, int &i)
 {
 	BSTSearch(this->rootNode, convertVector, i);
+}
+
+template<class T>
+void BSTList<T>::BSTKeycheck(array<string, 56>& morseArray, vector<char>& convertVector)
+{
+	static auto i = 0;
+	while (i != convertVector.size())
+	{
+		auto j = 0;
+
+		for (j = 0; j < morseArray.size(); j++)
+		{
+			if(morseArray[j][0]==convertVector[i])
+			{
+				i++;
+				break;
+			}
+		}
+		if(j==morseArray.size())
+		{
+			convertVector[i] = '?';
+		}
+	}
+
+}
+
+template<class T>
+void BSTList<T>::BSTDeleteTree()
+{
+	BSTDeleteTree(this->rootNode);
 }
 
 template<class T>
@@ -136,7 +170,6 @@ void BSTList<T>::threadedInputLoop(vector<char> &convertVector, std::ifstream &i
 		}
 	}
 }
-
 template<class T>
 BSTNode<T>* BSTList<T>::makeNode()
 {
@@ -202,6 +235,17 @@ bool BSTList<T>::BSTSearch(BSTNode<T>*& rootNode, vector<char>& convertVector, i
 			}
 			BSTSearch(rootNode->getRight(), convertVector, i);
 		}
+	}
+}
+
+template<class T>
+void BSTList<T>::BSTDeleteTree(BSTNode<T>*& rootNode)
+{
+	if (rootNode != nullptr)
+	{
+		BSTDeleteTree(rootNode->getLeft());
+		BSTDeleteTree(rootNode->getRight());//delete at bottom instead of mid inorder to travers the whole tree.
+		delete rootNode;
 	}
 }
 
