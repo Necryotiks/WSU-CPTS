@@ -1,0 +1,120 @@
+BSTList<T> OBJ;
+
+template <class T>
+class BSTList
+{
+public:
+	BSTList();
+	~BSTList();
+
+	void BSTPrint();
+	void BSTDeleteTree();
+
+	BSTNode<T> *& getRoot();
+
+	void setRoot(BSTNode<T>* const newRoot);
+	void insert(BSTNode<T> *&Node);
+	//needs node data collection
+
+	static BSTNode<T> * makeNode();
+private:
+	BSTNode<T> * rootNode;
+	void insert(BSTNode<T> *&rootNode, BSTNode<T> *& Node); 
+	void BSTPrint(BSTNode<T> *&rootNode);
+	void BSTDeleteTree(BSTNode<T> *& rootNode);
+};
+
+template<class T>
+BSTList<T>::BSTList()
+{
+//put list construction here...or not.
+}
+
+template<class T>
+BSTList<T>::~BSTList()
+{
+	BSTDeleteTree();
+	cout << "Tree deconstructed" << endl;
+}
+
+template<class T>
+void BSTList<T>::BSTPrint()
+{
+	BSTPrint(this->rootNode);
+}
+
+template<class T>
+void BSTList<T>::BSTDeleteTree()
+{
+	BSTDeleteTree(this->rootNode);
+}
+
+template<class T>
+BSTNode<T>*& BSTList<T>::getRoot()
+{
+	return rootNode;
+}
+
+template<class T>
+void BSTList<T>::setRoot(BSTNode<T>* const newRoot)
+{
+	rootNode = newRoot;
+}
+
+template<class T>
+void BSTList<T>::insert(BSTNode<T> *& Node)
+{
+	insert(this->rootNode, Node);
+}
+
+template<class T>
+BSTNode<T>* BSTList<T>::makeNode()
+{
+	return new BSTNode<T>;
+}
+
+template<class T>
+void BSTList<T>::insert(BSTNode<T>*& rootNode, BSTNode<T> *& Node)
+{
+	if (rootNode == nullptr)
+	{
+		rootNode = Node;
+	}
+	else if (Node->getData() < rootNode->getData())
+	{
+		insert(rootNode->getLeft(), Node);
+	}
+	else if (Node->getData() > rootNode->getData())
+	{
+		insert(rootNode->getRight(), Node);
+	}
+	else
+	{
+		cout << "duplicate" << endl;
+	}
+}
+
+template<class T>
+void BSTList<T>::BSTPrint(BSTNode<T>* &rootNode)//in order print.
+{
+	if (rootNode != nullptr)
+	{
+		BSTPrint(rootNode->getLeft());
+		//print something
+		BSTPrint(rootNode->getRight());
+
+	}
+}
+template<class T>
+void BSTList<T>::BSTDeleteTree(BSTNode<T>*& rootNode)
+{
+	if (rootNode != nullptr)
+	{
+		BSTDeleteTree(rootNode->getLeft());
+		BSTDeleteTree(rootNode->getRight());//delete at bottom instead of mid inorder to travers the whole tree.
+		delete rootNode;
+	}
+}
+//BST tree template
+//Needs BST node template to function
+//All that is needed is data collection loop for node.
