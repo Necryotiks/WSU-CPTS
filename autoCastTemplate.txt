@@ -9,3 +9,4 @@ T autoCast(U castTarget)
 //Useful for preventing users from breaking your defined program type inputs(i.e do while menu,switch);
 //Will return default value on data input mismatch.
 //<int> is default seeting for use with numbered menus.
+
