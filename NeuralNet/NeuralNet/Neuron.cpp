@@ -45,7 +45,7 @@ void Neuron::calcOutputGradients(double targetOutputs)
 
 void Neuron::calcHiddenGradients(const Layer & nextLayer)
 {
-	double DOW = sumDOW(nextLayer);
+	auto DOW = sumDOW(nextLayer);
 	mGradient = DOW*transferFunctionDerivative(mOutput);
 }
 
@@ -54,7 +54,7 @@ void Neuron::updateInputWeights(Layer & prevLayer)
 	//weights are stored in synapse vector in the preceding layer
 	for (auto NEURON_NUMBER = 0; NEURON_NUMBER < prevLayer.size(); ++NEURON_NUMBER)
 	{
-		Neuron &neuron = prevLayer[NEURON_NUMBER];
+		auto &neuron = prevLayer[NEURON_NUMBER];//type Neuron.
 		auto oldDeltaWeight = neuron.mOuputWeights[mMyIndex].changeInWeight;
 		auto newDeltaWeight = ETA * neuron.getOutput()*mGradient + ALPHA * oldDeltaWeight;
 		neuron.mOuputWeights[mMyIndex].changeInWeight = newDeltaWeight;

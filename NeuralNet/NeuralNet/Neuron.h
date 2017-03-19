@@ -8,7 +8,7 @@ class Neuron
 public:
 	
 	Neuron(int numOutputs, int MyIndex);
-	typedef std::vector<Neuron> Layer;
+	typedef vector<Neuron> Layer;
 	void setOutput(double val);
 	double getOutput()const;
 	void feedForward(Layer &prevLayer);
@@ -24,7 +24,7 @@ private:
 	static double transferFunction(double sum);
 	static double transferFunctionDerivative(double sum);
 	double mGradient;
-	double Neuron::overallNetLearningRate;//0.0 through 1.0
-	double Neuron::momentum;//0.0 through 1.0,multiplyer of last weight change
+	double overallNetLearningRate;//0.0 through 1.0
+	double momentum;//0.0 through 1.0,multiplyer of last weight change
 };
 
