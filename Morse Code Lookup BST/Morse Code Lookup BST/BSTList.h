@@ -14,6 +14,7 @@
 //transform is a useful function for converting whole strings.
 //std::thread takes alot of steps
 //REFERENCE EVERYTHING.
+//AWAITING OPTIMIZATION.
 template <class T>
 class BSTList
 {
@@ -97,11 +98,10 @@ void BSTList<T>::BSTSearch(vector<char>& convertVector, int &i)
 template<class T>
 void BSTList<T>::BSTKeycheck(array<string, 56>& morseArray, vector<char>& convertVector)
 {
+	auto j = 0;
 	static auto i = 0;
 	while (i != convertVector.size())
 	{
-		auto j = 0;
-
 		for (j = 0; j < morseArray.size(); j++)
 		{
 			if(morseArray[j][0]==convertVector[i])
