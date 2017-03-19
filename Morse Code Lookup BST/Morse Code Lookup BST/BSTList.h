@@ -6,6 +6,7 @@
 #include <array>
 #include <algorithm>
 #include <cctype>
+#include <cassert>
 
 //fix tempates(done)
 //**rootNode vs *& rootNode? just use *&
@@ -50,6 +51,8 @@ BSTList<T>::BSTList()
 	rootNode = nullptr;
 	std::ifstream tableFile("MorseTable.txt", std::ios::in);
 	std::ifstream inputFile("Convert.txt", std::ios::in);
+	assert(tableFile.is_open());//checks if file is open, if not throw error.
+	assert(inputFile.is_open());
 	array<string, 56> morseArray;//replace with vector during optimization pass.
 	vector<char>convertVector;
 	auto i = 0;
@@ -66,6 +69,8 @@ BSTList<T>::BSTList()
 	{
 		BSTSearch(convertVector, i);
 	}
+	tableFile.close();
+	inputFile.close();
 
 }
 
