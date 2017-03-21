@@ -1,5 +1,6 @@
 #pragma once
 #include "Header.h"
+#include <cassert>
 
 //use UserErrorCorrection with template
 template <class T>//maybe make string generic vector?
@@ -12,8 +13,8 @@ public:
 	BSTNode<T> *& getLeft();
 	BSTNode<T> *& getRight();
 	string getString() const;
-	bool setData(T &newData);
-	bool setString(string &newString);
+	void setData(T &newData);
+	void setString(string &newString);
 private:
 	T data;
 	string compareStr;
@@ -60,23 +61,15 @@ string BSTNode<T>::getString() const
 }
 
 template<class T>
-bool BSTNode<T>::setData(T &newData)
+void BSTNode<T>::setData(T &newData)
 {
 	data = newData;
-	if(data != newData)
-	{
-		return false;
-	}
-	return true;
+	assert(data == newData);
 }
 
 template<class T>
-bool BSTNode<T>::setString(string & newString)
+void BSTNode<T>::setString(string & newString)
 {
 	compareStr = newString;
-	if (compareStr != newString)
-	{
-		return false;
-	}
-	return true;
+	assert(compareStr == newString);
 }

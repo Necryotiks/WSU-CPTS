@@ -15,6 +15,7 @@
 //std::thread takes alot of steps
 //REFERENCE EVERYTHING.
 //AWAITING OPTIMIZATION.
+
 template <class T>
 class BSTList
 {
@@ -24,7 +25,7 @@ public:
 
 	void BSTPrint();
 	void BSTSearch(vector<char>&convertVector, int &i);
-	static void BSTKeycheck(array<string, 56> &morseArray, vector<char>&convertVector);//checks for characters not in morse table.
+	static void BSTKeycheck(vector<string> &morseArray, vector<char>&convertVector);//checks for characters not in morse table.
 	void BSTDeleteTree();
 
 	BSTNode<T> *& getRoot();
@@ -32,7 +33,7 @@ public:
 	void setRoot(BSTNode<T>* const newRoot);
 	void insert(BSTNode<T> *&Node);//make this *&?
 
-	void threadedMorseLoop(array<string, 56> &morseArray, std::ifstream &tableFile);
+	void threadedMorseLoop(vector<string> &morseArray, std::ifstream &tableFile);
 	void threadedInputLoop(vector<char> &convertVector, std::ifstream &inputFile) const;
 
 
@@ -54,10 +55,9 @@ BSTList<T>::BSTList()
 	std::ifstream inputFile("Convert.txt", std::ios::in);
 	assert(tableFile.is_open());//checks if file is open, if not throw error.
 	assert(inputFile.is_open());
-	array<string, 56> morseArray;//replace with vector during optimization pass.
+	vector<string> morseArray;//replace with vector during optimization pass.
 	vector<char>convertVector;
 	auto i = 0;
-	morseArray[0] = "This is a placeholder for my own sanity.";
 
 	/*threadedMorseLoop(morseArray, tableFile);
 	threadedInputLoop(convertVector, inputFile); left for posterity*/
@@ -70,9 +70,6 @@ BSTList<T>::BSTList()
 	{
 		BSTSearch(convertVector, i);
 	}
-	tableFile.close();
-	inputFile.close();
-
 }
 
 template<class T>
@@ -96,7 +93,7 @@ void BSTList<T>::BSTSearch(vector<char>& convertVector, int &i)
 }
 
 template<class T>
-void BSTList<T>::BSTKeycheck(array<string, 56>& morseArray, vector<char>& convertVector)
+void BSTList<T>::BSTKeycheck(vector<string>& morseArray, vector<char>& convertVector)
 {
 	auto j = 0;
 	static auto i = 0;
@@ -143,19 +140,24 @@ void BSTList<T>::insert(BSTNode<T> *& Node)
 }
 
 template<class T>
-void BSTList<T>::threadedMorseLoop(array<string, 56> &morseArray, std::ifstream &tableFile)
+void BSTList<T>::threadedMorseLoop(vector<string> &morseArray, std::ifstream &tableFile)
 {
 	auto i = 0;
 	while (!tableFile.eof())//maybe thread
 	{
-		i++;
+		
 		BSTNode<T>* Node = new BSTNode<T>;
-		getline(tableFile, morseArray[i]);//reads whole line.
+		string temp;
+		getline(tableFile, temp);//reads whole line.
+		morseArray.push_back(temp);
 		morseArray[i].erase(remove_if(morseArray[i].begin(), morseArray[i].end(), isspace), morseArray[i].end());//removes whitespace and then shrinks string length(sourced from Stack Overflow).Remove_if removes predicate value and shuffles data around and returns a pointer to where the end should be.
 		Node->setData(morseArray[i][0]);//Reads first character in each string.
 		Node->setString(morseArray[i].substr(1, string::npos));//reads morse characters excluding alpha characters.
 		insert(Node);
+		i++;
 	}
+	tableFile.close();
+	assert(!tableFile.is_open());
 }
 
 template<class T>
@@ -174,6 +176,8 @@ void BSTList<T>::threadedInputLoop(vector<char> &convertVector, std::ifstream &i
 			convertVector.push_back(toupper(temp[j]));
 		}
 	}
+	inputFile.close();
+	assert(!inputFile.is_open());
 }
 template<class T>
 BSTNode<T>* BSTList<T>::makeNode()

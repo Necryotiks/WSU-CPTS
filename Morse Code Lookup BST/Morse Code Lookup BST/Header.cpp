@@ -4,5 +4,5 @@
 
 void runapp()
 {
-	BSTList<char> OBJ; //why does this need to be a pointer???
+	BSTList<char> OBJ;
 }
