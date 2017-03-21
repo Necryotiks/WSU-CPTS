@@ -203,6 +203,7 @@ void List::displayWeeklyDietPlan() const// FIx THIS
 		cout << pCur->FObj.DietOBJ;
 		pCur = pCur->pNext;
 	}
+	system("pause");
 }
 
 void List::displayWeeklyExercisePlan() const
@@ -213,6 +214,7 @@ void List::displayWeeklyExercisePlan() const
 		cout << pCur->FObj.ExerciseOBJ;
 		pCur = pCur->pNext;
 	}
+	system("pause");
 }
 
 void List::storeDailyDietPlan(fstream& Dietfile) const//needs more
