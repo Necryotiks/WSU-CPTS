@@ -28,7 +28,7 @@ double Neuron::getOutput()const
 void Neuron::feedForward(Layer & prevLayer)
 {
 	auto sum = 0.0;
-	for (auto n = 0; n < prevLayer.size(); ++n) //where n is the neuron number
+	for (auto NEURON_NUMBER = 0; NEURON_NUMBER < prevLayer.size(); ++NEURON_NUMBER) //where n is the neuron number
 	{
 		//sum previous layers output(with bias node) times Synapse weights.
 		sum += prevLayer[n].mOutput*prevLayer[n].mOuputWeights[mMyIndex].weight;

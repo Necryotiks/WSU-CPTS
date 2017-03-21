@@ -1,7 +1,7 @@
 #pragma once
 #include "Header.h"
 #include "Synapse.h"
-#include <vector>
+
 
 class Neuron
 {

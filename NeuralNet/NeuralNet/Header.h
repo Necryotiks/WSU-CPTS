@@ -4,7 +4,7 @@
 #include <cstdlib>
 #include <vector>
 #include <string>
-#include <sstream>
+#include <fstream>
 #include <cassert>
 #include <cmath>
 
@@ -19,3 +19,6 @@
 using std::vector;
 using std::cout;
 using std::endl;
+using std::getline;
+using std::fstream;
+using std::string;
