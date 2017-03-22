@@ -387,7 +387,7 @@ void List::storeWeeklyDietPlan(fstream& Dietfile) const
 {
 	auto * pCur = headnode;
 	Dietfile.seekg(std::ios::beg);
-	while (pCur != nullptr)
+	while (pCur->pNext != nullptr)
 	{
 		Dietfile << pCur->FObj.DietOBJ;
 		cout << pCur->FObj.DietOBJ;
@@ -426,8 +426,6 @@ void List::displayMenu(fstream& Dietfile, fstream& Exercisefile) const
 		cout << "9. Edit Node." << endl;
 		cout << "10. Exit" << endl;
 		cin >> inval;
-		cin.clear();
-		cin.ignore();
 		switch (userErrorCorrection(inval))
 		{
 		case 1:
@@ -435,12 +433,14 @@ void List::displayMenu(fstream& Dietfile, fstream& Exercisefile) const
 			cout << Color(TEXT_GREEN,"File preloaded for your convenience.") << endl;
 			Color();
 			inval = 0;
+			system("pause");
 			break;
 		case 2:
 			system("cls");
 			cout << Color(TEXT_GREEN, "File preloaded for your convenience.") << endl;
 			Color();
 			inval = 0;
+			system("pause");
 			break;
 		case 3: storeWeeklyDietPlan(Dietfile);
 			break;

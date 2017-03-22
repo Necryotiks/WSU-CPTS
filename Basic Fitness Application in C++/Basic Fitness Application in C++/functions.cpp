@@ -12,8 +12,8 @@ void runapp()
 	List obj;
 	obj.AssembleList(Dietfile, Exercisefile, obj);
 	obj.displayMenu(Dietfile, Exercisefile);
-	Dietfile.close();
-	Exercisefile.close();
+//	Dietfile.close();
+	//Exercisefile.close();
 }
 
 int userErrorCorrection(int target)
