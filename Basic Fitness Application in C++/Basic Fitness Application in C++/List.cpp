@@ -385,7 +385,7 @@ void List::storeDailyExercisePlan(fstream& Exercisefile) const//needs more
 
 void List::storeWeeklyDietPlan(fstream& Dietfile) const
 {
-	auto pCur = headnode;
+	auto * pCur = headnode;
 	Dietfile.seekg(std::ios::beg);
 	while (pCur != nullptr)
 	{
@@ -393,12 +393,13 @@ void List::storeWeeklyDietPlan(fstream& Dietfile) const
 		cout << pCur->FObj.DietOBJ;
 		pCur = pCur->pNext;
 	}
+	system("pause");
 
 }
 
 void List::storeWeeklyExercisePlan(fstream& Exercisefile) const
 {
-	auto pCur = headnode;
+	auto * pCur = headnode;
 	Exercisefile.seekg(std::ios::beg);
 	while (pCur->pNext != nullptr)
 	{
