@@ -7,6 +7,8 @@
 #include <fstream>
 #include <cassert>
 #include <cmath>
+#include <algorithm>
+#include <sstream>
 
 #define NEURON_NUMBER n
 #define ETA overallNetLearningRate
@@ -22,3 +24,10 @@ using std::endl;
 using std::getline;
 using std::fstream;
 using std::string;
+
+void printVector(string label, vector<double> &vect);
+template<typename T, typename U>
+T autoCast(U castTarget)
+{
+	return static_cast<T>(castTarget);
+}

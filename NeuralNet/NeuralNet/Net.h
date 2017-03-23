@@ -15,6 +15,7 @@ public:
 	void feedForward(const vector<double> &inputs);
 	void backProp(const vector<double> &targetOutputs);
 	void getResults(vector<double> &results) const;
+	double getRecentAVGerror()const;
 private:
 	vector<Layer> mLayers;//2d vector: mLayers[LayerNum][NeuronNum]
 	double mError;

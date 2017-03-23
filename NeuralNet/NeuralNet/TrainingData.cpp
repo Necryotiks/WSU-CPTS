@@ -5,15 +5,23 @@ TrainingData::TrainingData(string filename)
 	mTrainingDataFile.open(filename);
 }
 
+bool TrainingData::isEof()const
+{
+	return mTrainingDataFile.eof();
+}
+
 void TrainingData::getNetData(vector<int>& netData)
 {
-	string temp;
+	std::stringstream temp;
+	
 	auto i = 0;
+	auto j = 0;
 	assert(mTrainingDataFile.is_open());
 	getline(mTrainingDataFile, temp);
-	while(temp[i] != '\0')
+	while(temp[i]!= '\0')
 	{
-		netData.push_back(temp[i]);
+		temp >> j;
+		netData.push_back(j);
 		i++;
 	}
 }

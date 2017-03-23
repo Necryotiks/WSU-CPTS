@@ -110,3 +110,8 @@ void Net::getResults(vector<double>& results) const
 		results.push_back(mLayers.back()[NEURON_NUMBER].getOutput());
 	}
 }
+
+double Net::getRecentAVGerror() const
+{
+	return mRecentErrorAvg;
+}
