@@ -9,6 +9,9 @@
 #include <cmath>
 #include <algorithm>
 #include <sstream>
+#include <array>
+#include <cctype>
+#include <locale>
 
 #define NEURON_NUMBER n
 #define ETA overallNetLearningRate
@@ -24,6 +27,7 @@ using std::endl;
 using std::getline;
 using std::fstream;
 using std::string;
+using std::isdigit;
 
 void printVector(string label, vector<double> &vect);
 template<typename T, typename U>

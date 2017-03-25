@@ -12,16 +12,22 @@ bool TrainingData::isEof()const
 
 void TrainingData::getNetData(vector<int>& netData)
 {
-	std::stringstream temp;
-	
+	string temp;
+
 	auto i = 0;
 	auto j = 0;
 	assert(mTrainingDataFile.is_open());
 	getline(mTrainingDataFile, temp);
-	while(temp[i]!= '\0')
+	auto * tempstr = new char[temp.length() - 1];
+	strncpy(tempstr, temp.c_str(), temp.length() - 1);
+	while (temp[i] != '\0')
 	{
-		temp >> j;
+		auto token = strtok(tempstr, " ");
+		j = atoi(token);
+
+		//assert(std::isdigit(j) == 1);//this is a true assert yet it fails...
 		netData.push_back(j);
+
 		i++;
 	}
 }
@@ -33,7 +39,7 @@ int TrainingData::getNextInput(vector<double>& inputs)
 	inputs.clear();
 	assert(inputs.empty());
 	getline(mTrainingDataFile, temp);
-	while(temp[i]!= '\0')
+	while (temp[i] != '\0')
 	{
 		inputs.push_back(temp[i]);
 	}
