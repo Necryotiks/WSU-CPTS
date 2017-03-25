@@ -24,9 +24,10 @@ public:
 	~BSTList();
 
 	void BSTPrint();
-	void BSTSearch(vector<char>&convertVector, int &i);
+	void BSTSearch(vector<char>&convertVector, int &i, std::fstream &Exportfile);
 	static void BSTKeycheck(vector<string> &morseArray, vector<char>&convertVector);//checks for characters not in morse table.
 	void BSTDeleteTree();
+	static void ExportData(string morse, std::fstream &Exportfile);
 
 	BSTNode<T> *& getRoot();
 
@@ -43,7 +44,7 @@ private:
 	BSTNode<T> * rootNode;
 	void insert(BSTNode<T> *&rootNode, BSTNode<T> *& Node); //**rootNode vs *& rootNode? and make * into a *&?
 	void BSTPrint(BSTNode<T> *&rootNode);//ask about pass by reference rootnode.
-	bool BSTSearch(BSTNode<T> *&rootNode, vector<char>&convertVector, int &i);
+	bool BSTSearch(BSTNode<T> *&rootNode, vector<char>&convertVector, int &i, std::fstream &Exportfile);
 	void BSTDeleteTree(BSTNode<T> *& rootNode);
 };
 
@@ -53,6 +54,7 @@ BSTList<T>::BSTList()
 	rootNode = nullptr;
 	std::ifstream tableFile("MorseTable.txt", std::ios::in);
 	std::ifstream inputFile("Convert.txt", std::ios::in);
+	std::fstream Exportfile("ExportData.txt", std::ios::out | std::ios::trunc);
 	assert(tableFile.is_open());//checks if file is open, if not throw error.
 	assert(inputFile.is_open());
 	vector<string> morseArray;//replace with vector during optimization pass.
@@ -68,8 +70,11 @@ BSTList<T>::BSTList()
 	BSTKeycheck(morseArray, convertVector);
 	while (i < convertVector.size())//stops prints on the 5th time through
 	{
-		BSTSearch(convertVector, i);
+		BSTSearch(convertVector, i,Exportfile);
 	}
+	tableFile.close();
+	inputFile.close();
+	Exportfile.close();
 }
 
 template<class T>
@@ -87,9 +92,9 @@ void BSTList<T>::BSTPrint()
 
 
 template<class T>
-void BSTList<T>::BSTSearch(vector<char>& convertVector, int &i)
+void BSTList<T>::BSTSearch(vector<char>& convertVector, int &i, std::fstream &Exportfile)
 {
-	BSTSearch(this->rootNode, convertVector, i);
+	BSTSearch(this->rootNode, convertVector, i, Exportfile);
 }
 
 template<class T>
@@ -99,7 +104,7 @@ void BSTList<T>::BSTKeycheck(vector<string>& morseArray, vector<char>& convertVe
 	static auto i = 0;
 	while (i != convertVector.size())
 	{
-		for (j = 0; j < morseArray.size(); j++)
+		for (j=0; j < morseArray.size(); j++)
 		{
 			if(morseArray[j][0]==convertVector[i])
 			{
@@ -119,6 +124,24 @@ template<class T>
 void BSTList<T>::BSTDeleteTree()
 {
 	BSTDeleteTree(this->rootNode);
+}
+
+template<class T>
+void BSTList<T>::ExportData(string morse, std::fstream &Exportfile)//Exports morse code as numbers.
+{
+	
+	for(auto i = 0; i < morse.size();i++)
+	{
+		if(morse[i]== '.')
+		{
+			Exportfile << 1;
+		}
+		else if(morse[i]=='-')
+		{
+			Exportfile << 2;
+		}
+	}
+	Exportfile << 3;
 }
 
 template<class T>
@@ -219,17 +242,18 @@ void BSTList<T>::BSTPrint(BSTNode<T>* &rootNode)
 }
 
 template<class T>
-bool BSTList<T>::BSTSearch(BSTNode<T>*& rootNode, vector<char>& convertVector, int &i)
+bool BSTList<T>::BSTSearch(BSTNode<T>*& rootNode, vector<char>& convertVector, int &i, std::fstream &Exportfile)
 {
 
 	if (rootNode != nullptr)
 	{
-		BSTSearch(rootNode->getLeft(), convertVector, i);
+		BSTSearch(rootNode->getLeft(), convertVector, i,Exportfile);
 		if (i < convertVector.size())
 		{
 			if (rootNode->getData() == convertVector[i])
 			{
 				cout << rootNode->getString() << ' ';
+				ExportData(rootNode->getString(),Exportfile);
 				i++;
 				if (i == convertVector.size())
 				{
@@ -242,7 +266,7 @@ bool BSTList<T>::BSTSearch(BSTNode<T>*& rootNode, vector<char>& convertVector, i
 					return true;
 				}
 			}
-			BSTSearch(rootNode->getRight(), convertVector, i);
+			BSTSearch(rootNode->getRight(), convertVector, i,Exportfile);
 		}
 	}
 }

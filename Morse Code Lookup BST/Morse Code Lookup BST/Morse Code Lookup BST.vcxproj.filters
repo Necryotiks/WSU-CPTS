@@ -40,5 +40,8 @@
     <Text Include="Convert.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="ExportData.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
