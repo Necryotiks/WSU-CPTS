@@ -1,0 +1,6 @@
+﻿  functions.c
+c:\users\necryotiks\documents\visual studio 2015\projects\analyzing fitbit data\analyzing fitbit data\functions.c(38): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\necryotiks\documents\visual studio 2015\projects\analyzing fitbit data\analyzing fitbit data\functions.c(69): warning C4018: '<': signed/unsigned mismatch
+c:\users\necryotiks\documents\visual studio 2015\projects\analyzing fitbit data\analyzing fitbit data\functions.c(163): warning C4018: '<': signed/unsigned mismatch
+  Analyzing Fitbit Data.vcxproj -> C:\Users\Necryotiks\Documents\Visual Studio 2015\Projects\Analyzing Fitbit Data\Debug\Analyzing Fitbit Data.exe
+  Analyzing Fitbit Data.vcxproj -> C:\Users\Necryotiks\Documents\Visual Studio 2015\Projects\Analyzing Fitbit Data\Debug\Analyzing Fitbit Data.pdb (Full PDB)
