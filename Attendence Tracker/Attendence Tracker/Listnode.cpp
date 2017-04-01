@@ -5,11 +5,11 @@
 Listnode::Listnode()
 {
 	nextptr = nullptr;
-	Record = 0;
-	idNum = 0;
+	Record = "";
+	idNum = "";
 	name = "";
 	email = "";
-	credits = 0;
+	credits = "";
 	program = "";
 	level = "";
 }
@@ -24,24 +24,24 @@ std::unique_ptr<Listnode> Listnode::getNextPtr()
 	return std::unique_ptr<Listnode>();
 }
 
-void Listnode::setRecord(int &data)
+void Listnode::setRecord(string &data)
 {
 	Record = data;
 	assert(Record == data);
 }
 
-int Listnode::getRecord() const
+string Listnode::getRecord() const
 {
 	return Record;
 }
 
-void Listnode::setID(int & ID)
+void Listnode::setID(string & ID)
 {
 	idNum = ID;
 	assert(idNum == ID);
 }
 
-int Listnode::getID() const
+string Listnode::getID() const
 {
 	return idNum;
 }
@@ -68,13 +68,13 @@ string Listnode::getEmail() const
 	return email;
 }
 
-void Listnode::setCreds(int & creds)
+void Listnode::setCreds(string & creds)
 {
 	credits = creds;
 	assert(credits == creds);
 }
 
-int Listnode::getCreds() const
+string Listnode::getCreds() const
 {
 	return credits;
 }
