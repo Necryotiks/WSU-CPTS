@@ -3,8 +3,8 @@ c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse cod
   c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(53): note: while compiling class template member function 'BSTList<char>::BSTList(void)'
   c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\header.cpp(7): note: see reference to function template instantiation 'BSTList<char>::BSTList(void)' being compiled
   c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\header.cpp(7): note: see reference to class template instantiation 'BSTList<char>' being compiled
-c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(107): warning C4018: '<': signed/unsigned mismatch
-  c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(102): note: while compiling class template member function 'void BSTList<char>::BSTKeycheck(std::vector<std::string,std::allocator<_Ty>> &,std::vector<char,std::allocator<char>> &)'
+c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(108): warning C4018: '<': signed/unsigned mismatch
+  c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(103): note: while compiling class template member function 'void BSTList<char>::BSTKeycheck(std::vector<std::string,std::allocator<_Ty>> &,std::vector<char,std::allocator<char>> &)'
           with
           [
               _Ty=std::string
@@ -16,36 +16,36 @@ c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse cod
           ]
   c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(53): note: while compiling class template member function 'BSTList<char>::BSTList(void)'
   c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\header.cpp(7): note: see reference to function template instantiation 'BSTList<char>::BSTList(void)' being compiled
-c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(193): warning C4018: '<': signed/unsigned mismatch
-  c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(188): note: while compiling class template member function 'void BSTList<char>::threadedInputLoop(std::vector<char,std::allocator<char>> &,std::ifstream &) const'
+c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(194): warning C4018: '<': signed/unsigned mismatch
+  c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(189): note: while compiling class template member function 'void BSTList<char>::threadedInputLoop(std::vector<char,std::allocator<char>> &,std::ifstream &) const'
   c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(67): note: see reference to function template instantiation 'void BSTList<char>::threadedInputLoop(std::vector<char,std::allocator<char>> &,std::ifstream &) const' being compiled
-c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(251): warning C4018: '<': signed/unsigned mismatch
-  c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(246): note: while compiling class template member function 'bool BSTList<char>::BSTSearch(BSTNode<T> *&,std::vector<char,std::allocator<char>> &,int &,std::fstream &)'
+c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(252): warning C4018: '<': signed/unsigned mismatch
+  c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(247): note: while compiling class template member function 'bool BSTList<char>::BSTSearch(BSTNode<T> *&,std::vector<char,std::allocator<char>> &,int &,std::fstream &)'
           with
           [
               T=char
           ]
-  c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(97): note: see reference to function template instantiation 'bool BSTList<char>::BSTSearch(BSTNode<T> *&,std::vector<char,std::allocator<char>> &,int &,std::fstream &)' being compiled
+  c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(98): note: see reference to function template instantiation 'bool BSTList<char>::BSTSearch(BSTNode<T> *&,std::vector<char,std::allocator<char>> &,int &,std::fstream &)' being compiled
           with
           [
               T=char
           ]
-  c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(96): note: while compiling class template member function 'void BSTList<char>::BSTSearch(std::vector<char,std::allocator<char>> &,int &,std::fstream &)'
-  c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(73): note: see reference to function template instantiation 'void BSTList<char>::BSTSearch(std::vector<char,std::allocator<char>> &,int &,std::fstream &)' being compiled
-c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(261): warning C4018: '<': signed/unsigned mismatch
-c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(133): warning C4018: '<': signed/unsigned mismatch
-  c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(131): note: while compiling class template member function 'void BSTList<char>::ExportData(std::string,std::fstream &)'
-  c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(256): note: see reference to function template instantiation 'void BSTList<char>::ExportData(std::string,std::fstream &)' being compiled
-  c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(246): note: while compiling class template member function 'bool BSTList<char>::BSTSearch(BSTNode<T> *&,std::vector<char,std::allocator<char>> &,int &,std::fstream &)'
+  c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(90): note: while compiling class template member function 'void BSTList<char>::BSTPrint(void)'
+  c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(75): note: see reference to function template instantiation 'void BSTList<char>::BSTPrint(void)' being compiled
+c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(262): warning C4018: '<': signed/unsigned mismatch
+c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(134): warning C4018: '<': signed/unsigned mismatch
+  c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(132): note: while compiling class template member function 'void BSTList<char>::ExportData(std::string,std::fstream &)'
+  c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(257): note: see reference to function template instantiation 'void BSTList<char>::ExportData(std::string,std::fstream &)' being compiled
+  c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(235): note: while compiling class template member function 'void BSTList<char>::BSTPrint(BSTNode<T> *&)'
           with
           [
               T=char
           ]
-  c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(97): note: see reference to function template instantiation 'bool BSTList<char>::BSTSearch(BSTNode<T> *&,std::vector<char,std::allocator<char>> &,int &,std::fstream &)' being compiled
+  c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(91): note: see reference to function template instantiation 'void BSTList<char>::BSTPrint(BSTNode<T> *&)' being compiled
           with
           [
               T=char
           ]
-c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(272): warning C4715: 'BSTList<char>::BSTSearch': not all control paths return a value
+c:\users\necryotiks\documents\git_repos\wsu-cpts\morse code lookup bst\morse code lookup bst\bstlist.h(273): warning C4715: 'BSTList<char>::BSTSearch': not all control paths return a value
   Morse Code Lookup BST.vcxproj -> C:\Users\Necryotiks\Documents\Git_Repos\WSU-CPTS\Morse Code Lookup BST\Debug\Morse Code Lookup BST.exe
   Morse Code Lookup BST.vcxproj -> C:\Users\Necryotiks\Documents\Git_Repos\WSU-CPTS\Morse Code Lookup BST\Debug\Morse Code Lookup BST.pdb (Full PDB)
