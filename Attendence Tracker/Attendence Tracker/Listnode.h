@@ -29,7 +29,7 @@ public:
 	void setLevel(string &lev);
 	string getLevel() const;
 
-	void setNumAbs(string &numabs);
+	void setNumAbs(string &numabs);//
 	string getNumAbs() const;
 
 	void setAbsDate(string &absdate);
