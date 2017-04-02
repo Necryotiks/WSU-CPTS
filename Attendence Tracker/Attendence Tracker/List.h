@@ -5,11 +5,13 @@
 class List
 {
 public:
-	List();
+	explicit List(std::fstream &infile);
 	~List();
 
 	void insertAtEnd(std::unique_ptr<Listnode> &Node);
-	void DeleteList(std::unique_ptr<Listnode> &headNode);
+	void insertAtFront(std::unique_ptr<Listnode> &Node);
+	void AssembleList(std::fstream &infile);
+	void DeleteList();
 private:
 	std::unique_ptr<Listnode> headNode;
 };

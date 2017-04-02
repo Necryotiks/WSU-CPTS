@@ -1,12 +1,46 @@
 #include "List.h"
 
-List::List()
+List::List(fstream &infile)
+{
+	AssembleList(infile);
+}
+List::~List()
+{
+	DeleteList();
+}
+
+void List::insertAtEnd(std::unique_ptr<Listnode> &Node)
+{
+	if (headNode == nullptr)
+	{
+		headNode = move(Node);
+	}
+	else
+	{
+		headNode = headNode->getNextPtr();
+		headNode = move(Node);//
+	}
+}
+void List::insertAtFront(std::unique_ptr<Listnode>& Node)
+{
+	std::unique_ptr<Listnode> temp;
+	if (headNode == nullptr)
+	{
+		headNode = move(Node);
+	}
+	else
+	{
+		temp->getNextPtr() = move(headNode);
+		headNode = move(temp);
+	}
+}
+void List::AssembleList(fstream & infile)//modify this for update list.
 {
 	string temp;
 	string token = "Dubs Check 'Em";
-	std::fstream infile("classList.csv", std::ios::in);
+
 	assert(infile.is_open());
-	infile.seekg(42);
+	getline(infile, temp);
 	while (!infile.eof())
 	{
 		try
@@ -38,7 +72,7 @@ List::List()
 				{
 					static auto i = 0;
 					getline(temp_s, token, ',');
-					if(i == 8)
+					if (i == 8)
 					{
 						break;
 					}
@@ -74,40 +108,21 @@ List::List()
 				}
 				catch (std::exception &e)
 				{
-					cout <<"Exception: "<< e.what() << endl;
+					cout << "Exception: " << e.what() << endl;
 				}
 
 			}
-			insertAtEnd(Node);
+			insertAtFront(Node);
 		}
 		catch (std::bad_alloc)
 		{
 			cout << "Fucking R.I.P. : Out of Memory" << endl;
 		}
-		
-	}
 
-
-}
-List::~List()
-{
-}
-
-void List::insertAtEnd(std::unique_ptr<Listnode> &Node)
-{
-	if (headNode == nullptr)
-	{
-		headNode = move(Node);
-	}
-	else
-	{
-		headNode = headNode->getNextPtr();
-		headNode = move(Node);//
 	}
 }
-
-void List::DeleteList(std::unique_ptr<Listnode>& headNode)
+void List::DeleteList()
 {
-	auto pCur = nullptr;
-
+	headNode.reset();//sends remains of list out of scope which then autodeallocates because smart ptr.
+	assert(headNode == nullptr);
 }

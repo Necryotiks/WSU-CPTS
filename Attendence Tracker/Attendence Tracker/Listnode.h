@@ -28,6 +28,12 @@ public:
 
 	void setLevel(string &lev);
 	string getLevel() const;
+
+	void setNumAbs(string &numabs);
+	string getNumAbs() const;
+
+	void setAbsDate(string &absdate);
+	string getAbsDate() const;
 private:
 	std::unique_ptr<Listnode> nextptr;
 	string Record;
@@ -37,5 +43,7 @@ private:
 	string credits;
 	string program;
 	string level;
+	string numAbs;
+	vector<string> absences;
 };
 
