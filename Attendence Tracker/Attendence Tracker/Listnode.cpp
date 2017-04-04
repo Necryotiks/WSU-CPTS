@@ -10,7 +10,7 @@ Listnode::Listnode()
 	name = "";
 	email = "";
 	credits = "";
-	numAbs = 0;
+	numAbs = "";
 	program = "";
 	level = "";
 }
@@ -20,9 +20,9 @@ Listnode::~Listnode()
 {
 }
 
-std::shared_ptr<Listnode> Listnode::getNextPtr()
+std::shared_ptr<Listnode> &Listnode::getNextPtr()
 {
-	return std::shared_ptr<Listnode>();
+	return nextptr;
 }
 
 void Listnode::setRecord(string &data)
@@ -104,16 +104,19 @@ string Listnode::getLevel() const
 
 void Listnode::setNumAbs(string & numabs)
 {
-	static auto i = 0;
-	//need to read current absences
-	if (!numabs.empty())
+	if (numAbs == "0" || numAbs == "")
 	{
-		i = stoi(numabs);
+		numAbs = numabs;
 	}
-	numAbs = i;
+	else
+	{
+		auto z = stoi(numabs);
+		z++;
+		numAbs = std::to_string(z);
+	}
 }
 
-int Listnode::getNumAbs() const
+string Listnode::getNumAbs() const
 {
 	return numAbs;
 }

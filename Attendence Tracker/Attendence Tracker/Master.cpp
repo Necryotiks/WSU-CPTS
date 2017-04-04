@@ -15,6 +15,11 @@ void runapp()
 	string regex_str = "[0-7]{1,2}";//regex 
 	std::regex reg1(regex_str, std::regex_constants::ECMAScript);
 	auto i = false;
+	if(OBJ.getHead() == nullptr)
+	{
+		cout << "head broke" << endl;
+		system("pause");
+	}
 	while (i != true)
 	{
 		system("cls");

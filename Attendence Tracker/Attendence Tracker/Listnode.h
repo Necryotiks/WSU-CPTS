@@ -6,7 +6,7 @@ public:
 	Listnode();
 	~Listnode();
 	
-	static std::shared_ptr<Listnode> getNextPtr();
+	std::shared_ptr<Listnode> &getNextPtr(); //list was the reason list wasnt linking and should not have been static.
 
 	void setRecord(string &data);
 	string getRecord() const;
@@ -30,7 +30,7 @@ public:
 	string getLevel() const;
 
 	void setNumAbs(string &numabs);//
-	int getNumAbs() const;
+	string getNumAbs() const;
 
 	void setAbsDate(string &absdate);
 	string getAbsDate() const;
@@ -43,7 +43,7 @@ private:
 	string credits;
 	string program;
 	string level;
-	int numAbs;
+	string numAbs;
 	vector<string> absences;
 };
 

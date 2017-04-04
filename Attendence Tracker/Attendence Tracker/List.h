@@ -13,6 +13,7 @@ public:
 	void UpdateList(fstream &updatefile);
 	void EditList();
 	void DeleteList();
+	std::shared_ptr<Listnode> &getHead();
 private:
 	std::shared_ptr<Listnode> headNode;
 	void insertAtFront(std::shared_ptr<Listnode> &headNode,std::shared_ptr<Listnode> &Node);
