@@ -6,7 +6,7 @@ public:
 	Listnode();
 	~Listnode();
 	
-	static std::unique_ptr<Listnode> getNextPtr();
+	static std::shared_ptr<Listnode> getNextPtr();
 
 	void setRecord(string &data);
 	string getRecord() const;
@@ -35,7 +35,7 @@ public:
 	void setAbsDate(string &absdate);
 	string getAbsDate() const;
 private:
-	std::unique_ptr<Listnode> nextptr;
+	std::shared_ptr<Listnode> nextptr;
 	string Record;
 	string idNum;
 	string name;

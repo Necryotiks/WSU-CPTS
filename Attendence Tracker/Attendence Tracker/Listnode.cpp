@@ -10,6 +10,7 @@ Listnode::Listnode()
 	name = "";
 	email = "";
 	credits = "";
+	numAbs = 0;
 	program = "";
 	level = "";
 }
@@ -19,9 +20,9 @@ Listnode::~Listnode()
 {
 }
 
-std::unique_ptr<Listnode> Listnode::getNextPtr()
+std::shared_ptr<Listnode> Listnode::getNextPtr()
 {
-	return std::unique_ptr<Listnode>();
+	return std::shared_ptr<Listnode>();
 }
 
 void Listnode::setRecord(string &data)

@@ -2,6 +2,7 @@
 
 List::List(fstream &infile)
 {
+	headNode = nullptr;
 	UpdateList(infile);
 }
 List::~List()
@@ -9,35 +10,48 @@ List::~List()
 	DeleteList();
 }
 
-void List::insertAtEnd(std::unique_ptr<Listnode> &Node)
+void List::insertAtEnd(std::shared_ptr<Listnode> &Node)
 {
 	if (headNode == nullptr)
 	{
-		headNode = move(Node);
+		headNode = Node;
 	}
 	else
 	{
 		headNode = headNode->getNextPtr();
-		headNode = move(Node);
+		headNode = Node;
 	}
 }
-void List::insertAtFront(std::unique_ptr<Listnode>& Node)
+void List::insertAtFront(std::shared_ptr<Listnode> &Node)
 {
-	std::unique_ptr<Listnode> temp;
-	if (headNode == nullptr)
+	insertAtFront(this->headNode, Node);
+}
+void List::insertAtFront(std::shared_ptr<Listnode> &headNode,std::shared_ptr<Listnode>& Node)
+{
+	std::shared_ptr<Listnode> temp;
+	temp = headNode;
+	if (temp == nullptr)
 	{
-		headNode = move(Node);
+		headNode = Node;
 	}
 	else
 	{
-		temp->getNextPtr() = move(headNode);
-		headNode = move(temp);
+		temp = Node;
+		temp->getNextPtr() = headNode;
+		headNode = temp;
+		
 	}
+}
+
+void List::EditList()
+{
+	EditList(this->headNode);
 }
 
 void List::UpdateList(fstream & updatefile)
 {//only stores first node
 	string temp;
+	auto i = 0;
 	string token = "Dubs Check 'Em";
 	assert(updatefile.is_open());
 	getline(updatefile, temp);
@@ -46,7 +60,7 @@ void List::UpdateList(fstream & updatefile)
 		try
 		{
 			auto k = 0;
-			std::unique_ptr<Listnode> Node(new Listnode);
+			std::shared_ptr<Listnode> Node(new Listnode);
 			getline(updatefile, temp);
 			while (temp[k] != '\0')
 			{
@@ -70,7 +84,6 @@ void List::UpdateList(fstream & updatefile)
 			{
 				try
 				{
-					static auto i = 0;
 					getline(temp_s, token, ',');
 					if(temp_s.eof())
 					{
@@ -108,24 +121,23 @@ void List::UpdateList(fstream & updatefile)
 						break;
 
 					}
-
 				}
 				catch (std::exception &e)
 				{
 					cout << "Exception: " << e.what() << endl;
 				}
-
 			}
-			
+			i = 0;
+			insertAtFront(Node);
 		}
 		catch (std::bad_alloc)
 		{
 			cout << "Fucking R.I.P. : Out of Memory" << endl;
 		}
-		insertAtFront(Node);
+		
 	}
 }
-void List::EditList()
+void List::EditList(std::shared_ptr<Listnode>& headNode)
 {
 	string regex_key = "[A-Za-z]{4,8}";
 	std::regex rgx(regex_key, std::regex_constants::ECMAScript);
@@ -133,18 +145,18 @@ void List::EditList()
 	auto x = false;
 	static auto z = 0;
 	string input;
-	std::unique_ptr<Listnode>pCur = move(headNode);//need to reset headnode
-	while(x != true)
+	std::shared_ptr<Listnode>pCur = headNode;//need to reset headnode
+	while (x != true)
 	{
 		system("cls");
 		cout << "Select a student:" << endl;
-		while(pCur->getNextPtr() != nullptr)
+		while (pCur->getNextPtr() != nullptr)
 		{
 			z++;
 			cout << z << pCur->getName() << endl;
-			
+
 		}
-		pCur = move(headNode);
+		pCur = headNode;
 		cin >> input;
 		x = regex_match(input, match_str, rgx);
 	}
