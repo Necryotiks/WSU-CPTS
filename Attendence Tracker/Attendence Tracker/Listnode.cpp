@@ -100,3 +100,33 @@ string Listnode::getLevel() const
 {
 	return level;
 }
+
+void Listnode::setNumAbs(string & numabs)
+{
+	static auto i = 0;
+	//need to read current absences
+	if (!numabs.empty())
+	{
+		i = stoi(numabs);
+	}
+	numAbs = i;
+}
+
+int Listnode::getNumAbs() const
+{
+	return numAbs;
+}
+
+void Listnode::setAbsDate(string & absdate)
+{
+	absences.push_back(absdate);
+}
+
+string Listnode::getAbsDate() const
+{
+	static auto j = 0;
+	string temp = absences[j];
+	j++;
+	return temp;
+
+}

@@ -2,7 +2,7 @@
 
 List::List(fstream &infile)
 {
-	AssembleList(infile);
+	UpdateList(infile);
 }
 List::~List()
 {
@@ -18,7 +18,7 @@ void List::insertAtEnd(std::unique_ptr<Listnode> &Node)
 	else
 	{
 		headNode = headNode->getNextPtr();
-		headNode = move(Node);//
+		headNode = move(Node);
 	}
 }
 void List::insertAtFront(std::unique_ptr<Listnode>& Node)
@@ -34,20 +34,20 @@ void List::insertAtFront(std::unique_ptr<Listnode>& Node)
 		headNode = move(temp);
 	}
 }
-void List::AssembleList(fstream & infile)//modify this for update list.
-{
+
+void List::UpdateList(fstream & updatefile)
+{//only stores first node
 	string temp;
 	string token = "Dubs Check 'Em";
-
-	assert(infile.is_open());
-	getline(infile, temp);
-	while (!infile.eof())
+	assert(updatefile.is_open());
+	getline(updatefile, temp);
+	while (!updatefile.eof())
 	{
 		try
 		{
 			auto k = 0;
 			std::unique_ptr<Listnode> Node(new Listnode);
-			getline(infile, temp);
+			getline(updatefile, temp);
 			while (temp[k] != '\0')
 			{
 
@@ -72,9 +72,9 @@ void List::AssembleList(fstream & infile)//modify this for update list.
 				{
 					static auto i = 0;
 					getline(temp_s, token, ',');
-					if (i == 8)
+					if(temp_s.eof())
 					{
-						break;
+						break;//reads until end of string stream
 					}
 					i++;
 					switch (i)
@@ -100,7 +100,11 @@ void List::AssembleList(fstream & infile)//modify this for update list.
 					case 7:
 						Node->setLevel(token);
 						break;
-					default:
+					case 8:
+						Node->setNumAbs(token);
+						break;
+					default://beyond 9, read absences dates;
+							Node->setAbsDate(token);
 						break;
 
 					}
@@ -112,13 +116,37 @@ void List::AssembleList(fstream & infile)//modify this for update list.
 				}
 
 			}
-			insertAtFront(Node);
+			
 		}
 		catch (std::bad_alloc)
 		{
 			cout << "Fucking R.I.P. : Out of Memory" << endl;
 		}
-
+		insertAtFront(Node);
+	}
+}
+void List::EditList()
+{
+	string regex_key = "[A-Za-z]{4,8}";
+	std::regex rgx(regex_key, std::regex_constants::ECMAScript);
+	std::smatch match_str;
+	auto x = false;
+	static auto z = 0;
+	string input;
+	std::unique_ptr<Listnode>pCur = move(headNode);//need to reset headnode
+	while(x != true)
+	{
+		system("cls");
+		cout << "Select a student:" << endl;
+		while(pCur->getNextPtr() != nullptr)
+		{
+			z++;
+			cout << z << pCur->getName() << endl;
+			
+		}
+		pCur = move(headNode);
+		cin >> input;
+		x = regex_match(input, match_str, rgx);
 	}
 }
 void List::DeleteList()

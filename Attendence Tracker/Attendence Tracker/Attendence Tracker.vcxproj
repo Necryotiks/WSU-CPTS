@@ -154,7 +154,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="classList.csv" />
-    <None Include="UpdateFile.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

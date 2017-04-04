@@ -30,7 +30,7 @@ public:
 	string getLevel() const;
 
 	void setNumAbs(string &numabs);//
-	string getNumAbs() const;
+	int getNumAbs() const;
 
 	void setAbsDate(string &absdate);
 	string getAbsDate() const;
@@ -43,7 +43,7 @@ private:
 	string credits;
 	string program;
 	string level;
-	string numAbs;
+	int numAbs;
 	vector<string> absences;
 };
 
