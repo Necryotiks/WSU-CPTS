@@ -133,12 +133,11 @@ string Listnode::getAbsDate() const //nned marker for new node.
 
 string Listnode::getAbsDate(int i) const //ask josh
 {
-
+	auto j = i;
 	string temp;
-	if (i < absences.size())
+	if (j < absences.size())
 	{
-		temp = absences[i];
-		i++;
+		temp = absences[j];
 	}
 	return temp;
 }

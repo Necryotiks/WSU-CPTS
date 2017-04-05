@@ -145,12 +145,14 @@
     <ClInclude Include="List.h" />
     <ClInclude Include="Listnode.h" />
     <ClInclude Include="Master.h" />
+    <ClInclude Include="Menu.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="List.cpp" />
     <ClCompile Include="Listnode.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Master.cpp" />
+    <ClCompile Include="Menu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="classList.csv" />

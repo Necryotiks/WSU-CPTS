@@ -24,6 +24,5 @@ using std::cin;
 using std::fstream;
 using std::chrono::system_clock;
 
-void runapp();
-
+void run_exe();
 string currentTime();

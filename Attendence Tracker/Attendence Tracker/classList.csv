@@ -1,5 +1,5 @@
 Record,ID,Name,Email,Units,Program,Level,NumberofAbs,AbsDates
-1,1111,"Smith,John",smithj@cpts122.edu,4,CS,Freshman,0,NUL
+1,1111,"Smith,John",smithj@cpts122.edu,4,CS,Freshman,0,NUL,NUL2
 2,8147,"Beck,Sara",sara@cpts122.edu,4,EE,Junior,0,NUL
 3,1121,"Leinart,Timothy",tim@cpts122.edu,4,EE,Junior,0,NUL
 4,4478,"Art,Bruce",bart@cpts122.edu,AU,CPTE,Freshman,0,NUL

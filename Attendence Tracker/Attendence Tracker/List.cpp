@@ -18,7 +18,7 @@ void List::insertAtEnd(std::shared_ptr<Listnode> &Node)
 	}
 	else
 	{
-		std::shared_ptr<Listnode> Prev = headNode;
+		auto Prev = headNode;
 		while (Prev->getNextPtr())
 		{
 			Prev = Prev->getNextPtr();
@@ -32,7 +32,7 @@ void List::insertAtFront(std::shared_ptr<Listnode> &Node)
 }
 void List::insertAtFront(std::shared_ptr<Listnode> &headNode, std::shared_ptr<Listnode>& Node)
 {
-	std::shared_ptr<Listnode> temp = headNode;
+	auto temp = headNode;
 	if (headNode == nullptr)
 	{
 		headNode = Node;
@@ -154,7 +154,7 @@ void List::EditList(std::shared_ptr<Listnode>& headNode)
 	auto z = 0;
 	auto v = false;
 	string input1;
-	std::shared_ptr<Listnode>pCur = headNode;//need to reset headnode
+	auto pCur = headNode;//need to reset headnode
 	while (x != true)
 	{
 		system("cls");
@@ -271,7 +271,7 @@ void List::EditList(std::shared_ptr<Listnode>& headNode)
 						}
 						pCur = headNode;
 						z = z + 1;
-						string token = std::to_string(z);
+						auto token = std::to_string(z);
 						Node->setRecord(token);
 						cout << "Record number incremented." << endl;
 						system("pause");
@@ -350,7 +350,7 @@ void List::EditList(std::shared_ptr<Listnode>& headNode)
 					else if (match_str2[0] == "9")
 					{
 						string tstr;
-						string temp = currentTime();
+						auto temp = currentTime();
 						cout << "Is student absent: " << endl;
 						cout << "Y/N";
 						cin >> tstr;
@@ -372,31 +372,86 @@ void List::EditList(std::shared_ptr<Listnode>& headNode)
 		}
 		else if (match_str[0] == "2")
 		{
-			//string regexthing = "[0-9]{1,2}";
-			//std::regex rgxc(regexthing, std::regex_constants::ECMAScript);
-			//std::smatch match_str2;
-			//string xyz;
-			//pCur = headNode;
-			//cout << "Enter a student record number: " << endl;
-			//while (pCur != nullptr)
-			//{
+			string regexthing = "[0-9]{1,2}";
+			std::regex rgxc(regexthing, std::regex_constants::ECMAScript);
+			std::smatch match_str2;
+			string xyz;
+			pCur = headNode;
+			auto _bool = false;
+			while (_bool != true)
+			{
+				system("cls");
+				cout << "Enter a student record number: " << endl;
+				while (pCur != nullptr)
+				{
+					auto i = 0;
+					cout << *pCur;
+					while (!pCur->getAbsDate(i).empty())//maybe
+					{
 
-			//	cout << *pCur << endl;//fix
-			//	pCur = pCur->getNextPtr();
+						cout << pCur->getAbsDate(i) << ",";
+						if (pCur->getAbsDate(i).empty())//ash josh
+						{
+							break;
+						}
+						i++;
+					}
+					pCur = pCur->getNextPtr();
+					cout << endl;
+				}
+				cout << "0. Exit" << endl;
+				pCur = headNode;//fix lator
+				cin >> xyz;
+				_bool = regex_match(xyz, match_str2, rgxc);
+				string temp2 = match_str2[0];
+				
+				DeleteNode(temp2);
+				cout << "Entry deleted";
+				pCur = headNode;
+				while (pCur != nullptr)
+				{
+					auto i = 0;
+					cout << *pCur;
+					while (!pCur->getAbsDate(i).empty())//maybe
+					{
 
-			//}
-			//pCur = headNode;//fix lator
-			//cin >> xyz;
-			//TODO: FIX
+						cout << pCur->getAbsDate(i) << ",";
+						if (pCur->getAbsDate(i).empty())//ash josh
+						{
+							break;
+						}
+						i++;
+					}
+					pCur = pCur->getNextPtr();
+					cout << endl;
+				}
+				_bool = false;
+				if(temp2 == "0")
+				{
+					_bool = true;
+				}
+			}
 		}
-
-
 	}
 }
 void List::DeleteList()
 {
 	headNode.reset();//sends remains of list out of scope which then autodeallocates because smart ptr.
 	assert(headNode == nullptr);
+}
+void List::DeleteNode(string &temp2) const
+{
+	auto pCur = headNode;
+	while (pCur->getNextPtr() !=nullptr)
+	{
+		if(temp2 == pCur->getNextPtr()->getRecord())
+		{
+			pCur->getNextPtr() = pCur->getNextPtr()->getNextPtr();
+			break;
+		}
+		pCur = pCur->getNextPtr();
+	}
+
 }
 std::shared_ptr<Listnode>& List::getHead()
 {
@@ -414,14 +469,6 @@ std::ostream & operator<<(std::ostream & lhs, Listnode & rhs)//fix
 	lhs << rhs.getProgram() << ",";
 	lhs << rhs.getLevel() << ",";
 	lhs << rhs.getNumAbs() << ",";
-	while (true)//maybe
-	{
-		lhs << rhs.getAbsDate(i) << ",";
-		if (rhs.getAbsDate().empty())//ash josh
-		{
-			break;
-		}
-		i++;
-	}
+
 	return lhs;
 }

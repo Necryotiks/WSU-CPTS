@@ -3,5 +3,5 @@
 
 int main()
 {
-	runapp();
+	run_exe();
 }
