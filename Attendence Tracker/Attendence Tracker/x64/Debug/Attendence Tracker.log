@@ -1,2 +1,3 @@
 ﻿  List.cpp
-LINK : fatal error LNK1201: error writing to program database 'C:\Users\Necryotiks\Documents\Git_Repos\WSU-CPTS\WSU-CPTS\Attendence Tracker\x64\Debug\Attendence Tracker.pdb'; check for insufficient disk space, invalid path, or insufficient privilege
+  Attendence Tracker.vcxproj -> C:\Users\Necryotiks\Documents\Git_Repos\WSU-CPTS\Attendence Tracker\x64\Debug\Attendence Tracker.exe
+  Attendence Tracker.vcxproj -> C:\Users\Necryotiks\Documents\Git_Repos\WSU-CPTS\Attendence Tracker\x64\Debug\Attendence Tracker.pdb (Full PDB)

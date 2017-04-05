@@ -245,13 +245,7 @@ void List::EditList(std::shared_ptr<Listnode>& headNode)
 						}
 						else if (Node->getNumAbs() == "")
 						{
-							cout << "Field left blank:Number of Absences. Please fill all fields." << endl;
-							system("pause");
-							v = false;
-						}
-						else if (Node->getAbsDate() == "")
-						{
-							cout << "Field left blank: Absence date(Enter null if 0). Please fill all fields." << endl;
+							cout << "Field left blank: Number of Absences. Please fill all fields." << endl;
 							system("pause");
 							v = false;
 						}
@@ -291,7 +285,7 @@ void List::EditList(std::shared_ptr<Listnode>& headNode)
 					{
 						string temp;
 						cout << "Enter a name." << endl;
-						cin >> temp;
+						getline(cin, temp);
 						Node->setName(temp);
 						cout << "Name added" << endl;
 						system("pause");
@@ -362,6 +356,8 @@ void List::EditList(std::shared_ptr<Listnode>& headNode)
 							system("pause");
 							v = false;
 						}
+						
+						v = false;
 					}
 					else
 					{
@@ -390,7 +386,7 @@ void List::EditList(std::shared_ptr<Listnode>& headNode)
 					{
 
 						cout << pCur->getAbsDate(i) << ",";
-						if (pCur->getAbsDate(i).empty())//ash josh
+						if (pCur->getAbsDate(i).empty())
 						{
 							break;
 						}
@@ -404,10 +400,50 @@ void List::EditList(std::shared_ptr<Listnode>& headNode)
 				cin >> xyz;
 				_bool = regex_match(xyz, match_str2, rgxc);
 				string temp2 = match_str2[0];
-				
-				DeleteNode(temp2);
-				cout << "Entry deleted";
+
+				if (temp2 != "0")
+				{
+					DeleteNode(temp2);
+					cout << "Entry deleted";
+					pCur = headNode;
+					while (pCur != nullptr)
+					{
+						auto i = 0;
+						cout << *pCur;
+						while (!pCur->getAbsDate(i).empty())//maybe
+						{
+
+							cout << pCur->getAbsDate(i) << ",";
+							if (pCur->getAbsDate(i).empty())//ash josh
+							{
+								break;
+							}
+							i++;
+						}
+						pCur = pCur->getNextPtr();
+						cout << endl;
+					}
+					_bool = false;
+				}
+				if (temp2 == "0")
+				{
+					_bool = true;
+				}
+			}
+		}
+		else if (match_str[0] == "3")
+		{
+			string regexthing = "[0-9]{1,2}";
+			std::regex rgxc(regexthing, std::regex_constants::ECMAScript);
+			std::smatch match_str3;
+			string xkcd;
+			bool b = false;
+			pCur = headNode;
+			while (b != true)
+			{
 				pCur = headNode;
+				system("cls");
+				cout << "Enter a student record number: " << endl;
 				while (pCur != nullptr)
 				{
 					auto i = 0;
@@ -416,7 +452,7 @@ void List::EditList(std::shared_ptr<Listnode>& headNode)
 					{
 
 						cout << pCur->getAbsDate(i) << ",";
-						if (pCur->getAbsDate(i).empty())//ash josh
+						if (pCur->getAbsDate(i).empty())
 						{
 							break;
 						}
@@ -425,12 +461,22 @@ void List::EditList(std::shared_ptr<Listnode>& headNode)
 					pCur = pCur->getNextPtr();
 					cout << endl;
 				}
-				_bool = false;
-				if(temp2 == "0")
+				cout << "0. Exit" << endl;
+				pCur = headNode;
+				cin >> xkcd;
+				b = regex_match(xkcd, match_str3, rgxc);
+				string tempx = match_str3[0];
+				editNode(tempx);
+				b = false;
+				if(tempx == "0")
 				{
-					_bool = true;
+					b = true;
 				}
 			}
+		}
+		else if(match_str[0] == "4")
+		{
+			x = true;
 		}
 	}
 }
@@ -442,9 +488,9 @@ void List::DeleteList()
 void List::DeleteNode(string &temp2) const
 {
 	auto pCur = headNode;
-	while (pCur->getNextPtr() !=nullptr)
+	while (pCur->getNextPtr() != nullptr)
 	{
-		if(temp2 == pCur->getNextPtr()->getRecord())
+		if (temp2 == pCur->getNextPtr()->getRecord())
 		{
 			pCur->getNextPtr() = pCur->getNextPtr()->getNextPtr();
 			break;
@@ -453,6 +499,155 @@ void List::DeleteNode(string &temp2) const
 	}
 
 }
+void List::editNode(string & temp3)
+{
+	string regex_key = "[0-9]";
+	std::regex rgx_top(regex_key, std::regex_constants::ECMAScript);
+	auto pCur = headNode;
+	auto v = false;
+	auto z = 0;
+	while (pCur != nullptr)
+	{
+		if (temp3 == pCur->getRecord())
+		{
+			string input2;
+			std::smatch match_str2;
+			while (v != true)
+			{
+				system("cls");
+				cout << "Select a field to edit: " << endl;
+				cout << "0. Exit" << endl;
+				cout << "1. Record" << endl;
+				cout << "2. ID" << endl;
+				cout << "3. Name" << endl;
+				cout << "4. Email" << endl;
+				cout << "5. Credits" << endl;
+				cout << "6. Program" << endl;
+				cout << "7. Level" << endl;
+				cout << "8. Number of absences" << endl;
+				cout << "9. Absences dates" << endl;
+				cout << "Current profile:" << *pCur << endl;
+				cin >> input2;
+				v = regex_match(input2, match_str2, rgx_top);
+				if (match_str2[0] == "0")
+				{
+				
+					break;
+					
+				}
+				if (match_str2[0] == "1")
+				{
+					while (pCur != nullptr)
+					{
+						z++;
+						pCur = pCur->getNextPtr();
+
+					}
+					pCur = headNode;
+					z = z + 1;
+					auto token = std::to_string(z);
+					pCur->setRecord(token);
+					cout << "Record number incremented." << endl;
+					system("pause");
+					v = false;
+				}
+				else if (match_str2[0] == "2")
+				{
+					string temp;
+					cout << "Enter an ID number." << endl;
+					cin >> temp;
+					pCur->setID(temp);
+					cout << "ID added" << endl;
+					system("pause");
+					v = false;
+				}
+				else if (match_str2[0] == "3")
+				{
+					string temp;
+					cout << "Enter a name." << endl;
+					getline(cin, temp);
+					pCur->setName(temp);
+					cout << "Name added" << endl;
+					system("pause");
+					v = false;
+				}
+				else if (match_str2[0] == "4")
+				{
+					string temp;
+					cout << "Enter an email." << endl;
+					cin >> temp;
+					pCur->setEmail(temp);
+					cout << "Email added" << endl;
+					system("pause");
+					v = false;
+				}
+				else if (match_str2[0] == "5")
+				{
+					string temp;
+					cout << "Enter number of credits." << endl;
+					cin >> temp;
+					pCur->setCreds(temp);
+					cout << "Credits added" << endl;
+					system("pause");
+					v = false;
+				}
+				else if (match_str2[0] == "6")
+				{
+					string temp;
+					cout << "Enter program." << endl;
+					cin >> temp;
+					pCur->setProgram(temp);
+					cout << "Program added" << endl;
+					system("pause");
+					v = false;
+				}
+				else if (match_str2[0] == "7")
+				{
+					string temp;
+					cout << "Enter Level." << endl;//enumerate later
+					cin >> temp;
+					pCur->setLevel(temp);
+					cout << "Level added" << endl;
+					system("pause");
+					v = false;
+				}
+				else if (match_str2[0] == "8")
+				{
+					string temp;
+					cout << "Enter number of absences." << endl;//enumerate later
+					cout << "Current absences" << pCur->getNumAbs();
+					cin >> temp;
+					pCur->setNumAbs(temp);
+					cout << "Number of absences added" << endl;
+					system("pause");
+					v = false;
+				}
+				else if (match_str2[0] == "9")
+				{
+					string tstr;
+					auto temp = currentTime();
+					cout << "Is student absent: " << endl;
+					cout << "Y/N";
+					cin >> tstr;
+					if (tstr == "Y" || tstr == "y")
+					{
+						cout << "Absence date entered via system time." << endl;//enumerate later
+						pCur->setAbsDate(temp);
+						cout << "Absence date added" << endl;
+						system("pause");
+						v = false;
+					}
+				}
+				else
+				{
+					v = false;
+				}
+			}
+			break;
+		}
+		pCur = pCur->getNextPtr();
+	}
+}
 std::shared_ptr<Listnode>& List::getHead()
 {
 	return headNode;
@@ -460,7 +655,6 @@ std::shared_ptr<Listnode>& List::getHead()
 
 std::ostream & operator<<(std::ostream & lhs, Listnode & rhs)//fix
 {
-	auto i = 0;
 	lhs << rhs.getRecord() << ",";
 	lhs << rhs.getID() << ",";
 	lhs << rhs.getName() << ",";

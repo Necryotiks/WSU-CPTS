@@ -69,6 +69,7 @@ void Menu::runapp()
 		else if (switch1 == "3")
 		{
 			OBJ.EditList();
+			i = false;
 		}
 	}
 }

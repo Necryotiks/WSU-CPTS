@@ -14,6 +14,7 @@ public:
 	void EditList();
 	void DeleteList();
 	void DeleteNode(string &temp2) const;
+	void editNode(string &temp3);
 	std::shared_ptr<Listnode> &getHead();
 	friend std::ostream &operator<<(std::ostream& lhs, Listnode &rhs);
 private:
