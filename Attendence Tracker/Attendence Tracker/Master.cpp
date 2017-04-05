@@ -25,7 +25,7 @@ void runapp()
 		system("cls");
 		cout << "1. Import course list(DEPRECATED)." << endl;
 		cout << "2. Load master list(DEPRECATED)." << endl;
-		cout << "3. Store master list." << endl;
+		cout << "3. Edit master list." << endl;
 		cout << "4. Mark absenses" << endl;
 		cout << "5. Edit absences" << endl;
 		cout << "6. Generate report" << endl;

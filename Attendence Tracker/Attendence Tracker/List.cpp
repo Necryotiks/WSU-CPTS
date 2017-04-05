@@ -92,10 +92,7 @@ void List::UpdateList(fstream & updatefile)
 				try
 				{
 					getline(temp_s, token, ',');
-					if (temp_s.eof())
-					{
-						break;//reads until end of string stream
-					}
+
 					i++;
 					switch (i)
 					{
@@ -123,10 +120,13 @@ void List::UpdateList(fstream & updatefile)
 					case 8:
 						Node->setNumAbs(token);
 						break;
-					default://beyond 9, read absences dates;
+					default:
 						Node->setAbsDate(token);
 						break;
-
+					}
+					if (temp_s.eof())
+					{
+						break;//reads until end of string stream
 					}
 				}
 				catch (std::exception &e)
@@ -157,6 +157,7 @@ void List::EditList(std::shared_ptr<Listnode>& headNode)
 	std::shared_ptr<Listnode>pCur = headNode;//need to reset headnode
 	while (x != true)
 	{
+		system("cls");
 		cout << "1. Add student" << endl;
 		cout << "2. Remove student" << endl;
 		cout << "3. Edit students" << endl;
@@ -165,217 +166,231 @@ void List::EditList(std::shared_ptr<Listnode>& headNode)
 		x = regex_match(input1, match_str, rgx_top);
 		if (match_str[0] == "1")
 		{
-			string input2;
-			std::smatch match_str2;
-			std::shared_ptr<Listnode> Node(new Listnode);
-			while (v != true)//have default value constructor
+			cout << " Do you wish to add empty node? Y/N" << endl;
+			cin >> input1;
+			if (input1 == "Y" || input1 == "y")
 			{
-				system("cls");
-				cout << "Select a field to edit: " << endl;
-				cout << "0. Exit" << endl;
-				cout << "1. Record" << endl;
-				cout << "2. ID" << endl;
-				cout << "3. Name" << endl;
-				cout << "4. Email" << endl;
-				cout << "5. Credits" << endl;
-				cout << "6. Program" << endl;
-				cout << "7. Level" << endl;
-				cout << "8. Number of absences" << endl;
-				cout << "9. Absences dates" << endl;
-				cin >> input2;
-				v = regex_match(input2, match_str2, rgx_top);
-				if (match_str2[0] == "0")//move within wile loop
-				{
-					if (Node->getRecord() == "")
-					{
-						cout << "Field left blank: Record. Please fill all fields." << endl;
-						system("pause");
-						v = false;
+				std::shared_ptr<Listnode> Node(new Listnode);
+				insertAtFront(Node);
+				cout << "Node inserted" << endl;
+				x = false;
+			}
+			if (x == true)
+			{
 
-					}
-					else if (Node->getID() == "")
+
+				string input2;
+				std::smatch match_str2;
+				std::shared_ptr<Listnode> Node(new Listnode);
+				while (v != true)
+				{
+					system("cls");
+					cout << "Select a field to edit: " << endl;
+					cout << "0. Exit" << endl;
+					cout << "1. Record" << endl;
+					cout << "2. ID" << endl;
+					cout << "3. Name" << endl;
+					cout << "4. Email" << endl;
+					cout << "5. Credits" << endl;
+					cout << "6. Program" << endl;
+					cout << "7. Level" << endl;
+					cout << "8. Number of absences" << endl;
+					cout << "9. Absences dates" << endl;
+					cin >> input2;
+					v = regex_match(input2, match_str2, rgx_top);
+					if (match_str2[0] == "0")
 					{
-						cout << "Field left blank: ID. Please fill all fields." << endl;
+						if (Node->getRecord() == "")
+						{
+							cout << "Field left blank: Record. Please fill all fields." << endl;
+							system("pause");
+							v = false;
+
+						}
+						else if (Node->getID() == "")
+						{
+							cout << "Field left blank: ID. Please fill all fields." << endl;
+							system("pause");
+							v = false;
+						}
+						else if (Node->getName() == "")
+						{
+							cout << "Field left blank: Name. Please fill all fields." << endl;
+							system("pause");
+							v = false;
+						}
+						else if (Node->getEmail() == "")
+						{
+							cout << "Field left blank: Email. Please fill all fields." << endl;
+							system("pause");
+							v = false;
+						}
+						else if (Node->getCreds() == "")
+						{
+							cout << "Field left blank: Credits. Please fill all fields." << endl;
+							system("pause");
+							v = false;
+						}
+						else if (Node->getProgram() == "")
+						{
+							cout << "Field left blank: Program. Please fill all fields." << endl;
+							system("pause");
+							v = false;
+						}
+						else if (Node->getLevel() == "")
+						{
+							cout << "Field left blank: Level. Please fill all fields." << endl;
+							system("pause");
+							v = false;
+						}
+						else if (Node->getNumAbs() == "")
+						{
+							cout << "Field left blank:Number of Absences. Please fill all fields." << endl;
+							system("pause");
+							v = false;
+						}
+						else if (Node->getAbsDate() == "")
+						{
+							cout << "Field left blank: Absence date(Enter null if 0). Please fill all fields." << endl;
+							system("pause");
+							v = false;
+						}
+						else
+						{
+							insertAtFront(Node);
+							break;
+						}
+					}
+					if (match_str2[0] == "1")
+					{
+						while (pCur != nullptr)
+						{
+							z++;
+							pCur = pCur->getNextPtr();
+
+						}
+						pCur = headNode;
+						z = z + 1;
+						string token = std::to_string(z);
+						Node->setRecord(token);
+						cout << "Record number incremented." << endl;
 						system("pause");
 						v = false;
 					}
-					else if (Node->getName() == "")
+					else if (match_str2[0] == "2")
 					{
-						cout << "Field left blank: Name. Please fill all fields." << endl;
+						string temp;
+						cout << "Enter an ID number." << endl;
+						cin >> temp;
+						Node->setID(temp);
+						cout << "ID added" << endl;
 						system("pause");
 						v = false;
 					}
-					else if (Node->getEmail() == "")
+					else if (match_str2[0] == "3")
 					{
-						cout << "Field left blank: Email. Please fill all fields." << endl;
+						string temp;
+						cout << "Enter a name." << endl;
+						cin >> temp;
+						Node->setName(temp);
+						cout << "Name added" << endl;
 						system("pause");
 						v = false;
 					}
-					else if (Node->getCreds() == "")
+					else if (match_str2[0] == "4")
 					{
-						cout << "Field left blank: Credits. Please fill all fields." << endl;
+						string temp;
+						cout << "Enter an email." << endl;
+						cin >> temp;
+						Node->setEmail(temp);
+						cout << "Email added" << endl;
 						system("pause");
 						v = false;
 					}
-					else if (Node->getProgram() == "")
+					else if (match_str2[0] == "5")
 					{
-						cout << "Field left blank: Program. Please fill all fields." << endl;
+						string temp;
+						cout << "Enter number of credits." << endl;
+						cin >> temp;
+						Node->setCreds(temp);
+						cout << "Credits added" << endl;
 						system("pause");
 						v = false;
 					}
-					else if (Node->getLevel() == "")
+					else if (match_str2[0] == "6")
 					{
-						cout << "Field left blank: Level. Please fill all fields." << endl;
+						string temp;
+						cout << "Enter program." << endl;
+						cin >> temp;
+						Node->setProgram(temp);
+						cout << "Program added" << endl;
 						system("pause");
 						v = false;
 					}
-					else if (Node->getNumAbs() == "")
+					else if (match_str2[0] == "7")
 					{
-						cout << "Field left blank:Number of Absences. Please fill all fields." << endl;
+						string temp;
+						cout << "Enter Level." << endl;//enumerate later
+						cin >> temp;
+						Node->setLevel(temp);
+						cout << "Level added" << endl;
 						system("pause");
 						v = false;
 					}
-					else if (Node->getAbsDate() == "")
+					else if (match_str2[0] == "8")
 					{
-						cout << "Field left blank: Absence date(Enter null if 0). Please fill all fields." << endl;
+						string temp;
+						cout << "Enter number of absences." << endl;//enumerate later
+						cin >> temp;
+						Node->setNumAbs(temp);
+						cout << "Number of absences added" << endl;
 						system("pause");
 						v = false;
+					}
+					else if (match_str2[0] == "9")
+					{
+						string tstr;
+						string temp = currentTime();
+						cout << "Is student absent: " << endl;
+						cout << "Y/N";
+						cin >> tstr;
+						if (tstr == "Y" || tstr == "y")
+						{
+							cout << "Absence date entered via system time." << endl;//enumerate later
+							Node->setAbsDate(temp);
+							cout << "Absence date added" << endl;
+							system("pause");
+							v = false;
+						}
 					}
 					else
 					{
-						break;
-					}
-				}
-				if (match_str2[0] == "1")
-				{
-					while (pCur != nullptr)
-					{
-						z++;
-						pCur = pCur->getNextPtr();
-
-					}
-					pCur = headNode;
-					z = z + 1;
-					string token = std::to_string(z);
-					Node->setRecord(token);
-					cout << "Record number incremented." << endl;
-					system("pause");
-					v = false;
-				}
-				else if (match_str2[0] == "2")
-				{
-					string temp;
-					cout << "Enter an ID number." << endl;
-					cin >> temp;
-					Node->setID(temp);
-					cout << "ID added" << endl;
-					system("pause");
-					v = false;
-				}
-				else if (match_str2[0] == "3")
-				{
-					string temp;
-					cout << "Enter a name." << endl;
-					cin >> temp;
-					Node->setName(temp);
-					cout << "Name added" << endl;
-					system("pause");
-					v = false;
-				}
-				else if (match_str2[0] == "4")
-				{
-					string temp;
-					cout << "Enter an email." << endl;
-					cin >> temp;
-					Node->setEmail(temp);
-					cout << "Email added" << endl;
-					system("pause");
-					v = false;
-				}
-				else if (match_str2[0] == "5")
-				{
-					string temp;
-					cout << "Enter number of credits." << endl;
-					cin >> temp;
-					Node->setCreds(temp);
-					cout << "Credits added" << endl;
-					system("pause");
-					v = false;
-				}
-				else if (match_str2[0] == "6")
-				{
-					string temp;
-					cout << "Enter program." << endl;
-					cin >> temp;
-					Node->setProgram(temp);
-					cout << "Program added" << endl;
-					system("pause");
-					v = false;
-				}
-				else if (match_str2[0] == "7")
-				{
-					string temp;
-					cout << "Enter Level." << endl;//enumerate later
-					cin >> temp;
-					Node->setLevel(temp);
-					cout << "Level added" << endl;
-					system("pause");
-					v = false;
-				}
-				else if (match_str2[0] == "8")
-				{
-					string temp;
-					cout << "Enter number of absences." << endl;//enumerate later
-					cin >> temp;
-					Node->setNumAbs(temp);
-					cout << "Number of absences added" << endl;
-					system("pause");
-					v = false;
-				}
-				else if (match_str2[0] == "9")
-				{
-					string tstr;
-					string temp = currentTime();
-					cout << "Is student absent: " << endl;
-					cout << "Y/N";
-					cin >> tstr;
-					if (tstr == "Y")
-					{
-						cout << "Absence date entered via system time." << endl;//enumerate later
-						Node->setAbsDate(temp);
-						cout << "Absence date added" << endl;
-						system("pause");
 						v = false;
 					}
 				}
-				else
-				{
-					v = false;
-				}
 			}
 		}
-
-		/*system("cls");
-		cout << "Select a student:" << endl;
-		while (pCur!= nullptr)
+		else if (match_str[0] == "2")
 		{
-			z++;
-			cout << z << pCur->getName() << endl;
-			pCur = pCur->getNextPtr();
+			//string regexthing = "[0-9]{1,2}";
+			//std::regex rgxc(regexthing, std::regex_constants::ECMAScript);
+			//std::smatch match_str2;
+			//string xyz;
+			//pCur = headNode;
+			//cout << "Enter a student record number: " << endl;
+			//while (pCur != nullptr)
+			//{
 
+			//	cout << *pCur << endl;//fix
+			//	pCur = pCur->getNextPtr();
+
+			//}
+			//pCur = headNode;//fix lator
+			//cin >> xyz;
+			//TODO: FIX
 		}
-		pCur = headNode;
-		cin >> input;
-		x = regex_match(input, match_str, rgx);
-		if(x == true)
-		{
-			string res = match_str[0];
-			while(pCur->getRecord()!= res)
-			{
-				pCur = pCur->getNextPtr();
-			}
-			cout<<"What field would you like to edit: "
-		}*/
+
+
 	}
 }
 void List::DeleteList()
@@ -386,4 +401,27 @@ void List::DeleteList()
 std::shared_ptr<Listnode>& List::getHead()
 {
 	return headNode;
+}
+
+std::ostream & operator<<(std::ostream & lhs, Listnode & rhs)//fix
+{
+	auto i = 0;
+	lhs << rhs.getRecord() << ",";
+	lhs << rhs.getID() << ",";
+	lhs << rhs.getName() << ",";
+	lhs << rhs.getEmail() << ",";
+	lhs << rhs.getCreds() << ",";
+	lhs << rhs.getProgram() << ",";
+	lhs << rhs.getLevel() << ",";
+	lhs << rhs.getNumAbs() << ",";
+	while (true)//maybe
+	{
+		lhs << rhs.getAbsDate(i) << ",";
+		if (rhs.getAbsDate().empty())//ash josh
+		{
+			break;
+		}
+		i++;
+	}
+	return lhs;
 }

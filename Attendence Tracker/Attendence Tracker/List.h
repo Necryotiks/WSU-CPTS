@@ -14,6 +14,7 @@ public:
 	void EditList();
 	void DeleteList();
 	std::shared_ptr<Listnode> &getHead();
+	friend std::ostream &operator<<(std::ostream& lhs, Listnode &rhs);
 private:
 	std::shared_ptr<Listnode> headNode;
 	void insertAtFront(std::shared_ptr<Listnode> &headNode,std::shared_ptr<Listnode> &Node);

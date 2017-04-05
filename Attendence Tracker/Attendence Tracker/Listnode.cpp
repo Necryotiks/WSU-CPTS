@@ -2,17 +2,9 @@
 
 
 
-Listnode::Listnode()
+Listnode::Listnode(string Record , string idNum , string name , string email , string credits , string numAbs , string program, string level)
 {
 	nextptr = nullptr;
-	Record = "";
-	idNum = "";
-	name = "";
-	email = "";
-	credits = "";
-	numAbs = "";
-	program = "";
-	level = "";
 }
 
 
@@ -126,11 +118,27 @@ void Listnode::setAbsDate(string & absdate)
 	absences.push_back(absdate);
 }
 
-string Listnode::getAbsDate() const
+string Listnode::getAbsDate() const //nned marker for new node.
 {
 	static auto j = 0;
-	string temp = absences[j];
-	j++;
+	string temp;
+	if(j < absences.size())
+	{
+		temp = absences[j];
+		j++;
+	}
 	return temp;
 
+}
+
+string Listnode::getAbsDate(int i) const //ask josh
+{
+
+	string temp;
+	if (i < absences.size())
+	{
+		temp = absences[i];
+		i++;
+	}
+	return temp;
 }
