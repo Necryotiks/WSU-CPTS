@@ -32,15 +32,18 @@ void Menu::runapp()
 		cout << "head broke" << endl;
 		system("pause");
 	}
+	infile.close();
+	infile.open("classList.csv", std::ios::out);
 	while (i != true)
 	{
 		system("cls");
 		cout << "1. Import course list(DEPRECATED)." << endl;
 		cout << "2. Load master list(DEPRECATED)." << endl;
 		cout << "3. Edit master list." << endl;
-		cout << "4. Mark absenses" << endl;
-		cout << "5. Edit absences" << endl;
+		cout << "4. Mark absenses(DEPRECATED)" << endl;
+		cout << "5. Edit absences(DEPRECATED)" << endl;
 		cout << "6. Generate report" << endl;
+		cout << "7. Exit" << endl;
 		cin >> input;
 		i = regex_match(input, results, reg1);
 
@@ -71,6 +74,35 @@ void Menu::runapp()
 			OBJ.EditList();
 			i = false;
 		}
+		else if(switch1 =="4")
+		{
+			
+		}
+		else if (switch1 == "5")
+		{
+
+		}
+		else if (switch1 == "6")
+		{
+			auto pCur = headNode;//fix
+			while (pCur != nullptr)
+			{
+				auto i = 0;
+				cout << *pCur;
+				while (!pCur->getAbsDate(i).empty())//maybe
+				{
+
+					cout << pCur->getAbsDate(i) << ",";
+					if (pCur->getAbsDate(i).empty())//ash josh
+					{
+						break;
+					}
+					i++;
+				}
+				pCur = pCur->getNextPtr();
+				cout << endl;
+		}
+
 	}
 }
 

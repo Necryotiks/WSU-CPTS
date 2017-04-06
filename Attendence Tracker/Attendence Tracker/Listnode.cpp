@@ -141,3 +141,8 @@ string Listnode::getAbsDate(int i) const //ask josh
 	}
 	return temp;
 }
+
+void Listnode::removeDate(int i)
+{
+	absences.erase(absences.begin()+i);
+}

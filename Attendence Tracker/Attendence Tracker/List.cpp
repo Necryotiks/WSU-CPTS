@@ -613,14 +613,41 @@ void List::editNode(string & temp3)
 				}
 				else if (match_str2[0] == "8")
 				{
-					string temp;
-					cout << "Enter number of absences." << endl;//enumerate later
-					cout << "Current absences" << pCur->getNumAbs();
-					cin >> temp;
-					pCur->setNumAbs(temp);
-					cout << "Number of absences added" << endl;
-					system("pause");
-					v = false;
+					string choice;
+					cout << "Add or Remove absences:" << endl;
+					cout << "1. Add" << endl;
+					cout << "2. Remove" << endl;
+					cin >> choice;
+					if (choice == "1")
+					{
+
+
+						string temp;
+						cout << "Enter number of absences." << endl;//enumerate later
+						cout << "Current absences" << pCur->getNumAbs();
+						cin >> temp;
+						pCur->setNumAbs(temp);
+						cout << "Number of absences added" << endl;
+						system("pause");
+						v = false;
+					}
+					else if(choice == "2")
+					{
+						string ccc;
+						string rmv = "-2";
+						auto bbb= 0;
+						auto g = 1;
+						cout << "Select entry number: " << endl;
+						while(!pCur->getAbsDate().empty())
+						{
+							cout << g << "." << pCur->getAbsDate() << "," << endl;
+						}
+						cin >> ccc;
+						bbb = stoi(ccc);
+						pCur->removeDate(bbb);
+						pCur->setNumAbs(rmv);
+
+					}
 				}
 				else if (match_str2[0] == "9")
 				{

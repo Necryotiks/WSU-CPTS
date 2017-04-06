@@ -35,6 +35,7 @@ public:
 	void setAbsDate(string &absdate);
 	string getAbsDate() const;
 	string getAbsDate(int i) const;
+	void removeDate(int i);
 
 private:
 	std::shared_ptr<Listnode> nextptr;
