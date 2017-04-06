@@ -5,6 +5,6 @@ class Menu
 public:
 	Menu();
 	~Menu();
-	void runapp();
+	void runapp()const;
 };
 

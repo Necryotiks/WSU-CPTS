@@ -52,12 +52,11 @@ void List::EditList()
 }
 
 void List::UpdateList(fstream & updatefile)
-{//only stores first node
+{
 	string temp;
 	auto i = 0;
 	string token = "Dubs Check 'Em";
 	assert(updatefile.is_open());
-	getline(updatefile, temp);
 	while (!updatefile.eof())
 	{
 		try
@@ -76,6 +75,10 @@ void List::UpdateList(fstream & updatefile)
 				{
 					while (temp[k] != ',')
 					{
+						if (temp[k] == '"')
+						{
+							break;
+						}
 						k++;
 					}
 					if (temp[k] == ',')
@@ -92,7 +95,10 @@ void List::UpdateList(fstream & updatefile)
 				try
 				{
 					getline(temp_s, token, ',');
-
+					if (token == "")
+					{
+						break;
+					}
 					i++;
 					switch (i)
 					{
@@ -166,7 +172,7 @@ void List::EditList(std::shared_ptr<Listnode>& headNode)
 		x = regex_match(input1, match_str, rgx_top);
 		if (match_str[0] == "1")
 		{
-			cout << " Do you wish to add empty node? Y/N" << endl;
+			cout << "Do you wish to add empty node? Y/N" << endl;
 			cin >> input1;
 			if (input1 == "Y" || input1 == "y")
 			{
@@ -285,6 +291,7 @@ void List::EditList(std::shared_ptr<Listnode>& headNode)
 					{
 						string temp;
 						cout << "Enter a name." << endl;
+						cin.ignore();
 						getline(cin, temp);
 						Node->setName(temp);
 						cout << "Name added" << endl;
@@ -356,7 +363,7 @@ void List::EditList(std::shared_ptr<Listnode>& headNode)
 							system("pause");
 							v = false;
 						}
-						
+
 						v = false;
 					}
 					else
@@ -468,13 +475,13 @@ void List::EditList(std::shared_ptr<Listnode>& headNode)
 				string tempx = match_str3[0];
 				editNode(tempx);
 				b = false;
-				if(tempx == "0")
+				if (tempx == "0")
 				{
 					b = true;
 				}
 			}
 		}
-		else if(match_str[0] == "4")
+		else if (match_str[0] == "4")
 		{
 			x = true;
 		}
@@ -499,13 +506,14 @@ void List::DeleteNode(string &temp2) const
 	}
 
 }
-void List::editNode(string & temp3)
+void List::editNode(string & temp3)const
 {
 	string regex_key = "[0-9]";
 	std::regex rgx_top(regex_key, std::regex_constants::ECMAScript);
 	auto pCur = headNode;
 	auto v = false;
 	auto z = 0;
+	auto i = 0;
 	while (pCur != nullptr)
 	{
 		if (temp3 == pCur->getRecord())
@@ -526,14 +534,24 @@ void List::editNode(string & temp3)
 				cout << "7. Level" << endl;
 				cout << "8. Number of absences" << endl;
 				cout << "9. Absences dates" << endl;
-				cout << "Current profile:" << *pCur << endl;
+				cout << "Current profile:" << *pCur;
+				while (!pCur->getAbsDate(i).empty())//maybe
+				{
+
+					cout << pCur->getAbsDate(i) << ",";
+					if (pCur->getAbsDate(i).empty())
+					{
+						break;
+					}
+					i++;
+				}
 				cin >> input2;
 				v = regex_match(input2, match_str2, rgx_top);
 				if (match_str2[0] == "0")
 				{
-				
+
 					break;
-					
+
 				}
 				if (match_str2[0] == "1")
 				{
@@ -565,6 +583,7 @@ void List::editNode(string & temp3)
 				{
 					string temp;
 					cout << "Enter a name." << endl;
+					cin.ignore();
 					getline(cin, temp);
 					pCur->setName(temp);
 					cout << "Name added" << endl;
@@ -631,14 +650,14 @@ void List::editNode(string & temp3)
 						system("pause");
 						v = false;
 					}
-					else if(choice == "2")
+					else if (choice == "2")
 					{
 						string ccc;
 						string rmv = "-2";
-						auto bbb= 0;
+						auto bbb = 0;
 						auto g = 1;
 						cout << "Select entry number: " << endl;
-						while(!pCur->getAbsDate().empty())
+						while (!pCur->getAbsDate().empty())
 						{
 							cout << g << "." << pCur->getAbsDate() << "," << endl;
 						}
@@ -654,7 +673,7 @@ void List::editNode(string & temp3)
 					string tstr;
 					auto temp = currentTime();
 					cout << "Is student absent: " << endl;
-					cout << "Y/N";
+					cout << "Y/N" << endl;
 					cin >> tstr;
 					if (tstr == "Y" || tstr == "y")
 					{
@@ -673,6 +692,86 @@ void List::editNode(string & temp3)
 			break;
 		}
 		pCur = pCur->getNextPtr();
+	}
+}
+void List::outputNode(fstream & infile)const
+{
+	auto pCur = headNode;//fix
+	while (pCur != nullptr)
+	{
+		auto i = 0;
+		infile << *pCur;
+		while (!pCur->getAbsDate(i).empty())//maybe
+		{
+
+			infile << pCur->getAbsDate(i) << ",";
+			if (pCur->getAbsDate(i).empty())//
+			{
+				break;
+			}
+			i++;
+		}
+		pCur = pCur->getNextPtr();
+		infile << endl;
+	}
+}
+void List::genReport()const
+{
+	auto pCur = headNode;
+	system("cls");
+	while (pCur != nullptr)
+	{
+		cout << *pCur << pCur->peekMostRecentDate();
+		pCur = pCur->getNextPtr();
+		cout << endl;
+	}
+}
+void List::genAbsReport(string i) const
+{
+	auto pCur = headNode;
+	system("cls");
+	while (pCur != nullptr)
+	{
+		if (pCur->getNumAbs() == i)
+		{
+			cout << *pCur;
+			cout << pCur->peekMostRecentDate();
+			cout << endl;
+		}
+		pCur = pCur->getNextPtr();
+	}
+}
+void List::ABSloop()const
+{
+	string inputsz;
+	std::smatch res5;
+	string regkey = "[YNyn]{1,1}";
+	std::regex regky(regkey, std::regex_constants::ECMAScript);
+	auto pCur = headNode;
+	auto k = false;
+
+	while (pCur != nullptr)
+	{
+		while (k != true)
+		{
+			system("cls");
+			cout << *pCur << pCur->peekMostRecentDate() << endl;
+			cout << "Is this student absent? Y/N" << endl;
+			cin >> inputsz;
+			k = regex_search(inputsz, res5, regky);
+		}
+		if (res5[0] == "Y" || res5[0] == "y")
+		{
+			auto temp = currentTime();
+			pCur->setAbsDate(temp);
+			k = false;
+		}
+		else
+		{
+			k = false;
+		}
+		pCur = pCur->getNextPtr();
+		cout << endl;
 	}
 }
 std::shared_ptr<Listnode>& List::getHead()

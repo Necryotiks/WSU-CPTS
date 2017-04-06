@@ -1,44 +1,5 @@
 ﻿  Menu.cpp
-c:\users\necryotiks\documents\git_repos\wsu-cpts\wsu-cpts\attendence tracker\attendence tracker\menu.cpp(87): error C2065: 'headNode': undeclared identifier
-c:\users\necryotiks\documents\git_repos\wsu-cpts\wsu-cpts\attendence tracker\attendence tracker\menu.cpp(91): error C2593: 'operator <<' is ambiguous
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(495): note: could be 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::basic_streambuf<char,std::char_traits<char>> *)'
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(475): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(const void *)'
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(455): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(long double)'
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(435): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(415): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(float)'
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(395): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned __int64)'
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(375): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(__int64)'
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(355): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned long)'
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(335): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(long)'
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(315): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned int)'
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(290): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(int)'
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(270): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned short)'
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(236): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(short)'
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(216): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(bool)'
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(209): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::ios_base &(__cdecl *)(std::ios_base &))'
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(202): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::basic_ios<char,std::char_traits<char>> &(__cdecl *)(std::basic_ios<char,std::char_traits<char>> &))'
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(196): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::basic_ostream<char,std::char_traits<char>> &(__cdecl *)(std::basic_ostream<char,std::char_traits<char>> &))'
-  c:\users\necryotiks\documents\git_repos\wsu-cpts\wsu-cpts\attendence tracker\attendence tracker\list.h(19): note: or       'std::ostream &operator <<(std::ostream &,Listnode &)'
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(692): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<char,std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,const char *)'
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(739): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<char,std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,char)'
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(777): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,const char *)'
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(824): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,char)'
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(950): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,const signed char *)'
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(957): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,signed char)'
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(964): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,const unsigned char *)'
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(971): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,unsigned char)'
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\ostream(1019): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<char,std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,const std::error_code &)'
-  c:\users\necryotiks\documents\git_repos\wsu-cpts\wsu-cpts\attendence tracker\attendence tracker\menu.cpp(91): note: while trying to match the argument list '(std::ostream, unknown-type)'
-c:\users\necryotiks\documents\git_repos\wsu-cpts\wsu-cpts\attendence tracker\attendence tracker\menu.cpp(92): error C2227: left of '->getAbsDate' must point to class/struct/union/generic type
-  c:\users\necryotiks\documents\git_repos\wsu-cpts\wsu-cpts\attendence tracker\attendence tracker\menu.cpp(92): note: type is 'unknown-type'
-c:\users\necryotiks\documents\git_repos\wsu-cpts\wsu-cpts\attendence tracker\attendence tracker\menu.cpp(92): error C2228: left of '.empty' must have class/struct/union
-c:\users\necryotiks\documents\git_repos\wsu-cpts\wsu-cpts\attendence tracker\attendence tracker\menu.cpp(95): error C2227: left of '->getAbsDate' must point to class/struct/union/generic type
-  c:\users\necryotiks\documents\git_repos\wsu-cpts\wsu-cpts\attendence tracker\attendence tracker\menu.cpp(95): note: type is 'unknown-type'
-c:\users\necryotiks\documents\git_repos\wsu-cpts\wsu-cpts\attendence tracker\attendence tracker\menu.cpp(96): error C2227: left of '->getAbsDate' must point to class/struct/union/generic type
-  c:\users\necryotiks\documents\git_repos\wsu-cpts\wsu-cpts\attendence tracker\attendence tracker\menu.cpp(96): note: type is 'unknown-type'
-c:\users\necryotiks\documents\git_repos\wsu-cpts\wsu-cpts\attendence tracker\attendence tracker\menu.cpp(96): error C2228: left of '.empty' must have class/struct/union
-c:\users\necryotiks\documents\git_repos\wsu-cpts\wsu-cpts\attendence tracker\attendence tracker\menu.cpp(102): error C2227: left of '->getNextPtr' must point to class/struct/union/generic type
-  c:\users\necryotiks\documents\git_repos\wsu-cpts\wsu-cpts\attendence tracker\attendence tracker\menu.cpp(102): note: type is 'unknown-type'
-c:\users\necryotiks\documents\git_repos\wsu-cpts\wsu-cpts\attendence tracker\attendence tracker\menu.cpp(17): fatal error C1075: the left brace '{' was unmatched at the end of the file
   List.cpp
   Generating Code...
+  Attendence Tracker.vcxproj -> C:\Users\Necryotiks\Documents\Git_Repos\WSU-CPTS\Attendence Tracker\x64\Debug\Attendence Tracker.exe
+  Attendence Tracker.vcxproj -> C:\Users\Necryotiks\Documents\Git_Repos\WSU-CPTS\Attendence Tracker\x64\Debug\Attendence Tracker.pdb (Full PDB)

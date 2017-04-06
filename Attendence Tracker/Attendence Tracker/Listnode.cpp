@@ -146,3 +146,9 @@ void Listnode::removeDate(int i)
 {
 	absences.erase(absences.begin()+i);
 }
+
+string Listnode::peekMostRecentDate()
+{
+	auto temp = absences.back();
+	return temp;
+}

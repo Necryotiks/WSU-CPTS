@@ -14,7 +14,11 @@ public:
 	void EditList();
 	void DeleteList();
 	void DeleteNode(string &temp2) const;
-	void editNode(string &temp3);
+	void editNode(string &temp3)const;
+	void outputNode(fstream &  infile) const;
+	void genReport()const;
+	void genAbsReport(string i)const;
+	void ABSloop()const;
 	std::shared_ptr<Listnode> &getHead();
 	friend std::ostream &operator<<(std::ostream& lhs, Listnode &rhs);
 private:

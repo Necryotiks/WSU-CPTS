@@ -3,7 +3,7 @@
 class Listnode
 {
 public:
-	explicit Listnode(string Record = "NULL",string idNum = "",string name = "",string email = "",string credits = "",string numAbs = "",string program = "",string level = "");
+	explicit Listnode(string Record = "NULL",string idNum = "NULL",string name = "NULL",string email = "NULL",string credits = "NULL",string numAbs = "NULL",string program = "NULL",string level = "NULL");
 	~Listnode();
 	
 	std::shared_ptr<Listnode> &getNextPtr(); //list was the reason list wasnt linking and should not have been static.
@@ -36,7 +36,7 @@ public:
 	string getAbsDate() const;
 	string getAbsDate(int i) const;
 	void removeDate(int i);
-
+	string peekMostRecentDate();
 private:
 	std::shared_ptr<Listnode> nextptr;
 	string Record;

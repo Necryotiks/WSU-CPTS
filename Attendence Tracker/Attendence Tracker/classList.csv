@@ -1,11 +1,11 @@
-Record,ID,Name,Email,Units,Program,Level,NumberofAbs,AbsDates
-1,1111,"Smith,John",smithj@cpts122.edu,4,CS,Freshman,0,NUL,NUL2
-2,8147,"Beck,Sara",sara@cpts122.edu,4,EE,Junior,0,NUL
-3,1121,"Leinart,Timothy",tim@cpts122.edu,4,EE,Junior,0,NUL
-4,4478,"Art,Bruce",bart@cpts122.edu,AU,CPTE,Freshman,0,NUL
-5,2121,"James,Hannah",jameshannah@cpts122.edu,4,CS,Freshman,0,NUL
-6,5530,"Payton,Ella",epayton@cpts122.edu,4,CPTE,Graduate,0,NUL
-7,7759,"Sam,Theo",samt@cpts122.edu,4,EE,Sophomore,0,NUL
-8,1122,"Smith,Jane",jane@cpts122.edu,4,CS,Sophomore,0,NUL
-9,1222,"Willis,Bruce",brucewillis@cpts122.edu,AU,CS,Sophomore,0,NUL
-10,3255,"Mort,Kris",mort@cpts122.edu,4,CS,Senior,0,NUL
+1,1111,"Smith_John",smithj@cpts122.edu,4,CS,Freshman,0,NULL,
+2,8147,"Beck_Sara",sara@cpts122.edu,4,EE,Junior,0,NULL,
+3,1121,"Leinart_Timothy",tim@cpts122.edu,4,EE,Junior,0,NULL,
+4,4478,"Art_Bruce",bart@cpts122.edu,AU,CPTE,Freshman,0,NULL,
+5,2121,"James_Hannah",jameshannah@cpts122.edu,4,CS,Freshman,0,NULL,
+6,5530,"Payton_Ella",epayton@cpts122.edu,4,CPTE,Graduate,0,NULL,
+7,7759,"Sam_Theo",samt@cpts122.edu,4,EE,Sophomore,0,NULL,
+8,1122,"Smith_Jane",jane@cpts122.edu,4,CS,Sophomore,0,NULL,
+9,1222,"Willis_Bruce",brucewillis@cpts122.edu,AU,CS,Sophomore,0,NULL,
+10,3255,"Mort_Kris",mort@cpts122.edu,4,CS,Senior,0,NULL,
+11,1337,Elliott Villars,elliott.villars@wsu.edu,4,CS,Undergraduate,1,NULL

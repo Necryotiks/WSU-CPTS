@@ -10,8 +10,6 @@ void run_exe()
 }
 string currentTime()
 {
-
-
 	auto t = system_clock::now();
 	auto time = system_clock::to_time_t(t);
 	return ctime(&time);
