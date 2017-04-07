@@ -10,18 +10,18 @@ public:
 	void BSTPrint();
 	void BSTDeleteTree();
 
-	BSTNode<T> *& getRoot();
+	std::shared_ptr<BSTNode<T>>& getRoot();
 
-	void setRoot(BSTNode<T>* const newRoot);
-	void insert(BSTNode<T> *&Node);
+	void setRoot(std::shared_ptr<BSTNode<T>> const newRoot);
+	void insert(std::shared_ptr<BSTNode<T>>&Node);
 	//needs node data collection
 
-	static BSTNode<T> * makeNode();
+	static std::shared_ptr<BSTNode<T>> makeNode();
 private:
-	BSTNode<T> * rootNode;
-	void insert(BSTNode<T> *&rootNode, BSTNode<T> *& Node); 
-	void BSTPrint(BSTNode<T> *&rootNode);
-	void BSTDeleteTree(BSTNode<T> *& rootNode);
+	std::shared_ptr<BSTNode<T>> rootNode;
+	void insert(std::shared_ptr<BSTNode<T>>&rootNode, std::shared_ptr<BSTNode<T>>& Node); 
+	void BSTPrint(std::shared_ptr<BSTNode<T>>&rootNode);
+	void BSTDeleteTree(std::shared_ptr<BSTNode<T>>& rootNode);
 };
 
 template<class T>
@@ -56,25 +56,25 @@ BSTNode<T>*& BSTList<T>::getRoot()
 }
 
 template<class T>
-void BSTList<T>::setRoot(BSTNode<T>* const newRoot)
+void BSTList<T>::setRootstd::shared_ptr<BSTNode<T>> const newRoot)
 {
 	rootNode = newRoot;
 }
 
 template<class T>
-void BSTList<T>::insert(BSTNode<T> *& Node)
+void BSTList<T>::insert(std::shared_ptr<BSTNode<T>>& Node)
 {
 	insert(this->rootNode, Node);
 }
 
 template<class T>
-BSTNode<T>* BSTList<T>::makeNode()
+std::shared_ptr<BSTNode<T>> BSTList<T>::makeNode()
 {
-	return new BSTNode<T>;
+	return std::shared_ptr<BSTNode<T>> (new BSTNode);
 }
 
 template<class T>
-void BSTList<T>::insert(BSTNode<T>*& rootNode, BSTNode<T> *& Node)
+void BSTList<T>::insert(std::shared_ptr<BSTNode<T>>& rootNode, std::shared_ptr<BSTNode<T>>& Node)
 {
 	if (rootNode == nullptr)
 	{
@@ -95,7 +95,7 @@ void BSTList<T>::insert(BSTNode<T>*& rootNode, BSTNode<T> *& Node)
 }
 
 template<class T>
-void BSTList<T>::BSTPrint(BSTNode<T>* &rootNode)//in order print.
+void BSTList<T>::BSTPrint(std::shared_ptr<BSTNode<T>>&rootNode)//in order print.
 {
 	if (rootNode != nullptr)
 	{
@@ -106,7 +106,7 @@ void BSTList<T>::BSTPrint(BSTNode<T>* &rootNode)//in order print.
 	}
 }
 template<class T>
-void BSTList<T>::BSTDeleteTree(BSTNode<T>*& rootNode)
+void BSTList<T>::BSTDeleteTree(std::shared_ptr<BSTNode<T>>& rootNode)
 {
 	if (rootNode != nullptr)
 	{
