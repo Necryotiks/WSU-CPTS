@@ -5,8 +5,8 @@ public:
 	BSTNode();
 	~BSTNode();
 	T getData();
-	BSTNode<T> *& getLeft();
-	BSTNode<T> *& getRight();
+	std::shared_ptr<BSTNode<T>>& getLeft();
+	std::shared_ptr<BSTNode<T>>& getRight();
 	bool setData(T &newData);
 private:
 	T data;
@@ -34,13 +34,13 @@ T BSTNode<T>::getData()
 }
 
 template<class T>
-BSTNode<T> *& BSTNode<T>::getLeft()
+std::shared_ptr<BSTNode<T>> BSTNode<T>::getLeft()
 {
 	return LPTR;
 }
 
 template<class T>
-BSTNode<T> *& BSTNode<T>::getRight()
+std::shared_ptr<BSTNode<T>> BSTNode<T>::getRight()
 {
 	return RPTR;
 }
