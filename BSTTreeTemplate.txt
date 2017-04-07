@@ -50,7 +50,7 @@ void BSTList<T>::BSTDeleteTree()
 }
 
 template<class T>
-BSTNode<T>*& BSTList<T>::getRoot()
+std::shared_ptr<BSTNode<T>>& BSTList<T>::getRoot()
 {
 	return rootNode;
 }
