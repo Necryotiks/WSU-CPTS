@@ -19,13 +19,15 @@ public:
 	void BSTDeleteTree();
 
 	void inOrder();
-	TransactionNode& findSmallest();
-	TransactionNode& findLargest();
+	int findSmallest();
+	int findLargest();
 private:
 	std::shared_ptr<BSTNode> rootNode;
-	void insert(std::shared_ptr<BSTNode>&rootNode, std::shared_ptr<BSTNode>& Node) const;//WHAT DO
+	void insert(std::shared_ptr<BSTNode>&rootNode, std::shared_ptr<BSTNode>& Node) const;
 	static void BSTDeleteTree(std::shared_ptr<BSTNode>& rootNode);
 	void inOrder(std::shared_ptr<BSTNode>&rootNode) const;
+	int findSmallest(std::shared_ptr<BSTNode>&rootNode) const;
+	int findLargest(std::shared_ptr<BSTNode>&rootNode) const;
 	
 };
 
@@ -49,6 +51,16 @@ inline void BSTList::BSTDeleteTree()
 inline void BSTList::inOrder()
 {
 	inOrder(this->rootNode);
+}
+
+inline int BSTList::findSmallest()
+{
+	return findSmallest(this->rootNode);
+}
+
+inline int BSTList::findLargest()
+{
+	return findLargest(this->rootNode);
 }
 
 
@@ -79,21 +91,20 @@ inline std::shared_ptr<BSTNode> BSTList::makeNode()
 
 inline void BSTList::insert(std::shared_ptr<BSTNode>& rootNode, std::shared_ptr<BSTNode>& Node) const
 {
-	auto temp = std::make_shared<TransactionNode>();
-	temp = Node;//????
+	//why allocation new transaction node
 	if (rootNode == nullptr)
 	{
-		rootNode = temp;
+		rootNode = Node;
 	}
-	else if (temp->getUnits() < /*wtf goes here*/ )
+	else if (Node->getTnode()->getUnits() < rootNode->getTnode()->getUnits())
 	{
 		insert(rootNode->getLeft(), Node);
 	}
-	else if (temp->getUnits() > )
+	else if (Node->getTnode()->getUnits() > rootNode->getTnode()->getUnits())
 	{
 		insert(rootNode->getRight(), Node);
 	}
-	else
+	else// could make new data structure. like linked list
 	{
 		cout << "duplicate" << endl;
 	}
@@ -109,9 +120,40 @@ inline void BSTList::inOrder(std::shared_ptr<BSTNode>& rootNode) const
 	if (rootNode != nullptr)
 	{
 		inOrder(rootNode->getLeft());
-		cout << "Data: " << endl; 
-		rootNode->printData();
+		rootNode->getTnode()->printData();
 		inOrder(rootNode->getRight());
 
 	}
+}
+
+inline int BSTList::findSmallest(std::shared_ptr<BSTNode>& rootNode) const
+{
+	if(rootNode != nullptr)
+	{
+		static auto check = 999999;
+		findSmallest(rootNode->getLeft());
+		if(check > rootNode->getTnode()->getUnits())
+		{
+			check = rootNode->getTnode()->getUnits();
+		}
+		findSmallest(rootNode->getRight());
+		return check;
+	}
+	return -1;
+}
+
+inline int BSTList::findLargest(std::shared_ptr<BSTNode>& rootNode) const
+{
+	if (rootNode != nullptr)
+	{
+		static auto check = 0;
+		findSmallest(rootNode->getLeft());
+		if (check < rootNode->getTnode()->getUnits())
+		{
+			check = rootNode->getTnode()->getUnits();
+		}
+		findSmallest(rootNode->getRight());
+		return check;
+	}
+	return -1;
 }

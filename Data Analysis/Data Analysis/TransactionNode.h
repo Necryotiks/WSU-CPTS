@@ -25,8 +25,8 @@ inline TransactionNode::~TransactionNode()
 
 inline void TransactionNode::printData()
 {
-	cout << mUnits << endl;
-	BSTNode::printData();//???
+	cout << "Data: " << data << endl;
+	cout << "Units: " << mUnits << endl;
 }
 
 inline int TransactionNode::getUnits() const

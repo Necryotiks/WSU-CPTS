@@ -1,6 +1,6 @@
 #pragma once
 #include "Source.h"
-
+class TransactionNode;
 
 class BSTNode
 {
@@ -11,9 +11,11 @@ public:
 	void setData(string &newData);
 	std::shared_ptr<BSTNode>& getLeft();
 	std::shared_ptr<BSTNode>& getRight();
+	std::shared_ptr<TransactionNode>& getTnode();
 	
 	virtual void printData() = 0;
 protected:
+	std::shared_ptr<TransactionNode> tNode;
 	string data;
 	std::shared_ptr<BSTNode> LPTR;
 	std::shared_ptr<BSTNode> RPTR;
@@ -55,8 +57,13 @@ inline std::shared_ptr<BSTNode> &BSTNode::getRight()
 	return RPTR;
 }
 
+inline std::shared_ptr<TransactionNode>& BSTNode::getTnode()
+{
+	return tNode;
+}
+
 inline void BSTNode::printData()
 {
-	cout << data << endl;
+	//pure overridden, Must use derived class implementation.
 }
 
