@@ -39,4 +39,3 @@ inline void TransactionNode::setUnits(int ndata)
 	mUnits = ndata;
 	assert(mUnits == ndata);
 }
-

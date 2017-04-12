@@ -4,10 +4,10 @@
 
 class DataAnalysis
 {
+public:
 	DataAnalysis();
 	~DataAnalysis();
-public:
-	void runAnalysis() const;
+	void runAnalysis();
 
 private:
 	void openFile();
@@ -31,9 +31,11 @@ inline DataAnalysis::~DataAnalysis()
 
 }
 
-inline void DataAnalysis::runAnalysis() const
+inline void DataAnalysis::runAnalysis()
 {
-
+	openFile();
+	parseFile();
+	outputData();
 }
 
 inline void DataAnalysis::openFile()
@@ -67,6 +69,8 @@ inline void DataAnalysis::parseFile()
 		Node->setData(output[1]);
 		sortData(Node, output[2]);
 	}
+	mTreeSold.inOrder();
+	mTreePurchased.inOrder();
 }
 
 inline void DataAnalysis::sortData(std::shared_ptr<BSTNode> Node, string choice)
@@ -79,5 +83,13 @@ inline void DataAnalysis::sortData(std::shared_ptr<BSTNode> Node, string choice)
 	{
 		mTreeSold.insert(Node);
 	}
+}
+
+inline void DataAnalysis::outputData()
+{
+	cout << "Least Purchased: " << mTreePurchased.findSmallest() << endl;
+	cout << "Most Purchased: " << mTreePurchased.findLargest() << endl;
+	cout << "Least Sold: " << mTreeSold.findSmallest() << endl;
+	cout << "Most Sold: " << mTreeSold.findLargest() << endl;
 }
 

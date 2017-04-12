@@ -1,2 +1,16 @@
-﻿  Data Analysis.vcxproj -> C:\Users\Necryotiks\Documents\Git_Repos\WSU-CPTS\Data Analysis\Debug\Data Analysis.exe
-  Data Analysis.vcxproj -> C:\Users\Necryotiks\Documents\Git_Repos\WSU-CPTS\Data Analysis\Debug\Data Analysis.pdb (Full PDB)
+﻿  main.cpp
+c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(901): error C2259: 'BSTNode': cannot instantiate abstract class
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(901): note: due to following members:
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(901): note: 'void BSTNode::printData(void)': is abstract
+  c:\users\necryotiks\documents\git_repos\wsu-cpts\data analysis\data analysis\bstnode.h(65): note: see declaration of 'BSTNode::printData'
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(971): note: see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::string&>(std::string &)' being compiled
+          with
+          [
+              _Ty=BSTNode
+          ]
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(971): note: see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::string&>(std::string &)' being compiled
+          with
+          [
+              _Ty=BSTNode
+          ]
+  c:\users\necryotiks\documents\git_repos\wsu-cpts\data analysis\data analysis\bstlist.h(88): note: see reference to function template instantiation 'std::shared_ptr<BSTNode> std::make_shared<BSTNode,std::string&>(std::string &)' being compiled
