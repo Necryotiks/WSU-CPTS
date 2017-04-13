@@ -15,7 +15,7 @@ public:
 	void setRoot(std::shared_ptr<BSTNode> const newRoot);
 	void insert(std::shared_ptr<BSTNode>&Node);//fix
 
-	static std::shared_ptr<BSTNode> makeNode();
+	
 	void BSTDeleteTree();
 
 	void inOrder();
@@ -26,7 +26,7 @@ private:
 	void insert(std::shared_ptr<BSTNode>&rootNode, std::shared_ptr<BSTNode>& Node) const;
 	static void BSTDeleteTree(std::shared_ptr<BSTNode>& rootNode);
 	void inOrder(std::shared_ptr<BSTNode>&rootNode) const;
-	int findSmallest(std::shared_ptr<BSTNode>&rootNode) const;
+	int findSmallest(std::shared_ptr<BSTNode>&rootNode) const;//return TransactionNode &;
 	int findLargest(std::shared_ptr<BSTNode>&rootNode) const;
 	
 };
@@ -40,7 +40,6 @@ inline BSTList::BSTList()
 inline BSTList::~BSTList()
 {
 	BSTDeleteTree();
-	cout << "Tree deconstructed" << endl;
 }
 
 inline void BSTList::BSTDeleteTree()
@@ -81,26 +80,20 @@ inline void BSTList::insert(std::shared_ptr<BSTNode>& Node)
 	insert(this->rootNode, Node);
 }
 
-
-inline std::shared_ptr<BSTNode> BSTList::makeNode()
-{
-	string temp;
-	return std::make_shared<BSTNode>(temp);
-}
-
-
 inline void BSTList::insert(std::shared_ptr<BSTNode>& rootNode, std::shared_ptr<BSTNode>& Node) const
-{
+{	
+	auto temp = std::dynamic_pointer_cast<TransactionNode>(Node);//auto = std::shared_ptr<TransactionNode>
+	auto tempRoot = std::dynamic_pointer_cast<TransactionNode>(rootNode);
 	//why allocation new transaction node
 	if (rootNode == nullptr)
 	{
 		rootNode = Node;
 	}
-	else if (Node->getTnode()->getUnits() < rootNode->getTnode()->getUnits())
+	else if (temp->getUnits() < tempRoot->getUnits())
 	{
 		insert(rootNode->getLeft(), Node);
 	}
-	else if (Node->getTnode()->getUnits() > rootNode->getTnode()->getUnits())
+	else if (temp->getUnits() > tempRoot->getUnits())
 	{
 		insert(rootNode->getRight(), Node);
 	}
@@ -117,10 +110,11 @@ inline void BSTList::BSTDeleteTree(std::shared_ptr<BSTNode>& rootNode)
 
 inline void BSTList::inOrder(std::shared_ptr<BSTNode>& rootNode) const
 {
+	auto tempRoot = std::dynamic_pointer_cast<TransactionNode>(rootNode);
 	if (rootNode != nullptr)
 	{
 		inOrder(rootNode->getLeft());
-		rootNode->getTnode()->printData();
+		tempRoot->printData();
 		inOrder(rootNode->getRight());
 
 	}
@@ -128,13 +122,14 @@ inline void BSTList::inOrder(std::shared_ptr<BSTNode>& rootNode) const
 
 inline int BSTList::findSmallest(std::shared_ptr<BSTNode>& rootNode) const
 {
+	auto tempRoot = std::dynamic_pointer_cast<TransactionNode>(rootNode);
 	if(rootNode != nullptr)
 	{
 		static auto check = 999999;
 		findSmallest(rootNode->getLeft());
-		if(check > rootNode->getTnode()->getUnits())
+		if(check > tempRoot->getUnits())
 		{
-			check = rootNode->getTnode()->getUnits();
+			check = tempRoot->getUnits();
 		}
 		findSmallest(rootNode->getRight());
 		return check;
@@ -144,15 +139,16 @@ inline int BSTList::findSmallest(std::shared_ptr<BSTNode>& rootNode) const
 
 inline int BSTList::findLargest(std::shared_ptr<BSTNode>& rootNode) const
 {
+	auto tempRoot = std::dynamic_pointer_cast<TransactionNode>(rootNode);
 	if (rootNode != nullptr)
 	{
 		static auto check = 0;
-		findSmallest(rootNode->getLeft());
-		if (check < rootNode->getTnode()->getUnits())
+		findLargest(rootNode->getLeft());
+		if (check < tempRoot->getUnits())
 		{
-			check = rootNode->getTnode()->getUnits();
+			check = tempRoot->getUnits();
 		}
-		findSmallest(rootNode->getRight());
+		findLargest(rootNode->getRight());
 		return check;
 	}
 	return -1;

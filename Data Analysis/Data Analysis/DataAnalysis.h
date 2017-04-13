@@ -1,6 +1,6 @@
 #pragma once
 #include "BSTList.h"
-#include <sstream>
+
 
 class DataAnalysis
 {
@@ -13,7 +13,7 @@ private:
 	void openFile();
 	void parseString(string &inputLine, vector<string> &output) const;
 	void parseFile();
-	void sortData(std::shared_ptr<BSTNode> Node,string choice);
+	void sortData(std::shared_ptr<BSTNode> &Node,string choice);
 	void outputData();
 
 	BSTList mTreeSold;
@@ -58,22 +58,22 @@ inline void DataAnalysis::parseFile()
 {
 	vector<string> output;
 	string inputLine;
-	mCSVStream.seekg(23);
+	getline(mCSVStream,inputLine);
 	while (getline(mCSVStream, inputLine))
 	{
-		std::shared_ptr<BSTNode>Node;
+		
 		assert(inputLine != "");
 		output.clear();
 		parseString(inputLine, output);
-		Node->getTnode()->setUnits(stoi(output[0]));
-		Node->setData(output[1]);
+		std::shared_ptr<BSTNode>Node(new TransactionNode(output[1],stoi(output[0])));
+		//dynamic_cast<TransactionNode>(Node)->setUnits(stoi(output[0]));//must implement custom smart pointer dynamic cast
 		sortData(Node, output[2]);
 	}
 	mTreeSold.inOrder();
 	mTreePurchased.inOrder();
 }
 
-inline void DataAnalysis::sortData(std::shared_ptr<BSTNode> Node, string choice)
+inline void DataAnalysis::sortData(std::shared_ptr<BSTNode> &Node, string choice)
 {
 	if(choice == "Purchased")
 	{
@@ -89,6 +89,7 @@ inline void DataAnalysis::outputData()
 {
 	cout << "Least Purchased: " << mTreePurchased.findSmallest() << endl;
 	cout << "Most Purchased: " << mTreePurchased.findLargest() << endl;
+	cout << endl;
 	cout << "Least Sold: " << mTreeSold.findSmallest() << endl;
 	cout << "Most Sold: " << mTreeSold.findLargest() << endl;
 }

@@ -1,5 +1,5 @@
 #pragma once
-class TransactionNode :public BSTNode
+class TransactionNode : public BSTNode
 {
 public:
 	explicit TransactionNode(string nData = "", int num = 0);
@@ -11,9 +11,8 @@ private:
 	int mUnits;
 };
 
-inline TransactionNode::TransactionNode(string nData, int num) :BSTNode()
+inline TransactionNode::TransactionNode(string nData, int num) : BSTNode(nData)
 {
-	data = nData;
 	mUnits = num;
 }
 
@@ -27,6 +26,7 @@ inline void TransactionNode::printData()
 {
 	cout << "Data: " << data << endl;
 	cout << "Units: " << mUnits << endl;
+	cout << endl;
 }
 
 inline int TransactionNode::getUnits() const

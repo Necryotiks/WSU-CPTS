@@ -12,7 +12,6 @@ public:
 	std::shared_ptr<BSTNode>& getLeft();
 	std::shared_ptr<BSTNode>& getRight();
 	std::shared_ptr<TransactionNode>& getTnode();
-	
 	virtual void printData() = 0;
 protected:
 	std::shared_ptr<TransactionNode> tNode;
@@ -24,6 +23,7 @@ protected:
 
 inline BSTNode::BSTNode(string setData)
 {
+	tNode = nullptr;
 	data = setData;
 	LPTR = nullptr;
 	RPTR = nullptr;
@@ -62,8 +62,4 @@ inline std::shared_ptr<TransactionNode>& BSTNode::getTnode()
 	return tNode;
 }
 
-inline void BSTNode::printData()
-{
-	//pure overridden, Must use derived class implementation.
-}
 
