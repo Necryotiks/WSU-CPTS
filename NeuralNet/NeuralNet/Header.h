@@ -13,6 +13,10 @@
 #include <cctype>
 #include <locale>
 
+
+
+
+
 #define NEURON_NUMBER n
 #define ETA overallNetLearningRate
 #define ALPHA momentum

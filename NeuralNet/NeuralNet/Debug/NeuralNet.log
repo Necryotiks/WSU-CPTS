@@ -1,7 +1,10 @@
-﻿  TrainingData.cpp
-c:\users\necryotiks\documents\git_repos\wsu-cpts\neuralnet\neuralnet\trainingdata.cpp(22): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
-c:\users\necryotiks\documents\git_repos\wsu-cpts\neuralnet\neuralnet\trainingdata.cpp(25): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(453): note: see declaration of 'strtok'
-  NeuralNet.vcxproj -> C:\Users\Necryotiks\Documents\Git_Repos\WSU-CPTS\NeuralNet\Debug\NeuralNet.exe
-  NeuralNet.vcxproj -> C:\Users\Necryotiks\Documents\Git_Repos\WSU-CPTS\NeuralNet\Debug\NeuralNet.pdb (Full PDB)
+﻿  Header.cpp
+c:\users\necryotiks\documents\github\wsu-cpts\wsu-cpts\neuralnet\neuralnet\header.cpp(6): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  TrainingData.cpp
+  Source.cpp
+  Neuron.cpp
+  Net.cpp
+  NeuralNet.vcxproj -> C:\Users\Necryotiks\Documents\GitHub\WSU-CPTS\WSU-CPTS\NeuralNet\Debug\NeuralNet.exe
+  NeuralNet.vcxproj -> C:\Users\Necryotiks\Documents\GitHub\WSU-CPTS\WSU-CPTS\NeuralNet\Debug\NeuralNet.pdb (Partial PDB)
