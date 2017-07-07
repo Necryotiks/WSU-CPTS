@@ -1,61 +1,56 @@
+#include "stdafx.h"
 #include "TrainingData.h"
 
-TrainingData::TrainingData(string filename)
+
+TrainingData::TrainingData(string inputfile, string outputfile)
 {
-	mTrainingDataFile.open(filename);
+	mTrainingDataInputFile.open(inputfile);
+	mTargetOutputFile.open(outputfile);
+
 }
 
-bool TrainingData::isEof()const
+bool TrainingData::isEof() const
 {
-	return mTrainingDataFile.eof();
+	return mTrainingDataInputFile.eof();//TODO: apply to both files.
 }
 
-void TrainingData::getNetData(vector<int>& netData)
+bool TrainingData::isOpen() const
 {
-	string temp;
-
-	auto i = 0;
-	auto j = 0;
-	assert(mTrainingDataFile.is_open());
-	getline(mTrainingDataFile, temp);
-	auto * tempstr = new char[temp.length() - 1];
-	strncpy(tempstr, temp.c_str(), temp.length() - 1);
-	while (temp[i] != '\0')
+	if (mTrainingDataInputFile.is_open() == true && mTargetOutputFile.is_open() == true)
 	{
-		auto token = strtok(tempstr, " ");
-		j = atoi(token);
-
-		//assert(std::isdigit(j) == 1);//this is a true assert yet it fails...
-		netData.push_back(j);
-
-		i++;
+		return true;
 	}
+	if (mTrainingDataInputFile.is_open() == false)
+	{
+		//TODO: FINISH
+	}
+	return false;
 }
+
+
 
 int TrainingData::getNextInput(vector<double>& inputs)
 {
 	string temp;
-	auto i = 0;
 	inputs.clear();
 	assert(inputs.empty());
-	getline(mTrainingDataFile, temp);
-	while (temp[i] != '\0')
+	while (getline(mTrainingDataInputFile, temp))
 	{
-		inputs.push_back(temp[i]);
+		auto stoi_temp = stoi(temp);//converts input values into ints from strings.
+		inputs.push_back(stoi_temp);//pushes values into input
 	}
-	return inputs.size();
+	return inputs.size();//returns number of inputs.
 }
 
 int TrainingData::getTargetOutput(vector<double>& targetOutput)
 {
 	string temp;
-	auto i = 0;
 	targetOutput.clear();
 	assert(targetOutput.empty());
-	getline(mTrainingDataFile, temp);
-	while (temp[i] != '\0')
+	while (getline(mTargetOutputFile, temp))
 	{
-		targetOutput.push_back(temp[i]);
+		auto stoi_temp = stoi(temp);//converts output values into ints from strings.
+		targetOutput.push_back(stoi_temp);
 	}
 	return targetOutput.size();
 }

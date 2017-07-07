@@ -1,14 +1,14 @@
 #pragma once
-#include "Header.h"
 class TrainingData
 {
 public:
-	explicit TrainingData(string filename);
+	explicit TrainingData(string inputfile,string outputfile);
 	bool isEof() const;
-	void getNetData(vector<int> &netData);
+	bool isOpen() const;
 	int getNextInput(vector<double> &inputs);
 	int getTargetOutput(vector<double> &targetOutput);
 private:
-	fstream mTrainingDataFile;
+	fstream mTrainingDataInputFile;
+	fstream mTargetOutputFile;
 };
 

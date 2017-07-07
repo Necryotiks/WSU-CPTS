@@ -1,5 +1,5 @@
 #pragma once
-#include "Header.h"
+#include "stdafx.h"
 #include "Neuron.h"
 
 //A 2d vector of vector of Neurons could be declared:
@@ -17,7 +17,7 @@ public:
 	void getResults(vector<double> &results) const;
 	double getRecentAVGerror()const;
 private:
-	vector<Layer> mLayers;//2d vector: mLayers[LayerNum][NeuronNum]
+	vector<Layer> mLayers;//2d vector: mLayers[LayerNum][NeuronNum] i.e vector of vector of Neurons
 	double mError;
 	double mRecentErrorAvg;
 	double mRSF;

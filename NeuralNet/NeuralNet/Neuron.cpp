@@ -1,16 +1,18 @@
+#include "stdafx.h"
 #include "Neuron.h"
 
-//rename Synapse to sysnapse
+
 Neuron::Neuron(int numOutputs, int MyIndex)
-{ 
+{
 	mOutput = 0;
 	mGradient = 0;
 	overallNetLearningRate = 0.15;
 	momentum = 0.5;
-	for (auto i = 0; i < numOutputs; ++i)
+	for (auto i = 0; i < numOutputs; i++)
 	{
+		auto temp = randomWeight();//temp variable for weight
 		mOuputWeights.push_back(Synapse());
-		mOuputWeights.back().weight = randomWeight();
+		mOuputWeights.back().setWeight(temp);
 	}
 	mMyIndex = MyIndex;
 }
@@ -28,10 +30,10 @@ double Neuron::getOutput()const
 void Neuron::feedForward(Layer & prevLayer)
 {
 	auto sum = 0.0;
-	for (auto NEURON_NUMBER = 0; NEURON_NUMBER < prevLayer.size(); ++NEURON_NUMBER) //where n is the neuron number
+	for (unsigned NEURON_NUMBER = 0; NEURON_NUMBER < prevLayer.size(); NEURON_NUMBER++) //where n is the neuron number
 	{
 		//sum previous layers output(with bias node) times Synapse weights.
-		sum += prevLayer[n].mOutput*prevLayer[n].mOuputWeights[mMyIndex].weight;
+		sum += prevLayer[NEURON_NUMBER].mOutput*prevLayer[NEURON_NUMBER].mOuputWeights[mMyIndex].getWeight();
 
 	}
 	mOutput = transferFunction(sum);//performs the Function on the sum.
@@ -49,16 +51,22 @@ void Neuron::calcHiddenGradients(const Layer & nextLayer)
 	mGradient = DOW*transferFunctionDerivative(mOutput);
 }
 
-void Neuron::updateInputWeights(Layer & prevLayer)
+void Neuron::updateInputWeights(Layer & prevLayer) const //TODO: FIX THIS 
 {
 	//weights are stored in synapse vector in the preceding layer
-	for (auto NEURON_NUMBER = 0; NEURON_NUMBER < prevLayer.size(); ++NEURON_NUMBER)
+	for (unsigned NEURON_NUMBER = 0; NEURON_NUMBER < prevLayer.size(); NEURON_NUMBER++)
 	{
-		auto &neuron = prevLayer[NEURON_NUMBER];//type Neuron.
-		auto oldDeltaWeight = neuron.mOuputWeights[mMyIndex].changeInWeight;
-		auto newDeltaWeight = ETA * neuron.getOutput()*mGradient + ALPHA * oldDeltaWeight;
-		neuron.mOuputWeights[mMyIndex].changeInWeight = newDeltaWeight;
-		neuron.mOuputWeights[mMyIndex].weight += newDeltaWeight;
+		auto oldDeltaWeight = prevLayer[NEURON_NUMBER].mOuputWeights[mMyIndex].getWeightDelta();//vector subscript out of range
+
+		auto newDeltaWeight = ETA * prevLayer[NEURON_NUMBER].getOutput()*mGradient + ALPHA * oldDeltaWeight;
+
+		auto x = prevLayer[NEURON_NUMBER].mOuputWeights[mMyIndex].getWeight();
+
+		prevLayer[NEURON_NUMBER].mOuputWeights[mMyIndex].setWeightDelta(newDeltaWeight);
+
+		x += newDeltaWeight;//incremental temp
+
+		prevLayer[NEURON_NUMBER].mOuputWeights[mMyIndex].setWeight(x);
 
 	}
 }
@@ -74,9 +82,9 @@ double Neuron::sumDOW(const Layer & nextLayer)
 {
 	auto sum = 0.0;
 	//sum our contribution of the erros at the nodes we feed.
-	for (auto NEURON_NUMBER = 0; NEURON_NUMBER < nextLayer.size() - 1; ++NEURON_NUMBER)
+	for (unsigned NEURON_NUMBER = 0; NEURON_NUMBER < nextLayer.size() - 1; ++NEURON_NUMBER)
 	{
-		sum += mOuputWeights[NEURON_NUMBER].weight * nextLayer[NEURON_NUMBER].mGradient;
+		sum += mOuputWeights[NEURON_NUMBER].getWeight() * nextLayer[NEURON_NUMBER].mGradient;
 	}
 	return sum;
 }

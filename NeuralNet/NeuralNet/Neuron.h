@@ -1,12 +1,38 @@
 #pragma once
-#include "Header.h"
-#include "Synapse.h"
+#include "stdafx.h"
 
 
+
+typedef struct Synapse
+{
+	Synapse()
+	{
+		weight = 0;
+		changeInWeight = 0;
+	}
+	double getWeight() const
+	{
+		return weight;
+	}
+	double getWeightDelta() const
+	{
+		return changeInWeight;
+	}
+	void setWeight(double &newWeight)
+	{
+		weight = newWeight;
+	}
+	void setWeightDelta(double &newWeightDelta)
+	{
+		changeInWeight = newWeightDelta;
+	}
+private:
+	double weight;
+	double changeInWeight;
+}Synapse;
 class Neuron
 {
 public:
-	
 	Neuron(int numOutputs, int MyIndex);
 	typedef vector<Neuron> Layer;
 	void setOutput(double val);
@@ -14,7 +40,7 @@ public:
 	void feedForward(Layer &prevLayer);
 	void calcOutputGradients(double targetOutputs);
 	void calcHiddenGradients(const Layer &nextLayer);
-	void updateInputWeights(Layer &prevLayer);
+	void updateInputWeights(Layer &prevLayer) const;
 private:
 	double mOutput;
 	vector<Synapse> mOuputWeights;

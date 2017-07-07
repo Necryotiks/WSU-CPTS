@@ -1,10 +1,5 @@
-﻿  Header.cpp
-c:\users\necryotiks\documents\github\wsu-cpts\wsu-cpts\neuralnet\neuralnet\header.cpp(6): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
-  Skipping... (no relevant changes detected)
-  TrainingData.cpp
-  Source.cpp
+﻿  TrainingData.cpp
   Neuron.cpp
-  Net.cpp
+  Generating Code...
   NeuralNet.vcxproj -> C:\Users\Necryotiks\Documents\GitHub\WSU-CPTS\WSU-CPTS\NeuralNet\Debug\NeuralNet.exe
   NeuralNet.vcxproj -> C:\Users\Necryotiks\Documents\GitHub\WSU-CPTS\WSU-CPTS\NeuralNet\Debug\NeuralNet.pdb (Partial PDB)
