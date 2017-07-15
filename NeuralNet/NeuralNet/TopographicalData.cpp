@@ -4,6 +4,10 @@
 TopographicalData::TopographicalData(string filename)
 {
 	mTopographicalDataFile.open(filename);
+	if(mTopographicalDataFile.is_open() == false)
+	{
+		throw std::filesystem::filesystem_error()//add errror string
+	}
 }
 
 bool TopographicalData::isEof()const
