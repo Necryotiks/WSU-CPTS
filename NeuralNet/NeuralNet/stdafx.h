@@ -13,7 +13,7 @@
 #include <cctype>
 #include <locale>
 #include <sstream>
-#include <filesystem>
+#include <experimental/filesystem>
 #include <exception>
 
 
@@ -27,12 +27,13 @@
 //FIX CIRCULAR DEPENDENCIES
 using std::vector;
 using std::cout;
-using std::endl;
 using std::getline;
 using std::fstream;
 using std::string;
 using std::isdigit;
 using std::stringstream;
+using std::cerr;
+
 
 void printVector(string label, vector<double>& vect);
 
@@ -49,5 +50,5 @@ inline void printVector(string label, vector<double>& vect)
 		cout << vect[i] << " ";
 	}
 
-	cout << endl;
+	cout << '\n';
 }

@@ -22,10 +22,10 @@ Net::Net(const vector<int>& Netdata)
 		{
 			numOutputs = Netdata[layerNum + 1];//number of Synapse decrease by one each layer.
 		}
-		for (auto neuronNum = 0; neuronNum <= Netdata[layerNum]; neuronNum++)
+		for (auto neuronNum = 0; neuronNum < Netdata[layerNum]; neuronNum++)
 		{
 			mLayers.back().push_back(Neuron(numOutputs, neuronNum));//Finds most recent Layer vector and then does push back.
-			cout << "Constructed a Neuron." << endl;
+			cout << "Constructed a Neuron:" << neuronNum << '\n';
 		}
 		mLayers.back().back().setOutput(1.0);
 	}
@@ -35,11 +35,11 @@ Net::Net(const vector<int>& Netdata)
 
 void Net::feedForward(const vector<double> & inputs)
 {
-	assert(inputs.size() == mLayers[0].size() - 1);//checks to see if the net constructed proper.if not kill the program/
+	assert(inputs.size() == mLayers[0].size() );//checks to see if the net constructed proper.if not kill the program/
 
 	//Assign input values in to respective neurons.
 
-	for (unsigned i = 0; i < inputs.size(); ++i)
+	for (unsigned i = 0; i < inputs.size(); i++)
 	{
 		mLayers[0][i].setOutput(inputs[i]);
 	}
@@ -62,19 +62,19 @@ void Net::backProp(const vector<double>& targetOutputs)
 	//Calculate overall net error(Root Mean Square of output neuron errors)
 	auto &outputLayer = mLayers.back();//is of Layer type.
 	mError = 0.0;
-	for (unsigned n = 0; n < outputLayer.size() - 1; ++n)//n for neurons
+	for (unsigned n = 0; n < outputLayer.size() ; ++n)//n for neurons
 	{
 		auto delta = targetOutputs[NEURON_NUMBER] - outputLayer[NEURON_NUMBER].getOutput();//final minus inital
 		mError += pow(delta, 2);
 	}
-	mError = mError / outputLayer.size() - 1;
+	mError = mError / outputLayer.size() ;
 	mError = sqrt(mError);//RMS
 
 	//Implement a recent average measurement
 	mRecentErrorAvg = (mRecentErrorAvg * mRSF + mError) / (mRSF + 1.0);//mRSF = most recent smoothing factor
 
 	//Calculate output layer gradients
-	for (unsigned n = 0; NEURON_NUMBER < outputLayer.size() - 1; NEURON_NUMBER++)
+	for (unsigned n = 0; NEURON_NUMBER < outputLayer.size(); NEURON_NUMBER++)
 	{
 		outputLayer[NEURON_NUMBER].calcOutputGradients(targetOutputs[NEURON_NUMBER]);
 	}
@@ -94,7 +94,7 @@ void Net::backProp(const vector<double>& targetOutputs)
 	{
 		auto &currentLayer = mLayers[layerNum];//reference to mLayers
 		auto &prevLayer = mLayers[layerNum - 1];
-		for (unsigned NEURON_NUMBER = 0;NEURON_NUMBER < currentLayer.size();NEURON_NUMBER++)
+		for (unsigned NEURON_NUMBER = 0; NEURON_NUMBER < currentLayer.size(); NEURON_NUMBER++) //TODO: maybe fix somehow(current size minus one for some reason)
 		{
 			currentLayer[NEURON_NUMBER].updateInputWeights(prevLayer);//FIX
 		}
@@ -105,7 +105,7 @@ void Net::backProp(const vector<double>& targetOutputs)
 void Net::getResults(vector<double>& results) const
 {
 	results.clear();
-	for(unsigned NEURON_NUMBER = 0; NEURON_NUMBER < mLayers.back().size()-1;++NEURON_NUMBER)
+	for (unsigned NEURON_NUMBER = 0; NEURON_NUMBER < mLayers.back().size(); ++NEURON_NUMBER)
 	{
 		results.push_back(mLayers.back()[NEURON_NUMBER].getOutput());
 	}

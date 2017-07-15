@@ -4,9 +4,9 @@
 TopographicalData::TopographicalData(string filename)
 {
 	mTopographicalDataFile.open(filename);
-	if(mTopographicalDataFile.is_open() == false)
+	if (mTopographicalDataFile.is_open() == false)
 	{
-		throw std::filesystem::filesystem_error("Topographical data file failed to open!");//add errror string
+		throw std::experimental::filesystem::filesystem_error("Topographical data file failed to open!");//add errror string
 	}
 }
 
@@ -38,7 +38,7 @@ void TopographicalData::getNetData(vector<int>& netData)
 			temp >> token;
 			j = stoi(token);
 
-			//assert(std::isdigit(j) == 1);//this is a true assert yet it fails...FIX LATER
+
 			netData.push_back(j);
 		}
 	}

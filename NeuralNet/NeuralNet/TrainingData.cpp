@@ -5,15 +5,16 @@
 TrainingData::TrainingData(string inputfile, string outputfile)
 {
 	mTrainingDataInputFile.open(inputfile);
-	if(mTrainingDataInputFile.is_open() == false)
+	if (mTrainingDataInputFile.is_open() == false)
 	{
-		throw std::filesystem::filesystem_error("Input file failed to open!");
+		throw std::experimental::filesystem::filesystem_error("Input file failed to open!");
 	}
 	mTargetOutputFile.open(outputfile);
-	if(mTargetOutputFile.is_open() == false)
+	if (mTargetOutputFile.is_open() == false)
 	{
-		throw std::filesystem::filesystem_error("Output file failed to open!");
+		throw std::experimental::filesystem::filesystem_error("Output file failed to open!");
 	}
+
 }
 
 bool TrainingData::isEof() const
@@ -36,7 +37,7 @@ bool TrainingData::isOpen() const
 
 
 
-int TrainingData::getNextInput(vector<double>& inputs)
+int TrainingData::getInputs(vector<double>& inputs)
 {
 	string temp;
 	inputs.clear();

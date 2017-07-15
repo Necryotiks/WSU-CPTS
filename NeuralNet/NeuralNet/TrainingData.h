@@ -2,10 +2,10 @@
 class TrainingData
 {
 public:
-	explicit TrainingData(string inputfile,string outputfile);
+	explicit TrainingData(string inputfile, string outputfile);
 	bool isEof() const;
 	bool isOpen() const;
-	int getNextInput(vector<double> &inputs);
+	int getInputs(vector<double> &inputs);
 	int getTargetOutput(vector<double> &targetOutput);
 private:
 	fstream mTrainingDataInputFile;

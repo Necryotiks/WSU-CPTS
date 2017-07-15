@@ -54,9 +54,13 @@ void Neuron::calcHiddenGradients(const Layer & nextLayer)
 void Neuron::updateInputWeights(Layer & prevLayer) const //TODO: FIX THIS 
 {
 	//weights are stored in synapse vector in the preceding layer
-	for (unsigned NEURON_NUMBER = 0; NEURON_NUMBER < prevLayer.size(); NEURON_NUMBER++)
+	for (unsigned NEURON_NUMBER = 0; NEURON_NUMBER < prevLayer.size(); NEURON_NUMBER++)//should not be based of previous layer
 	{
-		auto oldDeltaWeight = prevLayer[NEURON_NUMBER].mOuputWeights[mMyIndex].getWeightDelta();//vector subscript out of range
+		if(mOuputWeights.size()==0 && mOutput == 1)
+		{
+			break;
+		}
+		auto oldDeltaWeight = prevLayer[NEURON_NUMBER].mOuputWeights[mMyIndex].getWeightDelta();//TODO::vector subscript out of range,breaks at bias neuron.stripped out bias neuron.
 
 		auto newDeltaWeight = ETA * prevLayer[NEURON_NUMBER].getOutput()*mGradient + ALPHA * oldDeltaWeight;
 
@@ -82,7 +86,7 @@ double Neuron::sumDOW(const Layer & nextLayer)
 {
 	auto sum = 0.0;
 	//sum our contribution of the erros at the nodes we feed.
-	for (unsigned NEURON_NUMBER = 0; NEURON_NUMBER < nextLayer.size() - 1; ++NEURON_NUMBER)
+	for (unsigned NEURON_NUMBER = 0; NEURON_NUMBER < nextLayer.size(); ++NEURON_NUMBER)
 	{
 		sum += mOuputWeights[NEURON_NUMBER].getWeight() * nextLayer[NEURON_NUMBER].mGradient;
 	}
