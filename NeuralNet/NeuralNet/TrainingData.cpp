@@ -5,8 +5,15 @@
 TrainingData::TrainingData(string inputfile, string outputfile)
 {
 	mTrainingDataInputFile.open(inputfile);
+	if(mTrainingDataInputFile.is_open() == false)
+	{
+		throw std::filesystem::filesystem_error("Input file failed to open!");
+	}
 	mTargetOutputFile.open(outputfile);
-
+	if(mTargetOutputFile.is_open() == false)
+	{
+		throw std::filesystem::filesystem_error("Output file failed to open!");
+	}
 }
 
 bool TrainingData::isEof() const
