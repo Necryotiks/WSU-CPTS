@@ -13,6 +13,8 @@
 #include <cctype>
 #include <locale>
 #include <sstream>
+#include <filesystem>
+#include <exception>
 
 
 #define NEURON_NUMBER n
