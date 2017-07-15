@@ -6,7 +6,7 @@ TopographicalData::TopographicalData(string filename)
 	mTopographicalDataFile.open(filename);
 	if(mTopographicalDataFile.is_open() == false)
 	{
-		throw std::filesystem::filesystem_error()//add errror string
+		throw std::filesystem::filesystem_error("Topographical data file failed to open!");//add errror string
 	}
 }
 
