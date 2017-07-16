@@ -3,8 +3,6 @@
 #include "TopographicalData.h"
 #include "TrainingData.h"
 
-
-
 int main()
 {
 	try {
@@ -39,7 +37,10 @@ int main()
 			printVector("Output: ", results);
 
 
-			assert(targetOutputs.size() == Netdata.back());
+			if(targetOutputs.size() == Netdata.back())
+			{
+				throw std::runtime_error("Output mismatch!");
+			}
 
 			printVector("Expected Outputs: ", targetOutputs);
 			myNet.backProp(targetOutputs);//TODO: FIX THIS
@@ -49,7 +50,8 @@ int main()
 	}
 	catch (std::exception &e)
 	{
-		cerr << e.what() << '\n';
+		system("cls");
+		cerr << "Exception: "<< e.what() << '\n';
 		//return?
 	}
 }

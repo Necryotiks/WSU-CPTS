@@ -1,2 +1,3 @@
 ﻿  Source.cpp
-LINK : fatal error LNK1168: cannot open C:\Users\Necryotiks\Documents\GitHub\WSU-CPTS\WSU-CPTS\NeuralNet\Debug\NeuralNet.exe for writing
+  NeuralNet.vcxproj -> C:\Users\Necryotiks\Documents\GitHub\WSU-CPTS\WSU-CPTS\NeuralNet\Debug\NeuralNet.exe
+  NeuralNet.vcxproj -> C:\Users\Necryotiks\Documents\GitHub\WSU-CPTS\WSU-CPTS\NeuralNet\Debug\NeuralNet.pdb (Partial PDB)
