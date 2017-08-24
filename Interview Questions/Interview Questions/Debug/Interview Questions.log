@@ -1,0 +1,25 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Interview Questions.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  functions.c
+d:\interview questions\interview questions\functions.c(11): warning C4013: 'system' undefined; assuming extern returning int
+d:\interview questions\interview questions\functions.c(21): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: see declaration of 'scanf'
+d:\interview questions\interview questions\functions.c(23): warning C4474: 'scanf' : too many arguments passed for format string
+  d:\interview questions\interview questions\functions.c(23): note: placeholders and their parameters expect 0 variadic arguments, but 1 were provided
+d:\interview questions\interview questions\functions.c(23): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: see declaration of 'scanf'
+d:\interview questions\interview questions\functions.c(75): warning C4047: 'function': 'const char *const ' differs in levels of indirection from 'int'
+d:\interview questions\interview questions\functions.c(75): warning C4024: 'printf': different types for formal and actual parameter 1
+d:\interview questions\interview questions\functions.c(73): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: see declaration of 'scanf'
+d:\interview questions\interview questions\functions.c(74): warning C4047: 'initializing': 'int' differs in levels of indirection from 'char *'
+d:\interview questions\interview questions\functions.c(125): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: see declaration of 'scanf'
+d:\interview questions\interview questions\functions.c(231): warning C4018: '<=': signed/unsigned mismatch
+d:\interview questions\interview questions\functions.c(261): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: see declaration of 'scanf'
+d:\interview questions\interview questions\functions.c(290): warning C4018: '<': signed/unsigned mismatch
+d:\interview questions\interview questions\functions.c(301): warning C4047: 'function': 'Occurences *' differs in levels of indirection from 'Occurences *[2]'
+d:\interview questions\interview questions\functions.c(301): warning C4024: 'maximum_occurences': different types for formal and actual parameter 2
+d:\interview questions\interview questions\functions.c(359): warning C4715: 'smallest_sum_sequence': not all control paths return a value
+  Interview Questions.vcxproj -> D:\Interview Questions\Debug\Interview Questions.exe
+  Interview Questions.vcxproj -> D:\Interview Questions\Debug\Interview Questions.pdb (Full PDB)
