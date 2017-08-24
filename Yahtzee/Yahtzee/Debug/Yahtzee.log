@@ -1,0 +1,18 @@
+﻿  main.c
+  equation.c
+c:\users\necryotiks\documents\visual studio 2015\projects\yahtzee\yahtzee\equation.c(114): warning C4047: 'function': 'int *' differs in levels of indirection from 'int (*)[5]'
+c:\users\necryotiks\documents\visual studio 2015\projects\yahtzee\yahtzee\equation.c(114): warning C4024: 'print_dice': different types for formal and actual parameter 1
+c:\users\necryotiks\documents\visual studio 2015\projects\yahtzee\yahtzee\equation.c(146): warning C4047: 'function': 'int *' differs in levels of indirection from 'int (*)[5]'
+c:\users\necryotiks\documents\visual studio 2015\projects\yahtzee\yahtzee\equation.c(146): warning C4024: 'print_dice': different types for formal and actual parameter 1
+c:\users\necryotiks\documents\visual studio 2015\projects\yahtzee\yahtzee\equation.c(159): warning C4047: 'function': 'int *' differs in levels of indirection from 'int (*)[5]'
+c:\users\necryotiks\documents\visual studio 2015\projects\yahtzee\yahtzee\equation.c(159): warning C4024: 'print_dice': different types for formal and actual parameter 1
+c:\users\necryotiks\documents\visual studio 2015\projects\yahtzee\yahtzee\equation.c(168): warning C4047: 'function': 'int *' differs in levels of indirection from 'int (*)[5]'
+c:\users\necryotiks\documents\visual studio 2015\projects\yahtzee\yahtzee\equation.c(168): warning C4024: 'print_dice': different types for formal and actual parameter 1
+c:\users\necryotiks\documents\visual studio 2015\projects\yahtzee\yahtzee\equation.c(200): warning C4047: 'function': 'int *' differs in levels of indirection from 'int (*)[5]'
+c:\users\necryotiks\documents\visual studio 2015\projects\yahtzee\yahtzee\equation.c(200): warning C4024: 'print_dice': different types for formal and actual parameter 1
+c:\users\necryotiks\documents\visual studio 2015\projects\yahtzee\yahtzee\equation.c(214): warning C4047: 'function': 'int *' differs in levels of indirection from 'int (*)[5]'
+c:\users\necryotiks\documents\visual studio 2015\projects\yahtzee\yahtzee\equation.c(214): warning C4024: 'print_dice': different types for formal and actual parameter 1
+  Generating Code...
+c:\users\necryotiks\documents\visual studio 2015\projects\yahtzee\yahtzee\equation.c(590): warning C4715: 'full_house_check': not all control paths return a value
+  Yahtzee.vcxproj -> C:\Users\Necryotiks\Documents\Visual Studio 2015\Projects\Yahtzee\Debug\Yahtzee.exe
+  Yahtzee.vcxproj -> C:\Users\Necryotiks\Documents\Visual Studio 2015\Projects\Yahtzee\Debug\Yahtzee.pdb (Full PDB)
