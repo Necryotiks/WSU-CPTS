@@ -1,0 +1,14 @@
+﻿  equations.c
+c:\users\necryotiks\documents\visual studio 2015\projects\4d battle chess\cpts 121\hw\a game of chance\a game of chance\equations.c(65): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: see declaration of 'scanf'
+c:\users\necryotiks\documents\visual studio 2015\projects\4d battle chess\cpts 121\hw\a game of chance\a game of chance\equations.c(147): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: see declaration of 'scanf'
+c:\users\necryotiks\documents\visual studio 2015\projects\4d battle chess\cpts 121\hw\a game of chance\a game of chance\equations.c(170): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: see declaration of 'scanf'
+c:\users\necryotiks\documents\visual studio 2015\projects\4d battle chess\cpts 121\hw\a game of chance\a game of chance\equations.c(180): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: see declaration of 'scanf'
+c:\users\necryotiks\documents\visual studio 2015\projects\4d battle chess\cpts 121\hw\a game of chance\a game of chance\equations.c(200): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: see declaration of 'scanf'
+c:\users\necryotiks\documents\visual studio 2015\projects\4d battle chess\cpts 121\hw\a game of chance\a game of chance\equations.c(224): warning C4715: 'check_wager_amount': not all control paths return a value
+  A Game of Chance.vcxproj -> C:\Users\Necryotiks\Documents\Visual Studio 2015\Projects\4D BATTLE CHESS\CPTS 121\HW\A Game of Chance\Debug\A Game of Chance.exe
+  A Game of Chance.vcxproj -> C:\Users\Necryotiks\Documents\Visual Studio 2015\Projects\4D BATTLE CHESS\CPTS 121\HW\A Game of Chance\Debug\A Game of Chance.pdb (Full PDB)
