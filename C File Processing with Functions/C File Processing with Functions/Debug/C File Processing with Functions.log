@@ -1,0 +1,13 @@
+﻿  main.c
+  equations.c
+c:\users\necryotiks\documents\visual studio 2015\projects\4d battle chess\cpts 121\hw\c file processing with functions\c file processing with functions\equations.c(25): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+c:\users\necryotiks\documents\visual studio 2015\projects\4d battle chess\cpts 121\hw\c file processing with functions\c file processing with functions\equations.c(43): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+c:\users\necryotiks\documents\visual studio 2015\projects\4d battle chess\cpts 121\hw\c file processing with functions\c file processing with functions\equations.c(61): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+c:\users\necryotiks\documents\visual studio 2015\projects\4d battle chess\cpts 121\hw\c file processing with functions\c file processing with functions\equations.c(78): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1193): note: see declaration of 'fscanf'
+  Generating Code...
+  C File Processing with Functions.vcxproj -> C:\Users\Necryotiks\Documents\Visual Studio 2015\Projects\4D BATTLE CHESS\CPTS 121\HW\C File Processing with Functions\Debug\C File Processing with Functions.exe
+  C File Processing with Functions.vcxproj -> C:\Users\Necryotiks\Documents\Visual Studio 2015\Projects\4D BATTLE CHESS\CPTS 121\HW\C File Processing with Functions\Debug\C File Processing with Functions.pdb (Full PDB)
