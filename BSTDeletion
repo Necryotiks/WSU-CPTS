@@ -1,0 +1,39 @@
+ void remove(const Comparable &x, AvlNode *&rootNode)
+    {
+        if (rootNode != nullptr)
+        {
+            if (x == rootNode->element)
+            {
+                if (rootNode->left && rootNode->right == nullptr) //checks if leaf node. if so easy delete;
+                {
+                    delete rootNode;
+                }
+                else if (rootNode->right == nullptr)
+                {
+                    auto temp = rootNode;      //temp pointer to root
+                    rootNode = rootNode->left; //parent now points to old root's left
+                    delete temp;               //deletes old root
+                }
+                else if (rootNode->left == nullptr)
+                {
+                    auto temp = rootNode;       //temp pointer to root
+                    rootNode = rootNode->right; //parent now points to old root's left
+                    delete temp;                //deletes old root.
+                }
+                else
+                {
+                    rootNode->element = findMin(rootNode->right)->element; //overwite element to delete with next largest num
+                    remove(rootNode->element, rootNode->right);            // and delete the duplicate.(i.e. make two child node into a one child node.)
+                }
+            }
+            else if (x < rootNode->element)
+            {
+                remove(x, rootNode->left);
+            }
+            else
+            {
+                remove(x, rootNode->right);
+            }
+        }
+        treeBalance(rootNode);//for Avl tree
+    }
