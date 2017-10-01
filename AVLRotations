@@ -1,0 +1,61 @@
+void rotateWithLeftChild(AvlNode *&oldRoot)
+    {
+        //explain clearly
+        if(oldRoot != nullptr)
+        {
+        AvlNode *newRoot = oldRoot->left; //temp pointer to old root's left child.(will become new root.)
+        oldRoot->left = newRoot->right;   //oldRoot's left becomes temps right
+        newRoot->right = oldRoot;         //temp's right becomes old root.
+        oldRoot->height = max(height(oldRoot->left), height(oldRoot->right)) + 1;
+        newRoot->height = max(height(newRoot->left), oldRoot->height) + 1;
+        oldRoot = newRoot; //set new root.
+        }
+    }
+
+    /**
+     * Rotate binary tree node with right child.
+     * For AVL trees, this is a single rotation for case 4.
+     * Update heights, then set new root.
+     */
+    void rotateWithRightChild(AvlNode *&oldRoot)
+    {
+        if(oldRoot != nullptr)
+        {
+        AvlNode *newRoot = oldRoot->right;
+        oldRoot->right = newRoot->left;
+        newRoot->left = oldRoot;
+        oldRoot->height = max(height(oldRoot->right), height(oldRoot->left)) + 1;
+        newRoot->height = max(height(newRoot->right), oldRoot->height) + 1;
+        oldRoot = newRoot;
+        }
+    }
+
+    /**
+     * Double rotate binary tree node: first left child.
+     * with its right child; then node k3 with new left child.
+     * For AVL trees, this is a double rotation for case 2.
+     * Update heights, then set new root.
+     */
+    void doubleWithLeftChild(AvlNode *&oldRoot)
+    {
+        if(oldRoot != nullptr)
+        {
+        rotateWithRightChild(oldRoot->left);
+        rotateWithLeftChild(oldRoot);
+        }
+    }
+
+    /**
+     * Double rotate binary tree node: first right child.
+     * with its left child; then node k1 with new right child.
+     * For AVL trees, this is a double rotation for case 3.
+     * Update heights, then set new root.
+     */
+    void doubleWithRightChild(AvlNode *&oldRoot)
+    {
+        if(oldRoot != nullptr)
+        {
+        rotateWithLeftChild(oldRoot->right);
+        rotateWithRightChild(oldRoot);
+        }
+    }
