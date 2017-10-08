@@ -7,4 +7,5 @@ class vectorCalc
   private:
     void dotProduct(void);
     void crossProduct(void);
+    void matrixMultiplication(void);
 };
