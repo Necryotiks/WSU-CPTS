@@ -1,6 +1,21 @@
 #include "functions.cpp"
 #include "vectorCalc.h"
 
+void matrixMultiplication(void)
+{
+    int matrixA[1][3]={0};
+    int matrixB[3][1]={0};
+    int matrixC[(std::extent<int(matrixA), 1>::value][(std::extent<int(matrixB), 0>::value]
+    auto 
+    
+    if(std::extent<int(matrixA), 0>::value == std::extent<int(matrixB), 1>::value)
+    {
+        for(auto i = 0; i < std::extent<int(matrixA), 0>::value; i++)
+        {
+            
+        }
+    }
+}
 void vectorCalc::dotProduct(void)
 {
     vector<string> inputVector1;
