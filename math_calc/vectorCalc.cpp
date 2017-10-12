@@ -13,6 +13,8 @@ void vectorCalc::dotProduct(void)
     vector<string> inputVector2;
     double output = 0.0000;
     string size;
+    string scalar1;
+    string scalar2;
     size_t xsize = 0;
     string v1input;
     string v2input;
@@ -29,8 +31,9 @@ void vectorCalc::dotProduct(void)
             xsize = stoi(size);
             break;
         }
-        
     }
+    
+
     while (true)
     {
         cout << "\033[2J\033[1;1H";
@@ -44,9 +47,31 @@ void vectorCalc::dotProduct(void)
     }
     while (true)
     {
+        //cout << "\033[2J\033[1;1H"; //ANSI Clear screen bs. first clear screen then reset cursor position.\033-cursor,[-cmd,2J-arguments
+        cout << "Enter scalar size: ";
+        getline(cin, scalar1);
+        regex_match(scalar1, check, regex_str);
+        if (check.empty())
+        {
+            break;
+        }
+    }
+    while (true)
+    {
         cout << "Enter vector 2(seperate different values with a space): ";
         getline(cin >> std::ws, v2input);
         regex_search(v2input, check, regex_str);
+        if (check.empty())
+        {
+            break;//add confirmation
+        }
+    }
+    while (true)
+    {
+       // cout << "\033[2J\033[1;1H"; //ANSI Clear screen bs. first clear screen then reset cursor position.\033-cursor,[-cmd,2J-arguments
+        cout << "Enter scalar size: ";
+        getline(cin, scalar2);
+        regex_match(scalar2, check, regex_str);
         if (check.empty())
         {
             break;
@@ -62,6 +87,14 @@ void vectorCalc::dotProduct(void)
         inputVector1.push_back(temp1);
         str2 >> temp2;
         inputVector2.push_back(temp2);
+    }
+    for(size_t i = 0; i < inputVector1.size();i++)
+    {
+        inputVector1[i] = std::to_string(atof(inputVector1[i].c_str()) * atof(scalar1.c_str()));
+    }
+    for(size_t i = 0; i < inputVector2.size();i++)
+    {
+        inputVector2[i] = std::to_string(atof(inputVector2[i].c_str()) * atof(scalar2.c_str()));
     }
     for (size_t i = 0; i < xsize; i++)
     {
