@@ -1,7 +1,7 @@
 #include <iostream>
 #include <regex>
 #include <string>
-#include "functions.cpp"
+//#include "functions.cpp"
 #include "vectorCalc.h"
 
 using namespace std;
@@ -12,11 +12,11 @@ int main(int argc, const char *argv[])
     
     std::string input;
     std::smatch output;
-    vectorCalc vectorCalculator;
+    vectorCalc vectorCalculator1;
     regex rgx_str("[0-9]");
     while (true)
     {
-        cout << clearScreen; //ANSI Clear screen BS.
+        cout << "\033[2J\033[1;1H"; //ANSI Clear screen BS.
         cout << "\033[31;1H";
         cout << "Press Q to quit" << '\n';
         cout << "\033[1;1H";
@@ -37,7 +37,7 @@ int main(int argc, const char *argv[])
             }
             switch (stoi(output[0]))
             {
-            case 1: vectorCalculator.initializeVectorCalculator();
+            case 1: vectorCalculator1.initializeVectorCalculator();
                 break;
             case 2:
                 break;

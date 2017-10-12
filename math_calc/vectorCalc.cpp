@@ -1,20 +1,11 @@
 #include "functions.cpp"
 #include "vectorCalc.h"
 
-void matrixMultiplication(void)
+vectorCalc::vectorCalc(void)
 {
-    int matrixA[1][3]={0};
-    int matrixB[3][1]={0};
-    int matrixC[(std::extent<int(matrixA), 1>::value][(std::extent<int(matrixB), 0>::value]
-    auto 
-    
-    if(std::extent<int(matrixA), 0>::value == std::extent<int(matrixB), 1>::value)
-    {
-        for(auto i = 0; i < std::extent<int(matrixA), 0>::value; i++)
-        {
-            
-        }
-    }
+}
+vectorCalc::~vectorCalc(void)
+{
 }
 void vectorCalc::dotProduct(void)
 {
@@ -22,6 +13,7 @@ void vectorCalc::dotProduct(void)
     vector<string> inputVector2;
     double output = 0.0000;
     string size;
+    size_t xsize = 0;
     string v1input;
     string v2input;
     std::smatch check;
@@ -34,8 +26,10 @@ void vectorCalc::dotProduct(void)
         regex_match(size, check, regex_str);
         if (check.empty())
         {
+            xsize = stoi(size);
             break;
         }
+        
     }
     while (true)
     {
@@ -60,7 +54,7 @@ void vectorCalc::dotProduct(void)
     }
     stringstream str1(v1input);
     stringstream str2(v2input);
-    for (auto h = 0; h < stoi(size); h++)
+    for (size_t h = 0; h < xsize; h++)
     {
         string temp1;
         string temp2;
@@ -69,7 +63,7 @@ void vectorCalc::dotProduct(void)
         str2 >> temp2;
         inputVector2.push_back(temp2);
     }
-    for (auto i = 0; i < stoi(size); i++)
+    for (size_t i = 0; i < xsize; i++)
     {
         output += atof(inputVector1[i].c_str()) * atof(inputVector2[i].c_str());
     }
@@ -98,14 +92,15 @@ void vectorCalc::dotProduct(string IV1, string IV2)
     {
         cout << setColorBrightAssRed;
         cout << "Invalid vector dimensions!" << '\n';
+        //throw exception
         cout << textReset;
         getchar();
         return;
     }
-    auto size = IV1.size();
+    size_t size = IV1.size();
     stringstream str1(IV1);
     stringstream str2(IV2);
-    for (auto h = 0; h < size; h++)
+    for (size_t h = 0; h < size; h++)
     {
         string temp1;
         string temp2;
@@ -114,7 +109,7 @@ void vectorCalc::dotProduct(string IV1, string IV2)
         str2 >> temp2;
         inputVector2.push_back(temp2);
     }
-    for (auto i = 0; i < size; i++)
+    for (size_t i = 0; i < size; i++)
     {
         output += atof(inputVector1[i].c_str()) * atof(inputVector2[i].c_str());
     }
@@ -125,8 +120,8 @@ void vectorCalc::crossProduct()
 {
     vector<string> inputVector1;
     vector<string> inputVector2;
-    vector<int> outputVector;
-    string size = "3";
+    vector<double> outputVector;
+    size_t xsize = 3;
     string v1input;
     string v2input;
     std::smatch check;
@@ -154,7 +149,7 @@ void vectorCalc::crossProduct()
     }
     stringstream str1(v1input);
     stringstream str2(v2input);
-    for (auto h = 0; h < stoi(size); h++)
+    for (size_t h = 0; h < xsize; h++)
     {
         string temp1;
         string temp2;
@@ -163,26 +158,67 @@ void vectorCalc::crossProduct()
         str2 >> temp2;
         inputVector2.push_back(temp2);
     }
-    auto x_nought = (atof(inputVector1[1].c_str()) * atof(inputVector2[2].c_str()) - atof(inputVector1[2].c_str()) * atof(inputVector2[1].c_str()));
-    auto y_nought = -(atof(inputVector1[0].c_str()) * atof(inputVector2[2].c_str()) - atof(inputVector1[2].c_str()) * atof(inputVector2[0].c_str()));
-    auto z_nought = (atof(inputVector1[0].c_str()) * atof(inputVector2[1].c_str()) - atof(inputVector1[1].c_str()) * atof(inputVector2[0].c_str()));
+    double x_nought = (atof(inputVector1[1].c_str()) * atof(inputVector2[2].c_str()) - atof(inputVector1[2].c_str()) * atof(inputVector2[1].c_str()));
+    double y_nought = -(atof(inputVector1[0].c_str()) * atof(inputVector2[2].c_str()) - atof(inputVector1[2].c_str()) * atof(inputVector2[0].c_str()));
+    double z_nought = (atof(inputVector1[0].c_str()) * atof(inputVector2[1].c_str()) - atof(inputVector1[1].c_str()) * atof(inputVector2[0].c_str()));
 
     outputVector.push_back(x_nought);
     outputVector.push_back(y_nought);
     outputVector.push_back(z_nought);
 
     cout << "Cross Product: ";
-    for (auto b = 0; b < outputVector.size(); b++)
+    for (size_t b = 0; b < outputVector.size(); b++)
     {
         cout << outputVector[b] << " ";
     }
     getchar();
 }
+void vectorCalc::matrixReduce(void) //taken from stack overflow also broke af
+{
+    // double arrayA[3][3] =
+    //     {
+    //         {1.00, 2.00, 3.00},
+    //         {4.00, 5.00, 6.00},
+    //         {7.00, 8.00, 9.00}};
+    // int nrows = std::extent<decltype(arrayA), 0>::value; // number of rows
+    // int ncols = std::extent<decltype(arrayA), 1>::value; // number of columns
+
+    // int pivot = 0; // the determines the column we are at which holds the diagonal,
+    // // the basis for all elimination above and below
+
+    // while (pivot < nrows)
+    // {
+
+    //     for (int row = 0; row < nrows; row++)
+    //     {
+    //         for (int col = 0; col < ncols; col++)
+    //         {
+    //             if (arrayA[pivot][pivot] != 1 && arrayA[pivot][pivot] != 0)
+    //             {
+    //                 arrayA[row][col] = arrayA[row][col] / arrayA[pivot][pivot];
+    //             }
+    //         }
+    //     }
+
+    //     pivot++;
+    // }
+    // for (auto i = 0; i < nrows; i++)
+    // {
+    //     cout << '[';
+    //     for (auto j = 0; j < ncols; j++)
+    //     {
+    //         cout << arrayA[i][j] << " ";
+    //     }
+    //     cout << ']';
+    //     cout << '\n';
+    // }
+    // getchar();
+}
 void vectorCalc::initializeVectorCalculator(void)
 {
     std::string input;
     std::smatch output;
-    regex rgx_str("[0-9]");
+    std::regex rgx_str("[0-9]");
     while (true)
     {
         cout << clearScreen; //ANSI Clear screen BS.
@@ -191,8 +227,9 @@ void vectorCalc::initializeVectorCalculator(void)
         cout << "\033[1;1H";
         cout << "1. Dot Product" << '\n';
         cout << "2. Cross Product" << '\n';
+        cout << "3. Matrix reduction" << '\n';
         cout << "Please enter a selection" << '\n';
-        getline(cin >> ws, input);
+        getline(cin >> std::ws, input);
         if (input == "R" || input == "r")
         {
             break;
@@ -211,6 +248,9 @@ void vectorCalc::initializeVectorCalculator(void)
                 break;
             case 2:
                 this->crossProduct();
+                break;
+            case 3:
+                this->matrixReduce();
                 break;
             }
         }
