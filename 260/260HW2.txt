@@ -1,0 +1,14 @@
+1a) 0000....1100
+1b) 1111....0100
+2) .text
+   .global main
+   main:
+	li $v0,4
+	la $a0,myStr
+	syscall
+	li $v0,10
+	syscall
+   .data
+   	myStr: .asciiz "Hello"
+3a)-1
+3b)2^32 -1= 4294967295

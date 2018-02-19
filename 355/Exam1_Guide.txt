@@ -1,0 +1,32 @@
+-What is the ML type of (3,[4,5]) = int * int list 
+-What is the ML type of function f = fun f x y = (x,y) ‘a -> ‘b -> ‘a * ‘b 
+-True or False :  
+   Every partial function is a total function.FALSE
+   Every computable function is a total function.FALSE
+   Every total function is a computable function.FALSE
+-An ML tuple contains : values that may have different types 
+-Is [1,2,3,[4,5]] a legal list value in ML? Why or why not? No, it is not a legal list.  We can’t put int and int list values inside the same list. 
+-What is the principal difference between statically typed and dynamically typed languages? 
+Statically typed ->  type checking is done during compile-time (examples: C/C++, Java, ML)
+Dynamically typed -> type checking is done during run-time(examples: Python, Scheme/Racket) 
+-Here are two definitions of ML functions:
+fun step x y = 1 + y  
+fun mystery L= fold step 0 L 
+What is the value of the expression mystery [”ab”,”bc”,”cd”]? 
+1 + mystery ([”bc”,”cd”]) 
+1 + 1+ mystery ([”cd”])
+1+1+1+mystery ([]) 
+=3 
+-The following ML  function gives atype error when evaluated. Explain what might have caused the error.
+fun merge [] L2 = L2
+  | merge L1 [] = L1
+  | merge (x1::rest1) (x2::rest2) =
+     if x1<=x2 then x1::(merge(rest1,(x2::rest2)))
+	     else x2::(merge ((x1::rest1),rest2));
+The recursive calls to merge(highlighted above) don’t comply with the function definition.mergeexpects 2 arguments; however in the recursive calls we pass the arguments in tupleform.
+-The Option data type is used if there is a possibility of something having no valid value.
+-Binary trees with integer data in the interior nodes (and no data at the leaves) can be represented by 
+datatype tree = LEAF 
+              | NODE of int*tree*tree 
+Give a definition for a function doubleT having type tree -> tree,that makes of copy of the tree given as argument but with all the contained int values doubled.  
+fun doubleT (LEAF ) =  LEAF  | doubleT (NODE(v,t1,t2))= NODE (2*v,(doubleT t1),(doubleT t2)) 
