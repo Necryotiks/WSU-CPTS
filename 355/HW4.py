@@ -60,3 +60,20 @@ def psDef():
     nam = opPop()
     val = opPop()
     define(nam,val)
+def dup():
+    op1 = opPop() 
+    opPush(op1)  
+    opPush(op1)  
+def exch():
+    op1 = opPop() 
+    op2 = opPop() 
+    opPush(op2)  
+    opPush(op1)  
+def pop():
+    print(opPop())
+def stack():
+    for i in reversed(opStack):
+        print(i)
+def clear():
+    for i in opStack:
+        opPop()
