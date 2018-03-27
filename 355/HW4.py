@@ -1,5 +1,5 @@
-global opStack =[]
-global dictStack = []
+opStack = []
+dictStack = []
 def opPop():
     return opStack.pop()
 def opPush(value):
@@ -28,7 +28,7 @@ def mul():
         op1 = opPop() 
         op2 = opPop()
         try:
-            result  = op1 * op2
+            result = (op1 * op2)
             opPush(result)  
         except TypeError:
             print("Operand type mimatch")
@@ -36,8 +36,8 @@ def div():
         op1 = opPop() 
         op2 = opPop()
         try:
-        result  = op1 / op2
-        opPush(result)  
+            result  = op1 / op2
+            opPush(result)  
         except ZeroDivisionError:
             print("Division by zero is not allowed!")
         except TypeError:
@@ -45,17 +45,20 @@ def div():
 def mod():
         op1 = opPop() 
         op2 = opPop() 
-        result  = op1 % op2
-        opPush(result)  
+        try:
+            result  = op1 % op2
+            opPush(result)  
+        except TypeError:
+            print("Operand type mimatch")
 def lookup(name):
     try:
-        temp = dictPop()
+        temp = dictPop()#fix
         print(temp[name])
     except:
-        print("key not found")
+        print("Key not found")
 def psDef():
     def define(name,value):
-        d= dict(name,value)
+        d= {name:value}
         dictPush(d)
     nam = opPop()
     val = opPop()
@@ -77,3 +80,53 @@ def stack():
 def clear():
     for i in opStack:
         opPop()
+def copy(n):
+    tempStack = []
+    i = 0
+    while(i < n):
+        x = opPop()
+        tempStack.append(x)
+        ++i
+    opStack.extend(tempStack)
+    opStack.extend(tempStack)
+def testAdd():   
+    opPush(1)   
+    opPush(2)   
+    add()   
+    if opPop() != 3: 
+        return False      
+    return True   
+def testLookup():
+    opPush("\n1")
+    opPush(3)
+    psDef()
+    if lookup("n1") != 3:
+        return False
+    return True
+def testSub():
+    opPush(1)   
+    opPush(2)   
+    sub()   
+    if opPop() != 1: 
+        return False      
+    return True   
+def testMul():
+    opPush(2)   
+    opPush(2)   
+    mul()  
+    if opPop() != 4: 
+        return False      
+    return True   
+def testDiv():
+    opPush(3)   
+    opPush(6)   
+    div()  
+    if opPop() != 2: 
+        return False      
+    return True   
+print(testAdd())
+print(testSub())
+print(testMul())
+print(testDiv())
+#print(testLookup()) #broke
+
