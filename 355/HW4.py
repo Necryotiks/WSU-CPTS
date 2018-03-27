@@ -11,23 +11,37 @@ def dictPush(d):
 def add():
         op1 = opPop() 
         op2 = opPop() 
-        result  = op1 + op2
-        opPush(result)  
+        try:
+            result  = op1 + op2
+            opPush(result)  
+        except TypeError:
+            print("Operand type mimatch")
 def sub():
         op1 = opPop() 
         op2 = opPop() 
-        result  = op1 - op2
-        opPush(result)  
+        try:
+            result  = op1 - op2
+            opPush(result)  
+        except TypeError:
+            print("Operand type mimatch")
 def mul():
         op1 = opPop() 
         op2 = opPop()
-        result  = op1 * op2
-        opPush(result)  
+        try:
+            result  = op1 * op2
+            opPush(result)  
+        except TypeError:
+            print("Operand type mimatch")
 def div():
         op1 = opPop() 
-        op2 = opPop() 
+        op2 = opPop()
+        try:
         result  = op1 / op2
         opPush(result)  
+        except ZeroDivisionError:
+            print("Division by zero is not allowed!")
+        except TypeError:
+            print("Operand type mimatch")
 def mod():
         op1 = opPop() 
         op2 = opPop() 
