@@ -73,7 +73,8 @@ def psDef():
         dictPush(d)
     val = opPop()
     nam = opPop()
-    define(nam,val)
+    if nam[0] == '/':
+        define(nam[1:],val)
 
 def roll():
     x=opPop()
@@ -127,7 +128,7 @@ def testLookup():
     opPush("/n1")
     opPush(3)
     psDef()
-    if lookup("/n1") != 3:
+    if lookup("n1") != 3:
         return False
     return True
 def testSub():
