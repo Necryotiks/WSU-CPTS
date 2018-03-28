@@ -124,9 +124,17 @@ def testDiv():
     if opPop() != 2: 
         return False      
     return True   
+def testMod():
+    opPush(3)   
+    opPush(6)   
+    mod()  
+    if opPop() != 0: 
+        return False      
+    return True   
 print(testAdd())
 print(testSub())
 print(testMul())
 print(testDiv())
+print(testMod())
 #print(testLookup()) #broke
 
