@@ -1,3 +1,6 @@
+#Elliott Villars
+#help from Zaid,Stack Overflow
+#3/26/18
 opStack = []
 dictStack = []
 def opPop():
@@ -51,18 +54,30 @@ def mod():
         except TypeError:
             print("Operand type mimatch")
 def lookup(name):
-    try:
-        temp = dictPop()#fix
-        print(temp[name])
-    except:
-        print("Key not found")
+    for d in dictStack:
+        #Help from Zaid;;
+        if (name in d)== True:
+           return d.get(name)
+    return None
+def get():
+    string = opPop()
+    ind = opPop()
+    return(string[ind])
+def length():
+    string = opPop()
+    opPush(len(string))
 def psDef():
     def define(name,value):
-        d= {name:value}
+        d = {}
+        d[name]=value
         dictPush(d)
-    nam = opPop()
     val = opPop()
+    nam = opPop()
     define(nam,val)
+
+def roll():
+    x=opPop()
+    opstack.insert(0,x)
 def dup():
     op1 = opPop() 
     opPush(op1)  
@@ -70,8 +85,8 @@ def dup():
 def exch():
     op1 = opPop() 
     op2 = opPop() 
-    opPush(op2)  
     opPush(op1)  
+    opPush(op2)  
 def pop():
     print(opPop())
 def stack():
@@ -80,6 +95,18 @@ def stack():
 def clear():
     for i in opStack:
         opPop()
+
+def end():
+    dictPop()
+def begin():
+    x = opPop()
+    if  isinstance(x, dict):
+        dictPush(x)
+def psDict():
+     myDict={}
+     opPop()
+     opPush(myDict)   
+
 def copy(n):
     tempStack = []
     i = 0
@@ -97,10 +124,10 @@ def testAdd():
         return False      
     return True   
 def testLookup():
-    opPush("\n1")
+    opPush("/n1")
     opPush(3)
     psDef()
-    if lookup("n1") != 3:
+    if lookup("/n1") != 3:
         return False
     return True
 def testSub():
@@ -131,10 +158,52 @@ def testMod():
     if opPop() != 0: 
         return False      
     return True   
+def testGet():
+    opPush(0)
+    opPush("cat")
+    if get() != "c": 
+        return False      
+    return True   
+
+def testLength():
+    opPush("cat")
+    length()
+    if opPop() != 3: 
+        return False      
+    return True   
+def testDup():   
+    opPush(6)  
+    dup()
+    opPop()
+    if opPop() != 6: 
+        return False      
+    return True   
+
+def testExch():   
+    opPush(6)  
+    opPush(3)  
+    exch()
+    if opPop() != 6: 
+        return False      
+    return True   
+def testRoll():
+    opPush(1)
+    opPush(2)
+    opPush(3)
+    if(opStack[1] == 1):
+        return True
+    return False
+def testStack():
+    stack()
 print(testAdd())
 print(testSub())
 print(testMul())
 print(testDiv())
 print(testMod())
-#print(testLookup()) #broke
-
+print(testLookup()) 
+print(testGet())
+print(testLength())
+print(testDup())
+print(testExch())
+print(testRoll())
+print(testStack())
