@@ -140,9 +140,9 @@ def testSub():
     return True   
 def testMul():
     opPush(2)   
-    opPush(2)   
+    opPush(4.5)   
     mul()  
-    if opPop() != 4: 
+    if opPop() != 9: 
         return False      
     return True   
 def testDiv():
