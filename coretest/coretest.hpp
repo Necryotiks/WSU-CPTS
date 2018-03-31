@@ -5,5 +5,7 @@
 #include <array>
 #include <vector>
 #include <boost/compute/core.hpp>
-int randfun(std::vector<int> &testVector);
+#include <future>
+#include <random>
+void randfun(std::vector<int> &testVector, unsigned num_threads);
 void threadTest();
