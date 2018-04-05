@@ -1,8 +1,10 @@
 #Elliott Villars
 #help from Zaid,Stack Overflow
 #3/26/18
+import re
 opStack = []
 dictStack = []
+cArr = []
 def opPop():
     return opStack.pop()
 def opPush(value):
@@ -23,7 +25,7 @@ def sub():
         op1 = opPop() 
         op2 = opPop() 
         try:
-            result  = op1 - op2
+            result  = op2- op1
             opPush(result)  
         except TypeError:
             print("Operand type mimatch")
@@ -39,7 +41,7 @@ def div():
         op1 = opPop() 
         op2 = opPop()
         try:
-            result  = op1 / op2
+            result  = op2 / op1
             opPush(result)  
         except ZeroDivisionError:
             print("Division by zero is not allowed!")
@@ -49,7 +51,7 @@ def mod():
         op1 = opPop() 
         op2 = opPop() 
         try:
-            result  = op1 % op2
+            result  = op2 % op1
             opPush(result)  
         except TypeError:
             print("Operand type mimatch")
@@ -94,9 +96,7 @@ def stack():
     for i in reversed(opStack):
         print(i)
 def clear():
-    for i in opStack:
-        opPop()
-
+    opStack.clear()
 def end():
     dictPop()
 def begin():
@@ -108,7 +108,7 @@ def psDict():
      opPop()
      opPush(myDict)   
 
-def copy(n):
+def copy(n): #fix
     tempStack = []
     i = 0
     while(i < n):
@@ -132,10 +132,10 @@ def testLookup():
         return False
     return True
 def testSub():
-    opPush(1)   
-    opPush(2)   
+    opPush(10)   
+    opPush(4.6)   
     sub()   
-    if opPop() != 1: 
+    if opPop() != 5.4: 
         return False      
     return True   
 def testMul():
@@ -146,17 +146,17 @@ def testMul():
         return False      
     return True   
 def testDiv():
-    opPush(3)   
-    opPush(6)   
+    opPush(15)   
+    opPush(5)   
     div()  
-    if opPop() != 2: 
+    if opPop() != 3: 
         return False      
     return True   
 def testMod():
+    opPush(10)   
     opPush(3)   
-    opPush(6)   
     mod()  
-    if opPop() != 0: 
+    if opPop() != 1: 
         return False      
     return True   
 def testGet():
@@ -196,15 +196,82 @@ def testRoll():
     return False
 def testStack():
     stack()
-print(testAdd())
-print(testSub())
-print(testMul())
-print(testDiv())
-print(testMod())
-print(testLookup()) 
-print(testGet())
-print(testLength())
-print(testDup())
-print(testExch())
-print(testRoll())
-print(testStack())
+def tokenize(s):  
+    retValue = re.findall("/?[a-zA-Z][a-zA-Z0-9_]*|[[][a-zA-Z0-9_\s!][a-zA-Z0-9_\s!]*[]]|[-]?[0-9]+|[}{]+|%.*|[^ \t\n]", s)
+    return retValue
+def groupMatching(it):
+    res=[]
+    for c in it:
+        if c==']':
+            return res
+        else:
+            res.append(groupMatching(it))
+    return False
+
+def group(s):
+    for i in s:
+         if i=='[':
+             return groupMatching(iter(s[1:]))
+    else: return False
+def fuse():
+    #for i in cArr:
+        try:
+            startInd = cArr.index('[')
+            endind = cArr.index(']')
+            cArr[startInd:endind+1] = [''.join(cArr[startInd:endind+1])]
+        except:
+            print("not found")
+tokens=( ['/fact', '{',    '0'  , 'dict','begin','/n', 'exch', 'def', '1',    'n'  ,  '(' ,'−1', '1',  '{',    'mul    ', '}', 'for','end','}', 'def' , '[1 2 3 4 5]', 'dup', '4', 'get', 'pop', ')' ,'length', 'fact', 'stack'])
+def parse(tokens):
+    for i in tokens:
+        temp = tokenize(i)
+        if temp[0]== '{':
+            temp[0]= '['
+        elif temp[0]== '}':
+            temp[0]= ']'
+        cArr.append(temp.pop())
+    return cArr
+def interpret(cArr):
+    if len(cArr) != 0:
+        opStack.append(cArr.pop(0))
+        interpret(cArr)
+def interpreter(rawStr):
+    tokens = tokenize(rawStr)
+    parse(tokens)
+    interpret(cArr)
+    while(len(opStack) != 0):
+        i= opPop()
+        if i == 'add':
+            add()
+        elif i == 'sub': 
+            sub()
+        elif i== 'mul':
+            mul()
+        elif i== 'div':
+            div()
+        elif i == 'mod':
+            mod()
+        elif i == 'stack':
+            stack()
+        elif i == 'length':
+            length()
+        elif i == 'dict':
+            psDict()
+        elif i == 'def':
+            psDef() 
+        elif i == 'begin':
+            begin()
+        elif i == 'end':
+            end()
+        elif i == 'exch':
+            exch()
+        elif i == 'roll':
+            roll()
+        elif i == 'pop':
+            pop()
+parse(tokenize( 
+""" 
+/square {dup mul} def 1 square 2 square 3 square add add 
+"""))
+#fuse()
+print(cArr)

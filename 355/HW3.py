@@ -8,19 +8,20 @@ from functools import reduce
 import math
 import sys
 from collections import Counter
+debug = True
 def addDict(d):
     tempDict = {}
     for key in d.values():
         for x in key:
             tempDict[x] = key[x] + tempDict.get(x,0)
-    print(tempDict)
+    return(tempDict)
 def addDictN(L):    
     tempDict = {}
     for key in L:
         for key2 in key.values():
             for x in key2:
                 tempDict[x] = key2[x] + tempDict.get(x,0)
-    print(tempDict)
+    return(tempDict)
 def testAddDict():
     dict1={'Mon':{'355':2,'451':1,'360':2},'Tue':{'451':2,'360':3},
     'Thu':{'355':3,'451':2,'360':3}, 'Fri':{'355':2},
@@ -30,14 +31,14 @@ def testAddDict():
     {'Tue':{'360':2},'Wed':{'355':2},'Fri':{'360':3, '355':1}},
     {'Mon':{'360':5},'Wed':{'451':4},'Thu':{'355':3},'Fri':{'360':6}, 
     'Sun':{'355':5}}]
-    addDict(dict1)
-    addDictN(dict2)
+    print(addDict(dict1))
+    print(addDictN(dict2))
 def charCount2(my_str):
     result =[]
     result=(Counter(my_str).items())
     result = [i for i in result if i[0] != ' ']
     result = sorted(result,key=lambda tupl: tupl[1]) #from stack overflow
-    print(result)
+    return(result)
 def charCount(my_str):
     result = []
     result =list((Counter(my_str).items()))
@@ -45,55 +46,55 @@ def charCount(my_str):
         if (tup[0] == ' '):
             result.remove(tup)
     result = sorted(result,key=lambda tupl: tupl[1]) #from stack overflow
-    print(result)
+    return(result)
 def testCharCount():
-    charCount('Cpts355---Assign1')
-    charCount('Cpts355 --- Assign1')
-    charCount('test') 
+    print(charCount('Cpts355---Assign1'))
+    print(charCount('Cpts355 --- Assign1'))
+    print(charCount('test')) 
 def lookupVal(L,k):
     for item in reversed(L):
         try:
-            print(item[k]) #hacky as all shit
+            return(item[k]) #hacky as all shit
             return
         except:
             pass
-    print(None)
+    return(None)
 def lookupVal2(tL,k):
     for index,tupleDict in enumerate(reversed(tL)):
         try:
-            print( tupleDict[1][k]) #hacky as all shit
+            return( tupleDict[1][k]) #hacky as all shit
             return
         except:
             pass
-    print(None)
+    return(None)
 def testLookupVal():
     L1=[{"x":1,"y":True,"z":"found"},{"x":2},{"y":False}]
     L2=[(0,{"x":0,"y":True,"z":"zero"}),(0,{"x":1}),(1,{"y":False}),(1,{"x":3,"z":"three"}),(2,{})]
-    lookupVal(L1,"x")
-    lookupVal(L1,"y")
-    lookupVal(L1,"z")
-    lookupVal(L1,"t")
-    lookupVal2(L2,"x")
-    lookupVal2(L2,"y")
-    lookupVal2(L2,"z")
-    lookupVal2(L2,"t")
+    print(lookupVal(L1,"x"))
+    print(lookupVal(L1,"y"))
+    print(lookupVal(L1,"z"))
+    print(lookupVal(L1,"t"))
+    print(lookupVal2(L2,"x"))
+    print(lookupVal2(L2,"y"))
+    print(lookupVal2(L2,"z"))
+    print(lookupVal2(L2,"t"))
 def funRun(d,name,args):
     try:
         command = d[name]
-        print(command(*args)) #dereference array
+        return(command(*args)) #dereference array
     except TypeError:
-        print("Wrong type")
+        return("Wrong type")
     except:
-        print("Exception caught!")
+        return("Exception caught!")
 def testFunRun():
     functDict = {"add": lambda x,y: (x+y), 
             "concat3": lambda a,b,c:(a+","+b+","+c),
             "mod2": lambda n: (n % 2)}
-    funRun(functDict, "concat3", ["one","two","three"])  
-    funRun(functDict, "mod2", [40])  
-    funRun(functDict, "add", [1,2])  
-    funRun(functDict, "add", [1])
-    funRun(functDict, "add", "cat")
+    print(funRun(functDict, "concat3", ["one","two","three"])  )
+    print(funRun(functDict, "mod2", [40])  )
+    print(funRun(functDict, "add", [1,2])  )
+    print(funRun(functDict, "add", [1]))
+    print(funRun(functDict, "add", "cat"))
 def numPaths(m,n):
     def factorial(n):
         if n <1:   
@@ -101,11 +102,11 @@ def numPaths(m,n):
         else:
             return n * factorial( n - 1 )  # recursive call
     check = (factorial(m-1 + n-1)/(factorial(m-1)*factorial(n-1))) #factorial is recursive
-    print(check)
+    return(check)
 def testNumPaths():
-    numPaths(3,3)
-    numPaths(2,2)
-    numPaths(1,2)
+    print( numPaths(3,3))
+    print(numPaths(2,2))
+    print(numPaths(1,2))
 class iterSquares():#off stack overflow
     def __init__(self):
         self.current = 1
@@ -129,15 +130,14 @@ def numbersToSum(iNumbers,acc):
     while(True):
         if (sum(currentVal) >= acc):
             del currentVal[-1]
-            print(currentVal)
             iNumbers.__back__()
-            break
+            return(currentVal)
         else:
             currentVal.append(iNumbers.__next__())
 def testNumberToSum():
     squares = iterSquares()
-    numbersToSum(squares,55) 
-    numbersToSum(squares,100) 
+    print(numbersToSum(squares,55) )
+    print(numbersToSum(squares,100) )
 class Stream(object):
     def __init__(self,first,compute_rest,empty=False):
         self.first = first
@@ -204,4 +204,5 @@ def main():
     testStreamSquares(1,1000)
     print("********************")
     testEvenSquares(1,1000)
-main()
+if(debug):
+    main()
