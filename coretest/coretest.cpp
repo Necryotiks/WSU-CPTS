@@ -60,6 +60,7 @@ void copyTest(boost::compute::device &device,  vector<int> &v2,std::chrono::dura
 {
 	//generate an OpenCL context
 	compute::context context(device);
+
 	//create a command queue for the device
 	compute::command_queue queue(context,device);
 	//make a vector on the device

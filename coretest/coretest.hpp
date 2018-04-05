@@ -1,3 +1,4 @@
+#define BOOST_COMPUTE_USE_OFFLINE_CACHE 1
 #include <iostream>
 #include <thread>
 #include <cstdlib>

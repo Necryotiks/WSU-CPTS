@@ -81,6 +81,20 @@ def psDef():
 def roll():
     x=opPop()
     opstack.insert(0,x)
+def square():
+    op1 = opPop() 
+    try:
+        result  = op1 * op1
+        opPush(result)  
+    except TypeError:
+        print("Operand type mimatch")
+def fact():
+    op1 = opPop()
+    try:
+        result = math.factorial(op1)
+        opPush(result)
+    except TypeError:
+        print("Operand type mimatch")
 def dup():
     op1 = opPop() 
     opPush(op1)  
@@ -104,9 +118,9 @@ def begin():
     if  isinstance(x, dict):
         dictPush(x)
 def psDict():
-     myDict={}
-     opPop()
-     opPush(myDict)   
+    myDict={}
+    opPop()
+    opPush(myDict)   
 
 def copy(n): #fix
     tempStack = []
@@ -202,17 +216,32 @@ def tokenize(s):
 def groupMatching(it):
     res=[]
     for c in it:
-        if c==']':
+        if c=='}':
             return res
+        elif c == '{':
+            res.append(groupMatching(it))
         else:
             res.append(groupMatching(it))
-    return False
 
 def group(s):
     for i in s:
-         if i=='[':
-             return groupMatching(iter(s[1:]))
-    else: return False
+        if i=='{':
+            return groupMatching(iter(s[1:]))
+def castToken(token):
+    # if token[0] == '[':
+        # token = token[1:]
+        # tmp =[]
+        # for index in range(0, len(token)):
+             # item = castToken(token[index])
+             # tmp.append(item)
+        # return tmp
+    try:
+        return(int(token))
+    except ValueError:
+        try:
+            return(float(token))
+        except:
+            return(token)
 def fuse():
     #for i in cArr:
         try:
@@ -224,12 +253,14 @@ def fuse():
 tokens=( ['/fact', '{',    '0'  , 'dict','begin','/n', 'exch', 'def', '1',    'n'  ,  '(' ,'−1', '1',  '{',    'mul    ', '}', 'for','end','}', 'def' , '[1 2 3 4 5]', 'dup', '4', 'get', 'pop', ')' ,'length', 'fact', 'stack'])
 def parse(tokens):
     for i in tokens:
-        temp = tokenize(i)
+        #temp = tokenize(i)
+        temp=tokenize(i)
         if temp[0]== '{':
             temp[0]= '['
         elif temp[0]== '}':
             temp[0]= ']'
-        cArr.append(temp.pop())
+        #cArr.append(temp.pop())
+        cArr.append(castToken(temp.pop()))
     return cArr
 def interpret(cArr):
     if len(cArr) != 0:
@@ -269,9 +300,11 @@ def interpreter(rawStr):
             roll()
         elif i == 'pop':
             pop()
-parse(tokenize( 
-""" 
-/square {dup mul} def 1 square 2 square 3 square add add 
-"""))
+        elif i == 'square':
+            square()     
+
+print(parse(tokenize( 
+    """ 
+/square {dup mul} def 1 square 2 square 3  square add add 
+""")))
 #fuse()
-print(cArr)

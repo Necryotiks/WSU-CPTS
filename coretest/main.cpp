@@ -3,7 +3,6 @@ using std::vector;
 int main()
 {
 	std::cout << clr;
-	std::cout << "Generating OpenCL compute kernels..."<< '\n';
 	// get the default device
 	boost::compute::device device = boost::compute::system::default_device();
 	vector<vector<int>> v1;
@@ -16,4 +15,5 @@ int main()
 	copyTest(device,v2,elapsed_time,size);
 	randThread(v1,v2);
 	mapTest(device,v2);
+	//make new tests
 }
