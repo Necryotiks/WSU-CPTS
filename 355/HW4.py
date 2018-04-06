@@ -1,6 +1,7 @@
 #Elliott Villars
 #help from Zaid,Stack Overflow
 #3/26/18
+import time
 import re
 opStack = []
 dictStack = []
@@ -76,7 +77,12 @@ def psDef():
     val = opPop()
     nam = opPop()
     if nam[0] == '/':
-        define(nam[1:],val)
+        define(nam, val)
+def testPsDef():
+    opPush("/x")
+    opPush(10)
+    psDef()
+    print(dictStack)
 
 def roll():
     x=opPop()
@@ -115,8 +121,10 @@ def end():
     dictPop()
 def begin():
     x = opPop()
-    if  isinstance(x, dict):
+    if  isinstance(x, dict) == True:
         dictPush(x)
+    else:
+        print("Not a Dict")
 def psDict():
     myDict={}
     opPop()
@@ -131,6 +139,15 @@ def copy(n): #fix
         ++i
     opStack.extend(tempStack)
     opStack.extend(tempStack)
+def testPsDef2():
+    opPush("/x")
+    opPush(10)
+    psDef()
+    opPush(1)
+    psDict()
+    begin()
+    end()
+    print(dictStack)
 def testAdd():   
     opPush(1)   
     opPush(2)   
@@ -221,12 +238,20 @@ def groupMatching(it):
         elif c == '{':
             res.append(groupMatching(it))
         else:
-            res.append(groupMatching(it))
+            res.append(c)
 
 def group(s):
-    for i in s:
+    it = iter(s)
+    parsedTokens = []
+    for i in it:
         if i=='{':
-            return groupMatching(iter(s[1:]))
+            parsedTokens.append(groupMatching(it))
+        elif i=='}':
+            False
+        else:
+            parsedTokens.append(i)
+    return parsedTokens
+
 def castToken(token):
     # if token[0] == '[':
         # token = token[1:]
@@ -235,6 +260,20 @@ def castToken(token):
              # item = castToken(token[index])
              # tmp.append(item)
         # return tmp
+    #ugly duct tape solution from stack overflow
+    if isinstance(token,list):
+        return token
+    if token[0]== '[':
+        it = iter(token[1:])
+        temp =[]
+        for i in it:
+            if i == ']':
+                temp = [i for i in temp if i != ' ']
+                temp = list(map(int,temp))
+                return temp
+            else:
+               temp.append(i)
+
     try:
         return(int(token))
     except ValueError:
@@ -242,25 +281,20 @@ def castToken(token):
             return(float(token))
         except:
             return(token)
-def fuse():
-    #for i in cArr:
-        try:
-            startInd = cArr.index('[')
-            endind = cArr.index(']')
-            cArr[startInd:endind+1] = [''.join(cArr[startInd:endind+1])]
-        except:
-            print("not found")
 tokens=( ['/fact', '{',    '0'  , 'dict','begin','/n', 'exch', 'def', '1',    'n'  ,  '(' ,'−1', '1',  '{',    'mul    ', '}', 'for','end','}', 'def' , '[1 2 3 4 5]', 'dup', '4', 'get', 'pop', ')' ,'length', 'fact', 'stack'])
+
+def psFor():
+    print()
 def parse(tokens):
     for i in tokens:
         #temp = tokenize(i)
-        temp=tokenize(i)
-        if temp[0]== '{':
-            temp[0]= '['
-        elif temp[0]== '}':
-            temp[0]= ']'
-        #cArr.append(temp.pop())
-        cArr.append(castToken(temp.pop()))
+        # temp=tokenize(i)
+        # if temp[0]== '{':
+            # temp[0]= '['
+        # elif temp[0]== '}':
+            # temp[0]= ']'
+        # #cArr.append(temp.pop())
+        cArr.append(castToken(i))
     return cArr
 def interpret(cArr):
     if len(cArr) != 0:
@@ -268,18 +302,32 @@ def interpret(cArr):
         interpret(cArr)
 def interpreter(rawStr):
     tokens = tokenize(rawStr)
+    tokens = group(tokens)
     parse(tokens)
     interpret(cArr)
-    while(len(opStack) != 0):
+    cmd_buf =[]
+    while(len(opStack) > 2):
         i= opPop()
         if i == 'add':
-            add()
+            if (isinstance(opStack[-1],int) == True and isinstance(opStack[-2],int) == True): 
+                add()
+            else: 
+                cmd_buf.append(i)
         elif i == 'sub': 
-            sub()
+            if (isinstance(opStack[-1],int) == True and isinstance(opStack[-2],int) == True): 
+                sub()
+            else: 
+                cmd_buf.append(i) #after ops flip and append command stack
         elif i== 'mul':
-            mul()
+            if (isinstance(opStack[-1],int) == True and isinstance(opStack[-2],int) == True): 
+                mul()
+            else: 
+                cmd_buf.append(i) #after ops flip and append command stack
         elif i== 'div':
-            div()
+            if (isinstance(opStack[-1],int) == True and isinstance(opStack[-2],int) == True): 
+                div()
+            else: 
+                cmd_buf.append(i) #after ops flip and append command stack
         elif i == 'mod':
             mod()
         elif i == 'stack':
@@ -303,8 +351,8 @@ def interpreter(rawStr):
         elif i == 'square':
             square()     
 
-print(parse(tokenize( 
+interpreter( 
     """ 
-/square {dup mul} def 1 square 2 square 3  square add add 
-""")))
-#fuse()
+/square {dup mul} def 1 square 2 square 3 square add add 
+""")
+stack()
