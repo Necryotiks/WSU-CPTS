@@ -1,6 +1,5 @@
 
 #include "coretest.hpp"
-namespace compute = boost::compute;
 using std::cout;
 int intRand(const int & min, const int & max) 
 {
@@ -56,13 +55,11 @@ void randThread(vector<vector<int>> &v1,vector<int> &v2)
 		v2.insert(std::end(v2), std::begin(v1[i]), std::end(v1[i]));// use boost compute insert.
 	}
 }
-void copyTest(boost::compute::device &device,  vector<int> &v2,std::chrono::duration<double> &elapsed_seconds1 ,double &size)
+void copyTest(vector<int> &v2,std::chrono::duration<double> &elapsed_seconds1 ,double &size, compute::context &context,compute::command_queue &queue)
 {
 	//generate an OpenCL context
-	compute::context context(device);
 
 	//create a command queue for the device
-	compute::command_queue queue(context,device);
 	//make a vector on the device
 	compute::vector<int> device_vector(100000000, context);
 	//print the device's name
@@ -93,12 +90,10 @@ void copyTest(boost::compute::device &device,  vector<int> &v2,std::chrono::dura
 	cout << "GPU sort time: " << elapsed_seconds3.count() << '\n';//use gpu time
 	cout << "GPU writeback time: " << elapsed_seconds4.count() << '\n';
 }	
-void mapTest(boost::compute::device &device, vector<int> &v2)
+void mapTest(vector<int> &v2,compute::context &context,compute::command_queue &queue)
 {
 	//generate an OpenCL context
-	compute::context context(device);
 	//create a command queue for the device
-	compute::command_queue queue(context,device);
 	//make a vector on the device
 	compute::vector<int> device_vector(100000000, context);
 	//print the device's name
@@ -121,6 +116,20 @@ void mapTest(boost::compute::device &device, vector<int> &v2)
 
 
 	cout << "Mapped sort time: " << elapsed_seconds5.count() << '\n';
+}
+void randTest(compute::context &context,compute::command_queue &queue)
+{
+	compute::vector<int> device_vector(100000000,context);
+	compute::mersenne_twister_engine<int> eng(queue);
+	compute::uniform_int_distribution<int> dis (1,100000000);
+	auto start5= std::chrono::system_clock::now();
+
+	dis.generate(device_vector.begin(),device_vector.end(),eng,queue);//fix
+
+	auto end5= std::chrono::system_clock::now();
+
+	std::chrono::duration<double> elapsed_seconds5 = end5-start5;
+	cout << "GPU generation time: " << elapsed_seconds5.count() << '\n';
 }
 void GPUDetails(boost::compute::device device)
 {	
