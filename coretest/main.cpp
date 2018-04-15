@@ -2,7 +2,7 @@
 using std::vector;
 int main()
 {
-	std::cout << clr;
+	std::cout << clearScreen();
 	// get the default device
 	auto device = boost::compute::system::devices();
 	std::string input;
@@ -13,7 +13,7 @@ int main()
 	{
 		while(true)
 		{
-			std::cout << clr;
+			std::cout << clearScreen();
 			std::cout << "Multiple devices detected.\n";
 			std::cout << "Please select a device.\n" ;
 			for (unsigned i = 0; i < device.size();++i)
@@ -25,7 +25,7 @@ int main()
 			if (output.size() > 0 && (unsigned)std::stoi(output[0]) < device.size())
 			{
 				dSwitch = std::stoi(output[0]);
-				std::cout << clr;
+				std::cout << clearScreen();
 				break;
 			}
 		}
