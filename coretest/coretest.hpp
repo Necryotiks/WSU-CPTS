@@ -1,4 +1,3 @@
-#pragma once
 #define BOOST_COMPUTE_USE_OFFLINE_CACHE 1
 #include <iostream> 
 #include <thread>
@@ -18,8 +17,8 @@
 #include <regex>
 #include <random>
 #include <chrono>
-#include "ANSIcommands.h"
-//#static std::string clr = "\033[2J\033[;H";
+#include "ANSIcommands.hpp"
+static std::string clr = "\033[2J\033[;H";
 using std::vector;
 namespace compute = boost::compute;
 int intRand(const int & min, const int & max);

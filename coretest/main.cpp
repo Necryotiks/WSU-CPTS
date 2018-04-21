@@ -13,7 +13,7 @@ int main()
 	{
 		while(true)
 		{
-			std::cout << clearScreen();
+			//std::cout << clearScreen();
 			std::cout << "Multiple devices detected.\n";
 			std::cout << "Please select a device.\n" ;
 			for (unsigned i = 0; i < device.size();++i)
@@ -24,8 +24,8 @@ int main()
 			regex_match(input,output,rgx);
 			if (output.size() > 0 && (unsigned)std::stoi(output[0]) < device.size())
 			{
-				dSwitch = std::stoi(output[0]);
-				std::cout << clearScreen();
+			dSwitch = std::stoi(output[0]);
+				//std::cout << clearScreen();
 				break;
 			}
 		}
@@ -42,6 +42,6 @@ int main()
 	copyTest(v2,elapsed_time,size, context,queue);
 	randThread(v1,v2);
 	mapTest(v2,context,queue);
-	randTest(context,queue);
+	//randTest(context,queue);
 	//make new tests
 }
